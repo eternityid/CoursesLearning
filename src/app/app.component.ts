@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CourseService } from './shared/course.service';
+import { Course } from './shared/course';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  courses: Course[];
+
+  constructor(private courseSvc: CourseService) { }
+
+  ngOnInit() {
+    this.courseSvc.getCourses().subscribe(data => {
+      this.courses = data;
+    });
+  }
+
 }
