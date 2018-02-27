@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    min-width: 300px;
+    margin: 1em 1em; 
+  }
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  .actionBtns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .actionBtns > button{
+    min-width: auto;
+  }
+  .mat-form-field {
+    font-size: 1.1em;
+    width: 100%;
+    padding: 0 2em;
+  }
+
