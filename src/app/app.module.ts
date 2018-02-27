@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule,
+         MatToolbarModule,
+         MatGridListModule } from '@angular/material';
 
+ import {MatListModule} from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +19,7 @@ import { CoursesComponent } from './courses/courses.component';
 
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { CourseService } from './shared/course.service';
+
 
 
 @NgModule({
@@ -33,6 +37,8 @@ import { CourseService } from './shared/course.service';
     HttpClientModule,
     MatButtonModule,
     MatToolbarModule,
+    MatGridListModule,
+    MatListModule,
     BrowserAnimationsModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
