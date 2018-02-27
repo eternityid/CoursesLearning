@@ -1,0 +1,13 @@
+.header{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);;
+}
+.header--spacer {
+    flex: 1 1 auto;
+}
+.header--title{
+    color: orangered;
+}
