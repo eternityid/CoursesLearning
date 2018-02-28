@@ -20,7 +20,12 @@ import { CoursesComponent } from './courses/courses.component';
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { CourseService } from './shared/course.service';
 
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
+
+import {MatCardModule} from '@angular/material/card';
+
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -33,9 +38,12 @@ import { CourseService } from './shared/course.service';
     CoursesComponent
   ],
   imports: [
+    Ng2CarouselamosModule ,
     BrowserModule,
     HttpClientModule,
+    MatDividerModule,
     MatButtonModule,
+    MatCardModule,
     MatToolbarModule,
     MatGridListModule,
     MatListModule,

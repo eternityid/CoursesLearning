@@ -1,19 +1,127 @@
-<mat-grid-list cols="5" rowHeight="2:3">
+<div id="container">
+    <div
+      ng2-carouselamos
+      class="slides-wrapper"
+      [items]="items"
+      [width]="1200"
+      [$prev]="prev"
+      [$next]="next"
+      [$item]="item"
+    >
+    </div>
+  
+
+  <ng-template #prev>
+    <img src="assets/img/left-arrow.png" id="left" />
+  </ng-template>
+  <ng-template #next>
+    <img src="assets\img\right-black-arrow.png" id="right" />
+  </ng-template>
+  <ng-template #item let-item let-i="index">
+
+      <div class="items">
+        <img src="{{ item.name }}">
+      </div>
+
+  </ng-template>
+
+
+<hr style="width: 98%; ">
+
+<mat-grid-list class="gridList" cols="5" rowHeight="1:2">
   <mat-grid-tile  >
     
     <mat-list class="listNewCource">
         <h2>News Cource</h2>
       <mat-list-item> Pepper - Advicd </mat-list-item>
+      <mat-divider></mat-divider>
+
       <mat-list-item> Salt - Suca </mat-list-item>
+      <mat-divider></mat-divider>
+
       <mat-list-item> Paprika - Nobita </mat-list-item>
+      <mat-divider></mat-divider>
+      
+      <mat-list-item> Pepper - Advicd </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item> Salt - Suca </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item> Paprika - Nobita </mat-list-item>
+      <mat-divider></mat-divider>
      </mat-list>
   </mat-grid-tile> 
 
   <mat-grid-tile colspan="3" class="colCenter" >
+    <!-- <h1 >NEWS</h1><br> -->
+
+    
+    <mat-card style="width: 98%; margin-top:0rem; box-shadow: none; position: block">
+        <mat-card-title class="title_new">
+        <h1>NEWS</h1> 
+        </mat-card-title>
+
+        <img mat-card-avatar style="float:left; margin-right:2rem" src="assets/img/left-arrow.png">
+        
+        <mat-card-subtitle style="margin-left:2rem; float:left; width: 82%">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis aliquam iaculis.
+            Nunc in nisl mauris. In eleifend lorem nec convallis pellentesque. Curabitur eu vehicula nulla.
+            Fusce sem nibh, maximus eget eros et, tincidunt finibus sapien. Sed pretium sodales scelerisque.
+            Pellentesque erat felis, interdum eget commodo eget, lacinia nec justo. Sed risus massa, 
+            interdum ut sem at, laoreet vestibulum erat. Suspendisse potenti.
+
+          </mat-card-subtitle>
+          <mat-card-subtitle>
+            <p>
+                Aliquam fermentum rhoncus lobortis. Sed pulvinar mi in ex facilisis, at semper ante vehicula. 
+                Phasellus tristique, nisi eget vehicula ultricies, massa mi ornare nisl, 
+                sit amet egestas lacus ex ut turpis. Morbi porttitor justo ut erat porttitor, 
+                quis consequat ligula vestibulum. Nunc tincidunt sit amet leo id dapibus.
+                Ut viverra eros elit. Phasellus dapibus turpis diam, non condimentum purus porta et.
+                Nullam ornare sed sem nec commodo. Sed vitae erat a neque tempor scelerisque ut id lacus.
+                Sed sapien orci, finibus quis nibh at, lobortis ultrices est.
+            </p>
+            <p>
+                Quisque turpis diam, pretium id eleifend at, sollicitudin nec mi. 
+                Nunc commodo, nisl eget sollicitudin ultricies, orci quam malesuada urna, 
+                ac malesuada felis est quis augue. Phasellus blandit ex eu odio porttitor, 
+                nec pellentesque eros iaculis. Curabitur bibendum purus sem, sed sodales mauris porttitor at. 
+                Proin volutpat ipsum mauris, tempor dictum velit blandit nec. 
+                Curabitur urna urna, sagittis tincidunt risus semper, laoreet varius nunc. 
+                Nunc vehicula, orci at cursus tincidunt, enim magna tincidunt purus, id dignissim eros ante a augue. 
+                Nam mollis faucibus lorem, ac pharetra nisl laoreet et. 
+                Aenean eget ligula risus. Sed a dolor et sem luctus euismod et vel massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </mat-card-subtitle>
+    </mat-card>
+    
   </mat-grid-tile>
 
   <mat-grid-tile >
-    <h2>Top Cource</h2>
+    
+    <mat-list class="listNewCource">
+        <h2>Top Cource</h2>
+      <mat-list-item> Pepper - Advicd </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item> Salt - Suca </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item> Paprika - Nobita </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item> Pepper - Advicd </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item> Salt - Suca </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item> Paprika - Nobita </mat-list-item>
+      <mat-divider></mat-divider>
+      
+     </mat-list>
     </mat-grid-tile>
 
 </mat-grid-list>

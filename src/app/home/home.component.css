@@ -1,5 +1,8 @@
 
-mat-grid-tile {
+  h1{
+    color: primary;
+  }
+  mat-grid-tile {
     box-sizing: content-box;
   }
 
@@ -12,3 +15,28 @@ mat-grid-tile {
     padding: 0;
     margin: 0;
   }
+  .gridList{
+    margin-top: 2rem; 
+  }
+
+  #container {
+    width: 100%;
+    margin: 1em auto;
+    padding: 0;
+    background:#fff;
+    box-sizing: border-box;
+}
+
+.items {
+    max-width:1200px;
+    height:200px;
+    background:#ECECEC;
+}
+
+#left, #right { 
+    margin: 30px;
+}
+
+.title_new{
+ text-align: center;
+}
