@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
+import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-course-detail',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseDetailComponent implements OnInit {
 
-  constructor() { }
+  title = this.data.key == undefined ? "Create new Course":"Edit course";
+
+  constructor(public dialogRef: MatDialogRef<CourseDetailComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
   }
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

@@ -1,8 +1,9 @@
 export interface Course{
-    id:number;
-    teacherName:string;
-    description:string;
-    amountOfStudents:number;
-    beginingOfDate:Date;
-    endingOfDate:Date;
+    key?:string,
+    teacherName?:string,
+    description?:string,
+    amountOfStudents?:number,
+    beginingOfDate?:Date,
+    time?:number,
+    currentStudents?:number
 }

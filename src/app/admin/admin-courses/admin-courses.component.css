@@ -25,3 +25,15 @@
     font-size: 14px;
     width: 100%;
   }
+  .button-row{
+    display: flex;
+    align-items: center;
+    margin: .5em 1em;    
+  }
+  .button-row > h3{
+    margin-left:.3em;
+    color: rgb(51, 24, 114);
+  }
+  .icon-create{
+    font-weight: bold;
+  }

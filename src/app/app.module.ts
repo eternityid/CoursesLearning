@@ -2,17 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule,
-         MatToolbarModule,
-         MatTableModule,
-         MatSortModule,
-         MatIconModule,
-         MatGridListModule,
-         MatFormFieldModule,
-         MatInputModule,
-         MatListModule,
-         MatAutocompleteModule } from '@angular/material';
+
+import {
+  MatButtonModule,
+  MatToolbarModule,
+  MatTableModule,
+  MatSortModule,
+  MatIconModule,
+  MatGridListModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatListModule,
+  MatDialogModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatAutocompleteModule,
+  MAT_DATE_LOCALE
+} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -33,6 +41,7 @@ import { AdminHeaderComponent } from './admin/admin-header/admin-header.componen
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
@@ -54,6 +63,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatToolbarModule,
@@ -63,17 +73,23 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatListModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatAutocompleteModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [CourseService],
+  entryComponents:[CourseDetailComponent],
+  providers: [CourseService,
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

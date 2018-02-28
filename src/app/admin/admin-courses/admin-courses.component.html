@@ -1,3 +1,9 @@
+<div class="button-row">
+  <a mat-fab color="primary" (click)="showModalCreate()">
+    <mat-icon class="icon-create">add</mat-icon>
+  </a>
+  <h3>Create new course</h3>
+</div>
 <div class="container mat-elevation-z8">
     <div class="filter">
         <mat-form-field>
@@ -5,13 +11,9 @@
         </mat-form-field>
       </div>
   <mat-table #table [dataSource]="coursesList"  matSort>
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
-      <mat-cell *matCellDef="let course"> {{course.id}} </mat-cell>
-    </ng-container>
 
     <ng-container matColumnDef="teacherName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Teacher Name </mat-header-cell>
       <mat-cell *matCellDef="let course"> {{course.teacherName}} </mat-cell>
     </ng-container>
 
@@ -20,19 +22,29 @@
       <mat-cell *matCellDef="let course"> {{course.description}} </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="currentStudents">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Current students </mat-header-cell>
+      <mat-cell *matCellDef="let course"> {{course.currentStudents}} </mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="amountOfStudents">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Amount of students </mat-header-cell>
       <mat-cell *matCellDef="let course"> {{course.amountOfStudents}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="beginingOfDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Start Day </mat-header-cell>
+      <mat-cell *matCellDef="let course"> {{course.beginingOfDate | date:'dd-MM-yyyy'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="actionBtns">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let course">
         <div class="actionBtns">
-          <a mat-button color="primary" (click)="showModal()">
+          <a mat-button color="primary" (click)="showModalEdit(course)">
             <mat-icon>edit</mat-icon>
           </a>
-          <a mat-button color="warn" (click)="deleteCourse()">
+          <a mat-button color="warn" (click)="deleteCourse(course.key)">
             <mat-icon>delete</mat-icon>
           </a>
         </div>

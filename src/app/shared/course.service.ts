@@ -6,42 +6,41 @@ import {
   AngularFireObject
 } from 'angularfire2/database';
 
+import { AngularFirestore } from 'angularfire2/firestore';
+
 import { Course } from './course';
-import { Observable } from '@firebase/util';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CourseService {
 
-  //private coursesUrl = 'api/courses';
-  private courseList = this.dbFirebase.list<Course[]>('courses');
-  private courses = this.dbFirebase.object<Course[]>('courses');
+  courses: Observable<Course[]>;
 
   constructor(private http: HttpClient,
-     private dbFirebase: AngularFireDatabase) { }
-
-  getCourses(): AngularFireList<Course[]> {
-    return this.courseList;
+    private dbFirebase: AngularFireDatabase,
+    private firestore: AngularFirestore) {
+    this.courses = this.firestore.collection('courses').snapshotChanges().map(actions => {
+      return actions.map(act => {
+        const data = act.payload.doc.data() as Course;
+        data.key = act.payload.doc.id;
+        return data;
+      });
+    });
   }
 
-  // getCourse(id: any): Observable<Course> {
-  //   const url = `${this.coursesUrl}/${id}`;
-  //   return this.http.get<Course>(url);
-  // }
+  getCourses(): Observable<Course[]> {
+    return this.courses;
+  }
 
   addCourse(course: Course): void {
-    const dataList = this.dbFirebase.list('/courses');
-    dataList.push(course);
+    this.firestore.collection('courses').add(course);
   }
 
-  // updateCourse(course: Course): Observable<any> {
-  //   return this.http.put(this.coursesUrl, course, httpOptions);
-  // }
-
-  deleteCourse(courseId: any): void {
-    this.courseList.remove(courseId);
+  updateCourse(course: Course): void {
+    this.firestore.doc(`courses/${course.key}`).update(course);
   }
 
-  testFirebase(): AngularFireObject<Course[]> {
-    return this.dbFirebase.object('/');
+  deleteCourse(courseId: string): void {
+    this.firestore.doc(`courses/${courseId}`).delete();
   }
 }
