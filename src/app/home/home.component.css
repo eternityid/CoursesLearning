@@ -1,13 +1,12 @@
 
 mat-grid-tile {
-   
-
     box-sizing: content-box;
   }
 
   .colCenter{
     border: 1px none #000000;
-    border-left-style: solid; 
+    border-left-style: solid;
+    border-right-style: solid; 
   }
   .listNewCource{
     padding: 0;
