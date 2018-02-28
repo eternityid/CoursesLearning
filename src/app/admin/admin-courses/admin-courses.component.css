@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    min-width: 300px;
+    margin: 0 1em; 
+  }
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  .actionBtns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .actionBtns > a{
+    min-width: auto;
+  }
+  .filter{
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

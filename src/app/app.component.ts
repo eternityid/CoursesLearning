@@ -9,14 +9,10 @@ import { Course } from './shared/course';
 })
 export class AppComponent {
   title = 'app';
-  courses: Course[];
 
   constructor(private courseSvc: CourseService) { }
 
   ngOnInit() {
-    this.courseSvc.getCourses().subscribe(data => {
-      this.courses = data;
-    });
   }
 
 }

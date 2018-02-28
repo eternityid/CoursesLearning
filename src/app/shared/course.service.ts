@@ -1,49 +1,47 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import {
+  AngularFireDatabase,
+  AngularFireList,
+  AngularFireObject
+} from 'angularfire2/database';
 
 import { Course } from './course';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { Observable } from '@firebase/util';
 
 @Injectable()
 export class CourseService {
 
-  private coursesUrl = 'api/courses';
+  //private coursesUrl = 'api/courses';
+  private courseList = this.dbFirebase.list<Course[]>('courses');
+  private courses = this.dbFirebase.object<Course[]>('courses');
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+     private dbFirebase: AngularFireDatabase) { }
 
-  getCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>(this.coursesUrl);
+  getCourses(): AngularFireList<Course[]> {
+    return this.courseList;
   }
 
-  getCourse(id: number): Observable<Course> {
-    const url = `${this.coursesUrl}/${id}`;
-    return this.http.get<Course>(url);
+  // getCourse(id: any): Observable<Course> {
+  //   const url = `${this.coursesUrl}/${id}`;
+  //   return this.http.get<Course>(url);
+  // }
+
+  addCourse(course: Course): void {
+    const dataList = this.dbFirebase.list('/courses');
+    dataList.push(course);
   }
 
-  addCourse(course: Course): Observable<Course> {
-    return this.http.post<Course>(this.coursesUrl, course, httpOptions);
+  // updateCourse(course: Course): Observable<any> {
+  //   return this.http.put(this.coursesUrl, course, httpOptions);
+  // }
+
+  deleteCourse(courseId: any): void {
+    this.courseList.remove(courseId);
   }
 
-  updateHero(course: Course): Observable<any> {
-    return this.http.put(this.coursesUrl, course, httpOptions);
-  }
-
-  deleteHero(courseId: number): Observable<Course> {
-    const url = `${this.coursesUrl}/${courseId}`;
-    return this.http.delete<Course>(url, httpOptions);
-  }
-
-  searchHeroes(term: string): Observable<Course[]> {
-    if (!term.trim()) {
-      // if not search term, return empty hero array.
-      return of([]);
-    }
-    return this.http.get<Course[]>(`api/heroes/?name=${term}`);
+  testFirebase(): AngularFireObject<Course[]> {
+    return this.dbFirebase.object('/');
   }
 }

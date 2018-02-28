@@ -1,0 +1,15 @@
+.admin-header{
+    top: 0;
+    width: 100%;
+    margin-bottom:1em;
+}
+.header--spacer {
+    flex: 1 1 auto;
+}
+.mat-button:focus,
+.mat-button:active{
+    background-color: #33418f;
+}
+.setting-btn{
+    min-width: auto;
+}

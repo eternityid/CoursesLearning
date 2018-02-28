@@ -11,6 +11,7 @@ import { MatButtonModule,
          MatGridListModule,
          MatFormFieldModule,
          MatInputModule,
+         MatListModule,
          MatAutocompleteModule } from '@angular/material';
 
 
@@ -25,6 +26,15 @@ import { CoursesComponent } from './courses/courses.component';
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { CourseService } from './shared/course.service';
 import { AdminComponent } from './admin/admin.component';
+import { CourseDetailComponent } from './admin/course-detail/course-detail.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdminCoursesComponent } from './admin/admin-courses/admin-courses.component';
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -36,7 +46,11 @@ import { AdminComponent } from './admin/admin.component';
     AboutUsComponent,
     HomeComponent,
     CoursesComponent,
-    AdminComponent
+    AdminComponent,
+    CourseDetailComponent,
+    DashboardComponent,
+    AdminCoursesComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +61,14 @@ import { AdminComponent } from './admin/admin.component';
     MatSortModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatFormFieldModule,
     MatGridListModule,
     MatAutocompleteModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     BrowserAnimationsModule,
+    AngularFireAuthModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )

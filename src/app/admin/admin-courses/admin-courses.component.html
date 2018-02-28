@@ -1,0 +1,45 @@
+<div class="container mat-elevation-z8">
+    <div class="filter">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+  <mat-table #table [dataSource]="coursesList"  matSort>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+      <mat-cell *matCellDef="let course"> {{course.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="teacherName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let course"> {{course.teacherName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+      <mat-cell *matCellDef="let course"> {{course.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="amountOfStudents">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Amount of students </mat-header-cell>
+      <mat-cell *matCellDef="let course"> {{course.amountOfStudents}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actionBtns">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let course">
+        <div class="actionBtns">
+          <a mat-button color="primary" (click)="showModal()">
+            <mat-icon>edit</mat-icon>
+          </a>
+          <a mat-button color="warn" (click)="deleteCourse()">
+            <mat-icon>delete</mat-icon>
+          </a>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
