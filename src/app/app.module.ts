@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule,
          MatToolbarModule,
          MatGridListModule } from '@angular/material';
-
- import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -44,6 +44,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatDividerModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
     MatToolbarModule,
     MatGridListModule,
     MatListModule,

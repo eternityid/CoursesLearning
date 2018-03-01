@@ -9,6 +9,8 @@ export class HomeComponent implements OnInit {
 
   items: Array<any> = []
 
+  typesOfCources = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+    
   constructor() {
     this.items = [
       { name: 'assets/img/img1.png' },
