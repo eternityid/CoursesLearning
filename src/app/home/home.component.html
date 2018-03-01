@@ -1,3 +1,104 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <div class="title_Top">
+    <h1>
+      Learn new skills, pursue your interests, advance your career
+    </h1>
+  </div>
+  <div id="carousel">
+    <div ng2-carouselamos class="slides-wrapper" [items]="items" [width]="1110" [$prev]="prev" [$next]="next" [$item]="item">
+    </div>
+    <ng-template #prev>
+      <img src="assets/img/left-arrow.png" id="left" />
+    </ng-template>
+    <ng-template #next>
+      <img src="assets\img\right-black-arrow.png" id="right" />
+    </ng-template>
+    <ng-template #item let-item let-i="index">
+      <div class="items">
+        <img src="{{ item.name }}">
+      </div>
+    </ng-template>
+  </div>
+  <div class="logo">
+    <div class="example-card" id="card_logo_1">
+      <img src="assets/img/logo1.jpg" alt="Education">
+      <a>
+        <p> Business & Management </p>
+      </a>
+    </div>
+    <div class="example-card">
+      <img src="assets/img/logo2.jpg" alt="Photo of a Shiba Inu">
+      <a>
+        <p> Health & Psychology</p>
+      </a>
+    </div>
+    <div class="example-card">
+      <img src="assets/img/logo3.jpg" alt="Photo of a Shiba Inu">
+      <a>
+        <p>Tech & Coding</p>
+      </a>
+    </div>
+  </div>
+  <hr style="width: 98%; margin-bottom: 2rem">
+  <mat-grid-list cols="5" rowHeight="60em">
+    <mat-grid-tile class="list_Cource">
+      <mat-list #shoes>
+        <h2>Top Cource</h2>
+        <mat-list-item *ngFor="let shoe of typesOfCources" class="item_cource">
+          {{shoe}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" class="colCenter">
+      <mat-card class="card_Main">
+        <mat-card-title>
+          <h1 class="card--title">NEWS</h1>
+        </mat-card-title>
+        <img mat-card-avatar class="avt_card" src="assets/img/book1.jpg">
+        <mat-card-title>
+          <a>
+            <strong>CRACKING THE CODING INTERVIEW</strong>            
+          </a>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <p>
+            I am not a recruiter. I am a software engineer. And as such, I know what it's like to be asked to whip up brilliant algorithms
+            on the spot and then write flawless code on a whiteboard. I've been through this as a candidate and as an interviewer.
+          </p>
+          <p>
+            Cracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and
+            enabling you to perform at your very best. I've coached and interviewed hundreds of software engineers. The result
+            is this book.
+          </p>
+          <p>
+            Learn how to uncover the hints and hidden details in a question, discover how to break down a problem into manageable chunks,
+            develop techniques to unstick yourself when stuck, learn (or re-learn) core computer science concepts, and practice
+            on 189 interview questions and solutions.
+          </p>
+          <p>
+            These interview questions are real; they are not pulled out of computer science textbooks. They reflect what's truly being
+            asked at the top companies, so that you can be as prepared as possible.
+            <strong>WHAT'S INSIDE?</strong>
+          </p>
+        </mat-card-subtitle>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="list_Cource">
+      <mat-list #shoes>
+        <h2>News Cource</h2>
+        <mat-list-item *ngFor="let shoe of typesOfCources" class="item_cource">
+          {{shoe}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr style="width: 98%; margin: 2rem 0">
+  <div class="bottom_Title">
+    <img src="assets/img/1f331.png">
+    <h1>Learn anytime, anywhere</h1>
+    <p>Enjoy our free online courses, wherever you are and whenever you want.</p>
+    <p>Access course content on mobile, tablet or desktop.</p>
+  </div>
+</div>

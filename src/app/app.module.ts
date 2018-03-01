@@ -4,7 +4,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {
   MatButtonModule,
   MatToolbarModule,
@@ -22,7 +21,6 @@ import {
   MatAutocompleteModule,
   MAT_DATE_LOCALE
 } from '@angular/material';
-
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -50,6 +48,10 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -69,11 +71,15 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SignUpComponent
   ],
   imports: [
+    Ng2CarouselamosModule ,
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ToastModule.forRoot(),
+    MatDividerModule,
     MatButtonModule,
+    MatCardModule,
+    MatIconModule,
     MatToolbarModule,
     MatTableModule,
     MatSortModule,
@@ -90,6 +96,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    MatGridListModule,
+    MatListModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
     HttpClientInMemoryWebApiModule.forRoot(
