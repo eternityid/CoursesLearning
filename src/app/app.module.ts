@@ -19,6 +19,8 @@ import {
   MatNativeDateModule,
   MatDatepickerModule,
   MatAutocompleteModule,
+  MatCardModule,
+  MatDividerModule,
   MAT_DATE_LOCALE
 } from '@angular/material';
 
@@ -32,11 +34,8 @@ import { CoursesComponent } from './courses/courses.component';
 
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { CourseService } from './shared/course.service';
-import { AdminComponent } from './admin/admin.component';
-import { CourseDetailComponent } from './admin/course-detail/course-detail.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { AdminCoursesComponent } from './admin/admin-courses/admin-courses.component';
-import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { PageNotFoundComponent } from './page-not-found-component';
+
 import { UserService } from './shared/user.service';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
@@ -50,8 +49,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
-import {MatCardModule} from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LoginRoutingModule } from './login/login-routing.module';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -62,15 +62,13 @@ import {MatDividerModule} from '@angular/material/divider';
     AboutUsComponent,
     HomeComponent,
     CoursesComponent,
-    AdminComponent,
-    CourseDetailComponent,
-    DashboardComponent,
-    AdminCoursesComponent,
-    AdminHeaderComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    PageNotFoundComponent
   ],
   imports: [
+    LoginRoutingModule,
+    AppRoutingModule,
     Ng2CarouselamosModule ,
     BrowserModule,
     FormsModule,
@@ -79,17 +77,14 @@ import {MatDividerModule} from '@angular/material/divider';
     MatDividerModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule,
     MatToolbarModule,
     MatTableModule,
     MatSortModule,
     MatIconModule,
     MatInputModule,
-    MatListModule,
     MatFormFieldModule,
     MatSlideToggleModule,
-    MatDialogModule,
-    MatGridListModule,
+    MatDialogModule,    
     MatDatepickerModule,
     MatNativeDateModule,
     MatAutocompleteModule,
@@ -104,10 +99,9 @@ import {MatDividerModule} from '@angular/material/divider';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  entryComponents:[CourseDetailComponent],
   providers: [CourseService,
     UserService,
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
