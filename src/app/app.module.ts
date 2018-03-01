@@ -15,6 +15,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatListModule,
+  MatSlideToggleModule,
   MatDialogModule,
   MatNativeDateModule,
   MatDatepickerModule,
@@ -38,12 +39,16 @@ import { CourseDetailComponent } from './admin/course-detail/course-detail.compo
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AdminCoursesComponent } from './admin/admin-courses/admin-courses.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { UserService } from './shared/user.service';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -59,12 +64,15 @@ import { environment } from '../environments/environment';
     CourseDetailComponent,
     DashboardComponent,
     AdminCoursesComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ToastModule.forRoot(),
     MatButtonModule,
     MatToolbarModule,
     MatTableModule,
@@ -73,6 +81,7 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatListModule,
     MatFormFieldModule,
+    MatSlideToggleModule,
     MatDialogModule,
     MatGridListModule,
     MatDatepickerModule,
@@ -89,6 +98,7 @@ import { environment } from '../environments/environment';
   ],
   entryComponents:[CourseDetailComponent],
   providers: [CourseService,
+    UserService,
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })

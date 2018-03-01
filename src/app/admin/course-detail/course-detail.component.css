@@ -8,5 +8,5 @@
     width: 100%;
 }
 .dialog-actions{
-    text-align: right;
+    flex-flow: row-reverse;
 }

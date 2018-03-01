@@ -30,7 +30,7 @@
     align-items: center;
     margin: .5em 1em;    
   }
-  .button-row > h3{
+  .title-header > h3{
     margin-left:.3em;
     color: rgb(51, 24, 114);
   }

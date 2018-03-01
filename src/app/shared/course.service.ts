@@ -1,11 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {
-  AngularFireDatabase,
-  AngularFireList,
-  AngularFireObject
-} from 'angularfire2/database';
-
 import { AngularFirestore } from 'angularfire2/firestore';
 
 import { Course } from './course';
@@ -16,9 +9,7 @@ export class CourseService {
 
   courses: Observable<Course[]>;
 
-  constructor(private http: HttpClient,
-    private dbFirebase: AngularFireDatabase,
-    private firestore: AngularFirestore) {
+  constructor(private firestore: AngularFirestore) {
     this.courses = this.firestore.collection('courses').snapshotChanges().map(actions => {
       return actions.map(act => {
         const data = act.payload.doc.data() as Course;
