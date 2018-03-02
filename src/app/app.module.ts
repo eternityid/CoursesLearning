@@ -9,7 +9,6 @@ import {
   MatToolbarModule,
   MatTableModule,
   MatSortModule,
-  MatIconModule,
   MatGridListModule,
   MatFormFieldModule,
   MatInputModule,
@@ -21,6 +20,7 @@ import {
   MatAutocompleteModule,
   MatCardModule,
   MatDividerModule,
+  MatIconModule, MatIconRegistry,
   MAT_DATE_LOCALE
 } from '@angular/material';
 
@@ -67,6 +67,7 @@ import { Router } from '@angular/router';
     PageNotFoundComponent
   ],
   imports: [
+    MatIconModule,
     LoginRoutingModule,
     AppRoutingModule,
     Ng2CarouselamosModule ,
@@ -80,7 +81,6 @@ import { Router } from '@angular/router';
     MatToolbarModule,
     MatTableModule,
     MatSortModule,
-    MatIconModule,
     MatInputModule,
     MatFormFieldModule,
     MatSlideToggleModule,
@@ -99,9 +99,14 @@ import { Router } from '@angular/router';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [CourseService,
+  providers: [CourseService,MatIconRegistry,
     UserService,
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
+    {provide:  MAT_DATE_LOCALE, useValue: 'en-GB',
+  }],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(public matIconRegistry: MatIconRegistry) {
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+}
+}

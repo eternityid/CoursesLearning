@@ -6,6 +6,7 @@ import { HomeComponent } from '../home/home.component';
 
 import { AuthGuard } from '../shared/auth-guard.service';
 import { CoursesComponent } from '../courses/courses.component';
+import { FooterComponent } from '../footer/footer.component';
 
 
 
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
     canLoad: [AuthGuard]
   },
   { path: 'home', component: HomeComponent },
+  {path: 'footer', component: FooterComponent},
   { path: 'courses', component: CoursesComponent },  
   { path: '**', component: PageNotFoundComponent }
 ];
