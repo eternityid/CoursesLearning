@@ -1,4 +1,5 @@
 export interface Course{
+    imageurl?:string;
     key?:string,
     teacherName?:string,
     description?:string,
