@@ -5,19 +5,26 @@ import { AdminComponent } from './admin.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminCoursesComponent } from './admin-courses/admin-courses.component';
+import { AdminNewsComponent } from './admin-news/admin-news.component';
+
+import { AuthGuard } from '../shared/auth-guard.service';
 
 const adminRoutes: Routes = [
   {
     path: '',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
+        canActivateChild: [AuthGuard],
         children: [
-          { path: '', component: AdminCoursesComponent },
-          { path: 'dsds', component: DashboardComponent }
+          { path: '', component: DashboardComponent },
+          { path: 'news', component: AdminNewsComponent },
+          { path: 'courses', component: AdminCoursesComponent }
         ]
       }
+
     ]
   }
 ];

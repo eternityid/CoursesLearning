@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {UserService} from '../shared/user.service';
 import {
   CanActivate, Router,
   ActivatedRouteSnapshot,
@@ -10,7 +11,9 @@ import {
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(private router: Router) { }
+
+  constructor(private userSvc:UserService,private router: Router) {
+   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
@@ -23,18 +26,14 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
   canLoad(route: Route): boolean {
     let url = `/${route.path}`;
-    console.log(url);
     return this.checkLogin(url);
   }
 
-  checkLogin(url: string): boolean { 
-    let sessionId = 123456789;
+  checkLogin(url: string): boolean {
+    if(this.userSvc.isLoggedIn)return true;
 
-    let navigationExtras: NavigationExtras = {
-      queryParams: { 'session_id': sessionId },
-      fragment: 'anchor'
-    };
+    this.userSvc.redirectUrl = url;
 
-    this.router.navigate(['/login'], navigationExtras);
+    this.router.navigate(['/login']);
     return false }
 }

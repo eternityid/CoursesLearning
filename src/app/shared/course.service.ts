@@ -10,17 +10,17 @@ export class CourseService {
   courses: Observable<Course[]>;
 
   constructor(private firestore: AngularFirestore) {
-    this.courses = this.firestore.collection('courses').snapshotChanges().map(actions => {
+    
+  }
+
+  getCourses(): Observable<Course[]> {
+    return this.firestore.collection('courses').snapshotChanges().map(actions => {
       return actions.map(act => {
         const data = act.payload.doc.data() as Course;
         data.key = act.payload.doc.id;
         return data;
       });
     });
-  }
-
-  getCourses(): Observable<Course[]> {
-    return this.courses;
   }
 
   addCourse(course: Course): void {

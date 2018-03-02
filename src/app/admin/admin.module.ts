@@ -10,6 +10,7 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminCoursesComponent } from './admin-courses/admin-courses.component';
+import { AdminNewsComponent } from './admin-news/admin-news.component';
 
 import { MatToolbarModule,
    MatIconModule,
@@ -20,12 +21,13 @@ import { MatToolbarModule,
     MatDatepickerModule,
     MatTableModule,
     MatSortModule,
-    MatInputModule} from '@angular/material';
+    MatInputModule,
+    MatMenuModule} from '@angular/material';
 
 @NgModule({
   imports: [
-    AdminRoutingModule,
     CommonModule,
+    AdminRoutingModule,
     FormsModule,
     MatButtonModule,
     MatIconModule,
@@ -36,7 +38,8 @@ import { MatToolbarModule,
     MatDatepickerModule,
     MatTableModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule
   ],
   entryComponents:[CourseDetailComponent],
   declarations: [
@@ -45,6 +48,7 @@ import { MatToolbarModule,
     DashboardComponent,
     AdminHeaderComponent,
     AdminCoursesComponent,
+    AdminNewsComponent,
   ],
   providers:[]
 })

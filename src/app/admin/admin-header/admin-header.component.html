@@ -1,14 +1,19 @@
 <div class="admin-header">
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <span>Administrator</span>
-    
-        <span class="header--spacer"></span>
-        
-        <a mat-button>Dashboard</a>
-        <a mat-button>Courses</a>
-        <a mat-button>News</a>  
-        <a mat-button class="setting-btn"><mat-icon>settings</mat-icon></a>     
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Administrator</span>
+
+      <span class="header--spacer"></span>
+
+      <a mat-button routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+      <a mat-button routerLink="./courses" routerLinkActive="active">Courses</a>
+      <a mat-button routerLink="./news" routerLinkActive="active">News</a>
+      <a mat-button [matMenuTriggerFor]="setting" class="setting-btn">
+        <mat-icon>settings</mat-icon>
+      </a>
+      <mat-menu #setting="matMenu">
+        <a mat-menu-item (click)="logout()">Logout</a>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

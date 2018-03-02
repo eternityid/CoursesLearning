@@ -9,7 +9,7 @@ import { AuthGuard } from '../shared/auth-guard.service';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/admin', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'admin',
     loadChildren: 'app/admin/admin.module#AdminModule',
