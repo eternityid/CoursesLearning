@@ -5,17 +5,19 @@ import { PageNotFoundComponent } from '../page-not-found-component';
 import { HomeComponent } from '../home/home.component';
 
 import { AuthGuard } from '../shared/auth-guard.service';
+import { CoursesComponent } from '../courses/courses.component';
 
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/admin', pathMatch: 'full' },
+  { path: '', redirectTo: '/courses', pathMatch: 'full' },
   {
     path: 'admin',
     loadChildren: 'app/admin/admin.module#AdminModule',
     canLoad: [AuthGuard]
   },
   { path: 'home', component: HomeComponent },
+  { path: 'courses', component: CoursesComponent },  
   { path: '**', component: PageNotFoundComponent }
 ];
 
