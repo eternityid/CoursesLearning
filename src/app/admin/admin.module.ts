@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AdminRoutingModule }       from './admin-routing.module';
@@ -22,7 +22,8 @@ import { MatToolbarModule,
     MatTableModule,
     MatSortModule,
     MatInputModule,
-    MatMenuModule} from '@angular/material';
+    MatMenuModule,
+    MatAutocompleteModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -39,7 +40,9 @@ import { MatToolbarModule,
     MatTableModule,
     MatSortModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   entryComponents:[CourseDetailComponent],
   declarations: [

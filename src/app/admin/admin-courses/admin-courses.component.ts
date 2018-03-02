@@ -4,6 +4,10 @@ import { Course } from '../../shared/course';
 import { CourseService } from '../../shared/course.service';
 import { MatTableDataSource, MatSort, MatFormFieldControl, MatDialog } from '@angular/material';
 import { CourseDetailComponent } from '../course-detail/course-detail.component';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
+import {startWith} from 'rxjs/operators/startWith';
+import {map} from 'rxjs/operators/map';
 
 
 @Component({
@@ -15,7 +19,14 @@ export class AdminCoursesComponent implements OnInit {
 
 
   coursesList = new MatTableDataSource();
-  displayedColumns = ['teacherName', 'description', 'currentStudents', 'amountOfStudents', 'beginingOfDate', 'actionBtns'];
+  displayedColumns = ['teacherName', 'description', 'categories', 'amountOfStudents', 'beginingOfDate', 'actionBtns'];
+  options = [
+    'One',
+    'Two',
+    'Three'
+  ];
+  filteredOptions: Observable<string[]>;
+  myControl: FormControl = new FormControl();
 
   constructor(private courseSvc: CourseService,
     private dialog: MatDialog) {
@@ -23,17 +34,22 @@ export class AdminCoursesComponent implements OnInit {
 
   ngOnInit() {
     this.getSourceCourses();
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(val => this.filter(val))
+      );
+  }
+
+  filter(val: string): string[] {
+    return this.options.filter(option =>
+      option.toLowerCase().indexOf(val.toLowerCase()) === 0);
   }
 
   getSourceCourses(){
     this.courseSvc.getCourses().subscribe(c => {
       this.coursesList.data = c;
-      console.log('tao hhhhhhhhhhhhhhhh')
-    },error => {
-      console.log(error);
-      console.log('tao hhhhhhhhhhhhhhhh')      
     });
-    console.log('tao leo')
   }
 
   @ViewChild(MatSort) sort: MatSort;

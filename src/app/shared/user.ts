@@ -7,5 +7,6 @@ export interface User{
     role:number,
     username:string,
     password:string,
-    subject:string
+    studyingCourse:string,
+    studiedCourses:Array<string>
 }

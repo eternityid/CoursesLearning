@@ -4,6 +4,8 @@ export interface Course{
     description?:string,
     amountOfStudents?:number,
     beginingOfDate?:Date,
-    time?:number,
-    currentStudents?:number
+    time?:number,    
+    currentStudents?:number,
+    categoryId?:string,
+    listOrder?:Array<string>    
 }
