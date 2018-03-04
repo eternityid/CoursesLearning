@@ -11,6 +11,23 @@
             </p>
         </div>
     </div>
+
+    <div>
+        <button class="btn_signIn" mat-raised-button color="primary"><strong>Sign In</strong></button>
+    </div>
+    <div>
+        <form>
+            <mat-form-field class="form_select">
+                <mat-select placeholder="Categories" [(ngModel)]="selectedValue" name="food">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <p class="show_value"> Selected value: {{selectedValue}} </p>
+        </form>
+    </div>
     <div>
         <input class="search_input" type="search" placeholder="Search">
         <button class="btn_search" type="submit"><mat-icon>search</mat-icon></button>
@@ -18,7 +35,7 @@
     <hr class="hr_main">
 
 
-    <div class="course_main" >
+    <div class="course_main">
         <div class="column" *ngFor="let u of e ">
             <div class="col_course">
                 <img src="{{u.imageUrl}}">

@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
+  MatSelectModule,
   MatButtonModule,
   MatToolbarModule,
   MatTableModule,
@@ -67,6 +68,7 @@ import { Router } from '@angular/router';
     PageNotFoundComponent
   ],
   imports: [
+    MatSelectModule,
     MatIconModule,
     LoginRoutingModule,
     AppRoutingModule,
