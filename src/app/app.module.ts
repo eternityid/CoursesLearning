@@ -52,6 +52,7 @@ import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
+import { CategoryService } from './shared/category.service';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { Router } from '@angular/router';
     )
   ],
   providers: [CourseService,
+    CategoryService,
     UserService,
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]

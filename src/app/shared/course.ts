@@ -1,3 +1,4 @@
+import {Category} from './category';
 export interface Course{
     key?:string,
     teacherName?:string,
@@ -6,6 +7,6 @@ export interface Course{
     beginingOfDate?:Date,
     time?:number,    
     currentStudents?:number,
-    categoryId?:string,
+    category?:Category,
     listOrder?:Array<string>    
 }

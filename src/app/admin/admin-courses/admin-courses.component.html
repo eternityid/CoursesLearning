@@ -26,12 +26,12 @@
 
     <ng-container matColumnDef="categories">
       <mat-header-cell *matHeaderCellDef mat-sort-header>
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
+        <form>
+          <mat-form-field>
+            <input type="text" placeholder="Category" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSelectionChanged($event)">
               <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option }}
+                {{ option.name }}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>

@@ -1,4 +1,13 @@
-<h1 mat-dialog-title>{{title}}</h1>
+<div class="header-title">
+  <h3>{{title}}</h3>
+  <div class="create-category">
+    <mat-form-field class="input-category">
+      <input matInput [(ngModel)]="newCategoryName" placeholder="Category's name">
+    </mat-form-field>
+    <button mat-button (click)="clickToCheckCategory(newCategoryName)">Create</button>
+  </div>
+</div>
+
 <div mat-dialog-content>
 
   <mat-grid-list cols="2" rowHeight="150px">
@@ -13,9 +22,14 @@
 
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <div class="block">
-        <p>How many students are studying?</p>
+        <p>Choose category for course!</p>
         <mat-form-field>
-          <input matInput [(ngModel)]="data.amountOfStudents" placeholder="Max students">
+          <input type="text" placeholder="Pick one" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSelectionChanged($event)">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{ option.name }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
       </div>
     </mat-grid-tile>
@@ -52,5 +66,5 @@
 </div>
 <div mat-dialog-actions class="dialog-actions">
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial class="saveBtn">Save</button>
 </div>

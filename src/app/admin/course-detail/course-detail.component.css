@@ -10,3 +10,21 @@
 .dialog-actions{
     flex-flow: row-reverse;
 }
+.header-title{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+.saveBtn{
+    background-color: blue;
+    color:white;
+}
+.create-category{
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+}
+.input-category{
+    width: 8em;
+}
