@@ -14,7 +14,7 @@ import {map} from 'rxjs/operators/map';
 @Component({
   selector: 'app-admin-courses',
   templateUrl: './admin-courses.component.html',
-  styleUrls: ['./admin-courses.component.css']
+  styleUrls: ['./admin-courses.component.scss']
 })
 export class AdminCoursesComponent implements OnInit {
 

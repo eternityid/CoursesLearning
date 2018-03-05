@@ -21,6 +21,7 @@ import {
   MatAutocompleteModule,
   MatCardModule,
   MatDividerModule,
+
   MAT_DATE_LOCALE
 } from '@angular/material';
 
@@ -97,7 +98,8 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(router: Router) {
+  constructor(router: Router ){
+
     // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }

@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators/map';
 @Component({
   selector: 'app-course-detail',
   templateUrl: './course-detail.component.html',
-  styleUrls: ['./course-detail.component.css']
+  styleUrls: ['./course-detail.component.scss']
 })
 export class CourseDetailComponent implements OnInit {
 

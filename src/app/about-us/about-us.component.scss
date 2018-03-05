@@ -18,25 +18,25 @@
   .sen{
       background: #fff;
       height: 100px;
+      h1{
+        font-family: 'Europa';
+          padding-top:50px; 
+          font-size: 3rem;
+          line-height: calc(1em + 5px);
+          text-rendering: optimizelegibility;
+      
+        height: 100%;
+        margin-left:32%;
+      }
+      h3{
+        font-family: 'Europa';
+        font-size: 1.2rem;
+        line-height: calc(1.25em + 2px);
+        font-weight: bold;
+        margin-left: 10%;
+      }
+  }
 
-  }
-  .sen h1{
-    font-family: 'Europa';
-      padding-top:50px; 
-      font-size: 3rem;
-      line-height: calc(1em + 5px);
-      text-rendering: optimizelegibility;
-  
-    height: 100%;
-    margin-left:32%;
-  }
-  .sen h3{
-    font-family: 'Europa';
-    font-size: 1.2rem;
-    line-height: calc(1.25em + 2px);
-    font-weight: bold;
-    margin-left: 10%;
-  }
   .avt_main{
       margin: 1rem 3rem;
   }

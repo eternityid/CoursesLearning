@@ -85,44 +85,41 @@
     text-align: left;
     line-height: 1.3;
     font-size: 15px;
+    img {
+        width: 100%;
+        height: 45%;
+    }
+    h4 {
+        margin-left: .4rem;
+    }
+    p {
+        color: #4f5055;
+        margin-top: -.7rem;
+        font-size: 11px;
+        line-height: 1.39063;
+        text-overflow: ellipsis;
+        text-align: left;
+        margin-left: .4rem;
+    }
+    button {
+        margin-left: .7rem;
+        border: 1px solid #3f51b5;
+        color: #3f51b5;
+        background: transparent;
+        height: 2rem;
+        width: 7rem;
+    }
+    button:hover {
+        color: #ffffff;
+        background: #3f51b5;
+    }
+    
 }
 
 .col_course:hover {
     background: rgba(185, 185, 185, 0.575);
 }
 
-.col_course img {
-    width: 100%;
-    height: 45%;
-}
-
-.col_course h4 {
-    margin-left: .4rem;
-}
-
-.col_course p {
-    color: #4f5055;
-    margin-top: -.7rem;
-    font-size: 11px;
-    line-height: 1.39063;
-    text-overflow: ellipsis;
-    text-align: left;
-    margin-left: .4rem;
-}
-
-.col_course button {
-    margin-left: .7rem;
-    border: 1px solid #3f51b5;
-    color: #3f51b5;
-    background: transparent;
-    height: 2rem;
-    width: 7rem;
-}
-
-.col_course button:hover {
-    color: #ffffff;
-    background: #3f51b5;
-}
 .sign-in_btn{
     text-align: center;
 }

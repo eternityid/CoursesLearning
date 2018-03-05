@@ -13,9 +13,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-  }
-  .actionBtns > a{
-    min-width: auto;
+    a{
+      min-width: auto;
+    }
   }
   .filter{
     min-height: 64px;
@@ -30,9 +30,11 @@
     align-items: center;
     margin: .5em 1em;    
   }
-  .title-header > h3{
+  .title-header{
+     h3{
     margin-left:.3em;
     color: rgb(51, 24, 114);
+  }
   }
   .icon-create{
     font-weight: bold;
