@@ -5,12 +5,11 @@ import { CourseService } from '../../shared/course.service';
 import { MatTableDataSource, MatSort, MatFormFieldControl, MatDialog, MatAutocompleteSelectedEvent } from '@angular/material';
 import { CourseDetailComponent } from '../course-detail/course-detail.component';
 import {Category} from '../../shared/category';
+import {CategoryService} from '../../shared/category.service';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
-import 'rxjs/add/operator/do';
-
 
 @Component({
   selector: 'app-admin-courses',
@@ -21,35 +20,39 @@ export class AdminCoursesComponent implements OnInit {
 
   coursesList = new MatTableDataSource();
   displayedColumns = ['teacherName', 'description', 'categories', 'amountOfStudents', 'beginingOfDate', 'actionBtns'];
-  options = [
-    {key: 'steak-0', name: 'Steak'},
-    {key: 'pizza-1', name: 'Pizza'},
-    {key: 'tacos-2', name: 'Tacos 1'},
-    {key: 'tacos-3', name: 'Tacos 2'},
-    {key: 'tacos-4', name: 'Tacos 3'},
-    {key: 'tacos-5', name: 'Tacos 4'},
-    {key: 'tacos-6', name: 'Tacos 5'}
-  ];
+
+  constantCategory:Category = {
+    key:'000000000001',
+    name:'All'
+  }
   filteredOptions: Observable<Category[]>;
   myControl: FormControl = new FormControl();
 
   constructor(private courseSvc: CourseService,
+    private categorySvc:CategoryService,
     private dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.getSourceCourses();
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith<string | Category>(''),        
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this.filterCategories(name) : this.options.slice())
-      );
+    this.getCategories();
+    this.myControl.setValue(this.constantCategory);
   }
 
-  filterCategories(name: string): Category[] {
-    return this.options.filter(option =>
-      option.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
+  getCategories() {
+    this.categorySvc.getCategories().subscribe(categories => {
+      this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith<string | Category>(''),
+        map(value => typeof value === 'string' ? value : value.name),
+        map(name => name ? this.filterCategories(name,categories) : categories.slice())
+      );     
+    });
+  }
+
+  filterCategories(name: string,categories:Category[]): Category[] {
+    return categories.filter(category =>
+      category.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
   displayFn(category?: Category): string | undefined {
@@ -57,11 +60,13 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   onSelectionChanged(event: MatAutocompleteSelectedEvent) {
-    console.log(event.option.value);
+    let temp = event.option.value as Category;
+     let categoryId = temp.key;
+     this.getSourceCourses(categoryId);
   }
 
-  getSourceCourses(){
-    this.courseSvc.getCourses().subscribe(c => {
+  getSourceCourses(categoryId?:string){
+    this.courseSvc.getCourses(categoryId).subscribe(c => {
       this.coursesList.data = c;
     });
   }

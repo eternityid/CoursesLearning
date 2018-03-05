@@ -13,9 +13,11 @@ export class HomeComponent implements OnInit {
     
   constructor() {
     this.items = [
-      { name: 'assets/img/img1.png' },
-      { name: 'assets/img/img2.png' },
-      { name: 'assets/img/img3.png' },
+      { name: 'assets/img/6.png' },
+ 
+      { name: 'assets/img/7.png' },
+      { name: 'assets/img/8.jpg' },
+      
      
     ]
    }

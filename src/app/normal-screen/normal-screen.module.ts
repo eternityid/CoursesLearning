@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NormalScreenRoutingModule } from './normal-screen-routing.module';
 
@@ -15,7 +15,11 @@ import { MatButtonModule,
    MatDividerModule,
    MatCardModule,
    MatFormFieldModule,
-   MatSlideToggleModule} from '@angular/material';
+   MatSlideToggleModule,
+   MatSelectModule,
+   MatIconModule,
+   MatAutocompleteModule,
+   MatInputModule} from '@angular/material';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { FooterComponent } from '../footer/footer.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
@@ -26,14 +30,19 @@ import { AboutUsComponent } from '../about-us/about-us.component';
     CommonModule,
     NormalScreenRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatToolbarModule,
     MatGridListModule,
     MatListModule,
     MatDividerModule,
     MatFormFieldModule,
+    MatInputModule,
     MatSlideToggleModule,
     MatCardModule,
+    MatIconModule,
+    MatSelectModule,
+    MatAutocompleteModule,
     Ng2CarouselamosModule ,
   ],
   declarations: [

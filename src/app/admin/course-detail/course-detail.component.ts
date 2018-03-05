@@ -17,9 +17,7 @@ import { map } from 'rxjs/operators/map';
 export class CourseDetailComponent implements OnInit {
 
   title = this.data.key == undefined ? "Create new Course" : "Edit course";
-  categories: Category[];
   newCategoryName: string;
-  standardCategoryName:Category;
   filteredOptions: Observable<Category[]>;
   myControl: FormControl = new FormControl();
 
@@ -36,8 +34,6 @@ export class CourseDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
-    this.standardCategoryName = this.data.category;
-    console.log(this.standardCategoryName)
     this.myControl.setValue(this.data.category);
   }
 
@@ -79,6 +75,7 @@ export class CourseDetailComponent implements OnInit {
   }
 
   onNoClick(): void {
+    console.log("teteing")
     this.dialogRef.close();
   }
 }

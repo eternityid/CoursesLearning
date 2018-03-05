@@ -11,8 +11,6 @@ export class SignUpComponent implements OnInit {
   password:string;
   passwordRepeat:string;
 
-  
-
   constructor() { }
 
   ngOnInit() {

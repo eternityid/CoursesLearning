@@ -1,99 +1,149 @@
-  .title_Top{
-    font-family: 'Europa';
-    color: #3a343a;
-    margin: 1em 6em;
-    margin-top: 4em;
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 4rem;
-    text-align: center;
-  }
-  
-  ::ng-deep .colCenter .mat-figure{
-    align-items: unset !important;
-  }
-  mat-card-title{
-    font-size: 1.9rem;
-    text-align: center;
-    font-family: 'Europa';
-  }
-
-  mat-card-title a{
-    margin-bottom: 2rem; 
-  }
-
-mat-card-title h1{
-    text-align: center;
-    color: #3a343a;
-    font-family: 'Europa';
-    margin-bottom: 3rem;
-}
-  
-mat-card-subtitle p{
-    color: #393b42;
-    line-height: 1.39063;
-    font-size: 18px;
+.title_Top {
+  font-family: 'Europa';
+  color: #3a343a;
+  margin: 1em 6em;
+  margin-top: 4em;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 4rem;
+  text-align: center;
 }
 
-.card_Main{
+::ng-deep .colCenter .mat-figure {
+  align-items: unset !important;
+}
 
-    background: #f5f5f5;
-    box-shadow:none;
+mat-card-title {
+  font-size: 1.9rem;
+  text-align: center;
+  font-family: 'Europa';
 }
-::ng-deep .list_Cource .mat-figure{
-     align-items: unset !important;
+
+mat-card-title a {
+  margin-bottom: 2rem;
 }
-.item_cource:hover{  
-  background:  rgba(197,202,233,.3);
+
+mat-card-title h1 {
+  text-align: center;
+  color: #3a343a;
+  font-family: 'Europa';
+  margin-bottom: 3rem;
 }
-.item_cource mat-divider:hover{
+
+mat-card-subtitle p {
+  color: #393b42;
+  line-height: 1.39063;
+  font-size: 18px;
+}
+
+.btn_signIn {
+  background: #3f51b5;
+  margin-left: 45%;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+}
+
+.btn_signIn::after {
+  width: 100%;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  opacity: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.btn_signIn:hover {
+  color: #3f51b5;
+  background: #ffffff;
+  border: 3px solid #3f51b5;
+}
+
+.card_Main {
+  background: #ffffff;
+  box-shadow: none;
+}
+
+::ng-deep .list_Cource .mat-figure {
+  align-items: unset !important;
+}
+
+.item_cource:hover {
+  background: rgba(197, 202, 233, .3);
+}
+
+.item_cource mat-divider:hover {
   background: #3f51b5;
 }
-.colCenter{
-    border-left: 1px solid #7c7979ec;
-    border-right: 1px solid #7c7979ec;
+
+.colCenter {
+  border-left: 1px solid #7c7979ec;
+  border-right: 1px solid #7c7979ec;
 }
+
 #carousel {
-    width: 100%;
-    margin: 1em auto;
-    padding: 0;
-    background:#f5f5f5;
-    box-sizing: border-box;    
+  width: 100%;
+  margin: 1em auto;
+  padding: 0;
+  background: #ffffff;
+  box-sizing: border-box;
 }
+
 .items {
-    max-width:1200px;
-    height:200px;
-    background:#ECECEC;
+  max-width: 1200px;
+  height: 200px;
+  background: #ffffff;
 }
-  #left, #right { 
-      margin: 30px;
-  }
-.container{
-  margin-top: 5em; 
+
+#left,
+#right {
+  margin: 30px;
+}
+
+.container {
+  margin-top: 5em;
   max-width: 1300px;
 }
-.avt_card{
-  float:left;
+
+.avt_card {
+  float: left;
   margin-left: 0;
-  margin-right:.7rem;
+  margin-right: .7rem;
   margin-bottom: 1rem;
   width: 17em;
   height: 22em;
-  border-radius: 0%; 
+  border-radius: 0%;
 }
-#card_logo_1{
+
+#card_logo_1 {
   margin-left: 5rem;
 }
+
 .example-card {
   position: relative;
   display: block;
   float: left;
-  margin: 2rem 3rem; 
-    opacity: 0.9;
-    -webkit-transition: all ease-out 0.4s;
-    transition: all ease-out 0.4s;
+  margin: 2rem 3rem;
+  opacity: 0.9;
+  -webkit-transition: all ease-out 0.4s;
+  transition: all ease-out 0.4s;
 }
-.example-card a{
+
+.example-card a {
   width: 100%;
   height: 100%;
   background: rgba(238, 240, 255, 0.411);
@@ -112,10 +162,12 @@ mat-card-subtitle p{
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.example-card a p{
- margin-top: 25%;
+
+.example-card a p {
+  margin-top: 25%;
 }
-.bottom_Title{
+
+.bottom_Title {
   font-family: 'Europa';
   color: #3a343a;
   margin: 1em 3em;
@@ -124,6 +176,7 @@ mat-card-subtitle p{
   line-height: 1rem;
   text-align: center;
 }
-.card--title{
+
+.card--title {
   margin-top: 0;
 }

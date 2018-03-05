@@ -6,7 +6,7 @@ import { Category } from './category';
 import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class CategoryService {
-
+  
   categories:Observable<Category[]>;
   constructor(private firestore: AngularFirestore) { }
 

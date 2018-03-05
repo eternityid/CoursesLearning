@@ -8,13 +8,21 @@ import { Observable } from 'rxjs/Observable';
 export class CourseService {
 
   courses: Observable<Course[]>;
+  constantCategoryDefault = "000000000000001";
 
-  constructor(private firestore: AngularFirestore) {
-    
-  }
+  constructor(private firestore: AngularFirestore) {}
 
-  getCourses(): Observable<Course[]> {
-    return this.firestore.collection('courses').snapshotChanges().map(actions => {
+  getCourses(categoryId?:string): Observable<Course[]> {
+    if(categoryId === undefined || categoryId === this.constantCategoryDefault){
+      return this.firestore.collection('courses').snapshotChanges().map(actions => {
+        return actions.map(act => {
+          const data = act.payload.doc.data() as Course;
+          data.key = act.payload.doc.id;
+          return data;
+        });
+      });
+    }
+    return this.firestore.collection('courses',ref => ref.where('category.key', "==", categoryId)).snapshotChanges().map(actions => {
       return actions.map(act => {
         const data = act.payload.doc.data() as Course;
         data.key = act.payload.doc.id;

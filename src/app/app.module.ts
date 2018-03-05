@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
@@ -83,6 +83,7 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
     AngularFirestoreModule,
     MatGridListModule,
     MatListModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
     HttpClientInMemoryWebApiModule.forRoot(
@@ -97,6 +98,6 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
 })
 export class AppModule {
   constructor(router: Router) {
-    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }

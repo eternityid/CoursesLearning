@@ -1,6 +1,7 @@
 import {Category} from './category';
 export interface Course{
     key?:string,
+    imageUrl?:string;
     teacherName?:string,
     description?:string,
     amountOfStudents?:number,

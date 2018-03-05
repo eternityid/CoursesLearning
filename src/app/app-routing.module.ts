@@ -9,14 +9,14 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/normal', pathMatch: 'full' },
+  { path: '', redirectTo: '/learning', pathMatch: 'full' },
   {
     path: 'admin',
     loadChildren: 'app/admin/admin.module#AdminModule',
     canLoad: [AuthGuard]
   },
   {
-    path: 'normal',
+    path: 'learning',
     loadChildren: 'app/normal-screen/normal-screen.module#NormalScreenModule'
   },
   {path:'sign-up',component:SignUpComponent},
