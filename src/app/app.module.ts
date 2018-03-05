@@ -25,19 +25,13 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ContactComponent } from './contact/contact.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { HomeComponent } from './home/home.component';
-import { CoursesComponent } from './courses/courses.component';
 
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { CourseService } from './shared/course.service';
 import { PageNotFoundComponent } from './page-not-found-component';
 
 import { UserService } from './shared/user.service';
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -49,28 +43,23 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
-import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
 import { CategoryService } from './shared/category.service';
+import { NormalScreenComponent } from './normal-screen/normal-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ContactComponent,
-    AboutUsComponent,
-    HomeComponent,
-    CoursesComponent,
     LoginComponent,
     SignUpComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     LoginRoutingModule,
     AppRoutingModule,
-    Ng2CarouselamosModule ,
+    Ng2CarouselamosModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -85,7 +74,7 @@ import { CategoryService } from './shared/category.service';
     MatInputModule,
     MatFormFieldModule,
     MatSlideToggleModule,
-    MatDialogModule,    
+    MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatAutocompleteModule,
@@ -103,7 +92,7 @@ import { CategoryService } from './shared/category.service';
   providers: [CourseService,
     CategoryService,
     UserService,
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
