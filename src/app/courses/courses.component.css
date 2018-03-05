@@ -1,6 +1,7 @@
 .container {
     margin-top: 7rem;
     max-width: 1270px;
+    display: flow-root;
 }
 
 .top_title {

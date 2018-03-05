@@ -54,6 +54,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
 
+
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +100,9 @@ import { Router } from '@angular/router';
     MatListModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAeftBIjPkNwmZii1vRALVKfWjAT1EkazU'
+    }),
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )

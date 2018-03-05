@@ -7,16 +7,18 @@ import { HomeComponent } from '../home/home.component';
 import { AuthGuard } from '../shared/auth-guard.service';
 import { CoursesComponent } from '../courses/courses.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AboutUsComponent } from '../about-us/about-us.component';
 
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/courses', pathMatch: 'full' },
+  { path: '', redirectTo: '/about-us', pathMatch: 'full' },
   {
     path: 'admin',
     loadChildren: 'app/admin/admin.module#AdminModule',
     canLoad: [AuthGuard]
   },
+  { path: 'about-us', component: AboutUsComponent },
   { path: 'home', component: HomeComponent },
   {path: 'footer', component: FooterComponent},
   { path: 'courses', component: CoursesComponent },  
