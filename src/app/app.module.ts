@@ -21,7 +21,7 @@ import {
   MatAutocompleteModule,
   MatCardModule,
   MatDividerModule,
-
+  MatIconRegistry,
   MAT_DATE_LOCALE
 } from '@angular/material';
 
@@ -93,13 +93,14 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
   ],
   providers: [CourseService,
     CategoryService,
+    MatIconRegistry,
     UserService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(router: Router ){
-
+  constructor(router: Router, public matIconRegistry: MatIconRegistry ){
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }

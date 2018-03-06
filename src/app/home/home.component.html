@@ -24,29 +24,47 @@
             <strong>Sign In</strong>
         </button>
     </div>
-    <div class="logo">
-        <div class="example-card" id="card_logo_1">
-            <img src="assets/img/logo1.jpg" alt="Education">
-            <a>
-                <p> Business & Management </p>
-            </a>
+    
+<div class="row">
+        <div class="col-0"></div>
+        <div class="col-3 menu">
+         <div class="example-card" id="card_logo_1">
+                    <img src="assets/img/logo1.jpg" alt="Education">
+                    <a>
+                        Business & Management
+                    </a>
+                </div>	
         </div>
-        <div class="example-card">
-            <img src="assets/img/logo2.jpg" alt="Photo of a Shiba Inu">
-            <a>
-                <p> Health & Psychology</p>
-            </a>
+        <div class="col-05"></div>
+        <div class="col-3">
+           <div class="example-card">
+                    <img src="assets/img/logo2.jpg" alt="Photo of a Shiba Inu">
+                    <a>
+                        Health & Psychology
+                    </a>
+                </div>
         </div>
-        <div class="example-card">
-            <img src="assets/img/logo3.jpg" alt="Photo of a Shiba Inu">
-            <a>
-                <p>Tech & Coding</p>
-            </a>
+        <div class="col-05"></div>
+        <div class="col-3 right">
+        
+         <div class="example-card">
+                    <img src="assets/img/logo3.jpg" alt="Photo of a Shiba Inu">
+                    <a>
+                        Tech & Coding
+                    </a>
+                </div>
+        
+        
         </div>
-    </div>
+         </div>
+ 
+       
+
+
+
     <hr style="width: 98%; margin-bottom: 2rem">
     <mat-grid-list cols="5" rowHeight="60em">
-        <mat-grid-tile class="list_Cource">
+        <mat-grid-tile class="list_Cource ">
             <mat-list #shoes>
                 <h2>Top Cource</h2>
                 <mat-list-item *ngFor="let shoe of typesOfCources" class="item_cource">
