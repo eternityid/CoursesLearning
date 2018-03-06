@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AdminRoutingModule }       from './admin-routing.module';
+import { AdminRoutingModule } from './admin-routing.module';
 
 import { AdminComponent } from './admin.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
@@ -12,18 +12,20 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminCoursesComponent } from './admin-courses/admin-courses.component';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
 
-import { MatToolbarModule,
-   MatIconModule,
-    MatButtonModule, 
-    MatGridListModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatTableModule,
-    MatSortModule,
-    MatInputModule,
-    MatMenuModule,
-    MatAutocompleteModule} from '@angular/material';
+import {
+  MatToolbarModule,
+  MatIconModule,
+  MatButtonModule,
+  MatGridListModule,
+  MatFormFieldModule,
+  MatDialogModule,
+  MatDatepickerModule,
+  MatTableModule,
+  MatSortModule,
+  MatInputModule,
+  MatMenuModule,
+  MatAutocompleteModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -44,7 +46,7 @@ import { MatToolbarModule,
     MatAutocompleteModule,
     ReactiveFormsModule
   ],
-  entryComponents:[CourseDetailComponent],
+  entryComponents: [CourseDetailComponent],
   declarations: [
     AdminComponent,
     CourseDetailComponent,
@@ -53,6 +55,6 @@ import { MatToolbarModule,
     AdminCoursesComponent,
     AdminNewsComponent,
   ],
-  providers:[]
+  providers: []
 })
 export class AdminModule { }

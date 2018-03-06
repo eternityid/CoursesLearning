@@ -5,6 +5,8 @@ import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
 import { Category } from '../shared/category';
 import {CategoryService} from '../shared/category.service';
+import {Course} from '../shared/course';
+import {CourseService} from '../shared/course.service';
 
 @Component({
   selector: 'app-courses',
@@ -13,23 +15,18 @@ import {CategoryService} from '../shared/category.service';
 })
 export class CoursesComponent implements OnInit {
 
-  selectedValue: string;
-
-  options = [
-    { key: 'steak-0', name: 'Steak' },
-    { key: 'pizza-1', name: 'Pizza' },
-    { key: 'tacos-2', name: 'Tacos 1' },
-    { key: 'tacos-3', name: 'Tacos 2' },
-    { key: 'tacos-4', name: 'Tacos 3' },
-    { key: 'tacos-5', name: 'Tacos 4' },
-    { key: 'tacos-6', name: 'Tacos 5' }
-  ];
+  countCourses:number;
+  courses:Course[];
+  filterCourses:Course[];
   filteredOptions: Observable<Category[]>;
   myControl: FormControl = new FormControl();
 
-  constructor(private categorySvc:CategoryService){}
+  constructor(private categorySvc:CategoryService,
+    private courseSvc:CourseService){}
+
   ngOnInit() {
     this.getCategories();
+    this.getCourses();
   }
 
   filterCategories(name: string,categories:Category[]): Category[] {
@@ -50,6 +47,31 @@ export class CoursesComponent implements OnInit {
         map(name => name ? this.filterCategories(name,categories) : categories.slice())
       );     
     });
+  }
+
+  getCourses(){
+    this.courseSvc.getCourses().subscribe(courses => {
+      this.courses = courses;
+      this.countCourses = courses.length;
+      this.assignCopy();
+    });
+  }
+
+  joinCourse(){
+    console.log("courses component 56:59")
+  }
+
+  onKeySearch(event:any){    
+    let keyword = event.target.value;
+    this.assignCopy();
+    if(keyword !== ''){
+      this.filterCourses = this.courses.filter(course => course.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1);      
+    }
+    this.countCourses = this.filterCourses.length;
+  }
+
+  assignCopy(){
+    this.filterCourses = Object.assign([], this.courses);
   }
 
 

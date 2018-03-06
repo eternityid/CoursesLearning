@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {
   MatButtonModule,
   MatToolbarModule,
@@ -38,6 +40,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -47,7 +50,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
 import { CategoryService } from './shared/category.service';
-import { NormalScreenComponent } from './normal-screen/normal-screen.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
     PageNotFoundComponent,
   ],
   imports: [
+    CommonModule,
     LoginRoutingModule,
     AppRoutingModule,
     Ng2CarouselamosModule,

@@ -8,6 +8,8 @@ import { Observable } from 'rxjs/Observable';
 import { FormControl } from '@angular/forms';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
+import { FirebaseApp } from 'angularfire2';
+import 'firebase/storage';
 
 @Component({
   selector: 'app-course-detail',
@@ -24,6 +26,7 @@ export class CourseDetailComponent implements OnInit {
   constructor(
     private categorySvc: CategoryService,
     private toastr: ToastsManager,
+    private firebaseApp:FirebaseApp,
     private vcr: ViewContainerRef,
     public dialogRef: MatDialogRef<CourseDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course

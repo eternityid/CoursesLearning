@@ -15,8 +15,8 @@
   <mat-table #table [dataSource]="coursesList" matSort>
 
     <ng-container matColumnDef="teacherName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Teacher Name </mat-header-cell>
-      <mat-cell *matCellDef="let course"> {{course.teacherName}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Course's name </mat-header-cell>
+      <mat-cell *matCellDef="let course"> {{course.name}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="description">
@@ -42,7 +42,7 @@
 
     <ng-container matColumnDef="amountOfStudents">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Amount of students </mat-header-cell>
-      <mat-cell *matCellDef="let course"> {{course.amountOfStudents}} </mat-cell>
+      <mat-cell *matCellDef="let course"> {{course.currentStudents !== undefined?course.currentStudents:"0" }} - {{course.time}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="beginingOfDate">

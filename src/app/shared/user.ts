@@ -4,7 +4,7 @@ export interface User{
     key:string,
     token:string,
     expire:number,
-    role:number,
+    role:string,
     username:string,
     password:string,
     studyingCourse:string,

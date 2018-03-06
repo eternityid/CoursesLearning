@@ -19,7 +19,8 @@ import { MatButtonModule,
    MatSelectModule,
    MatIconModule,
    MatAutocompleteModule,
-   MatInputModule} from '@angular/material';
+   MatInputModule,
+   MatMenuModule} from '@angular/material';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { FooterComponent } from '../footer/footer.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
@@ -41,6 +42,7 @@ import { AboutUsComponent } from '../about-us/about-us.component';
     MatSlideToggleModule,
     MatCardModule,
     MatIconModule,
+    MatMenuModule,
     MatSelectModule,
     MatAutocompleteModule,
     Ng2CarouselamosModule ,

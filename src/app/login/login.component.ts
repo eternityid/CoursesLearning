@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
     this.userSvc.login(this.userInfo).subscribe(() => {
       if (this.userSvc.isLoggedIn) {
-        let redirect = this.userSvc.redirectUrl ? this.userSvc.redirectUrl : '/admin';
+        let redirect = this.userSvc.redirectUrl ? this.userSvc.redirectUrl : '/';
         this.toastr.success('You are right and wait a minute!', 'Successful');
         this.router.navigate([redirect]);
       } else {

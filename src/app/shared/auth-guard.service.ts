@@ -30,10 +30,18 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   checkLogin(url: string): boolean {
-    if(this.userSvc.isLoggedIn)return true;
-
-    this.userSvc.redirectUrl = url;
-
-    this.router.navigate(['/login']);
-    return false }
+    if(this.userSvc.isLoggedIn && this.userSvc.userRole === "admin")
+    {
+      return true;
+    }else if(this.userSvc.isLoggedIn){
+      if(url === "/admin"){
+        url = "/";
+      }
+      this.router.navigate([url]);
+    }else{
+      this.userSvc.redirectUrl = url;
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
 }

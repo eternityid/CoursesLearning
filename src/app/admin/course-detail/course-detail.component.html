@@ -1,70 +1,88 @@
-<div class="header-title">
-  <h3>{{title}}</h3>
-  <div class="create-category">
-    <mat-form-field class="input-category">
-      <input matInput [(ngModel)]="newCategoryName" placeholder="Category's name">
-    </mat-form-field>
-    <button mat-button (click)="clickToCheckCategory(newCategoryName)">Create</button>
+<div class="modal">
+  <div class="header-title">
+    <h3>{{title}}</h3>
+    <div class="create-category">
+      <mat-form-field class="input-category">
+        <input matInput [(ngModel)]="newCategoryName" placeholder="Category's name">
+      </mat-form-field>
+      <button mat-button (click)="clickToCheckCategory(newCategoryName)">Create</button>
+    </div>
   </div>
-</div>
 
-<div mat-dialog-content>
+  <div mat-dialog-content>
 
-  <mat-grid-list cols="2" rowHeight="150px">
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <div class="block">
-        <p>What's teacher name?</p>
-        <mat-form-field>
-          <input matInput [(ngModel)]="data.teacherName" placeholder="Teacher's name">
-        </mat-form-field>
-      </div>
-    </mat-grid-tile>
+    <mat-grid-list cols="2" rowHeight="6.5em">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <p>What's teacher name?</p>
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.teacherName" placeholder="Teacher's name">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
 
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <div class="block">
-        <p>Choose category for course!</p>
-        <mat-form-field>
-          <input type="text" placeholder="Pick one" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
-          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSelectionChanged($event)">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-              {{ option.name }}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-      </div>
-    </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <p>Choose category for course!</p>
+          <mat-form-field>
+            <input type="text" placeholder="Pick one" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSelectionChanged($event)">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{ option.name }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
 
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <div class="block">
-        <p>How long the course is?</p>
-        <mat-form-field>
-          <input matInput [(ngModel)]="data.time" placeholder="Time">
-        </mat-form-field>
-      </div>
-    </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <p>Upload picture 1</p>
+          <mat-form-field>
+            <input matInput placeholder="testing">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
 
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <div class="block">
-        <p>What time is it beginning?</p>
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="data.beginingOfDate" placeholder="Choose a date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <p>Upload picture 2</p>
+          <input type="file">
+        </div>
+      </mat-grid-tile>
 
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
-      <div class="block">
-        <p>Describe about the course!</p>
-        <mat-form-field>
-          <textarea matInput [(ngModel)]="data.description">{{data.description}}</textarea>
-        </mat-form-field>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
-<div mat-dialog-actions class="dialog-actions">
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial class="saveBtn">Save</button>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <p>How long the course is?</p>
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.time" placeholder="Time">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <p>What time is it beginning?</p>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="data.beginingOfDate" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <div class="block">
+          <p>Describe about the course!</p>
+          <mat-form-field>
+            <textarea matInput placeholder="Fill description" [(ngModel)]="data.description">{{data.description}}</textarea>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial class="saveBtn">Save</button>
+  </div>
 </div>

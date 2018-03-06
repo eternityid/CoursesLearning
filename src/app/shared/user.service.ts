@@ -10,9 +10,10 @@ import 'rxjs/add/operator/do';
 export class UserService {
 
   private tokenKey: string = "accessToken";
-  constructor(private firestore: AngularFirestore) { }
   isLoggedIn = false;
+  userRole:string;
   redirectUrl: string;
+  constructor(private firestore: AngularFirestore) {}
 
   login(user: any): Observable<boolean> {
     const currentTime = (new Date).getTime();
@@ -21,6 +22,7 @@ export class UserService {
         if (users.length == 1 && users[0].password === user.password) {
           let jwtToken = { expire: currentTime, token: this.generateToken(), username: users[0].username };
           this.store(jwtToken);
+          this.userRole = users[0].role;
           this.isLoggedIn = true;
           return true;
         }
@@ -37,10 +39,6 @@ export class UserService {
     let storedToken: string = localStorage.getItem(this.tokenKey);
     if (!storedToken) throw 'no token found';
     return storedToken;
-  }
-
-  getUserInfo() {
-
   }
 
   addUser(user: User) {

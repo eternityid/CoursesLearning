@@ -87,6 +87,7 @@ export class AdminCoursesComponent implements OnInit {
     let course: Course = {};
     let dialogRef = this.dialog.open(CourseDetailComponent, {
       width: '85%',
+      maxHeight: '90%',      
       data: course
     });
 

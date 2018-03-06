@@ -6,7 +6,13 @@
       <button mat-button routerLink="./">Home</button>
       <button mat-button routerLink="./courses">Courses</button>
       <button mat-button routerLink="./about-us">About Us</button>
-      <button mat-button routerLink="/sign-up">Sign Up</button>
+      <button mat-button *ngIf="!isLoggedIn" routerLink="/sign-up">Sign Up</button>
+      <button mat-button *ngIf="isLoggedIn" [matMenuTriggerFor]="settingMenu" class="setting-btn">
+        <mat-icon>settings</mat-icon>
+      </button>
+      <mat-menu #settingMenu="matMenu">
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>

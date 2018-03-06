@@ -30,10 +30,10 @@
     </div>
     <div class="bar-search">
         <div>
-            <h5 class="amount-category">Amount of courses: {{e.length}}</h5>
+            <h5 class="amount-category">Amount of courses: {{countCourses}}</h5>
         </div>
         <div>
-            <input class="search_input" type="search" placeholder="Search">
+            <input class="search_input" type="search" placeholder="Search" (keyup)="onKeySearch($event)">
             <button class="btn_search" type="submit">
                 <mat-icon>search</mat-icon>
             </button>
@@ -42,12 +42,12 @@
 
     <hr class="hr_main">
     <div class="course_main">
-        <div class="column" *ngFor="let u of e ">
+        <div class="column" *ngFor="let course of filterCourses ">
             <div class="col_course">
-                <img src="{{u.imageUrl}}">
-                <h4>{{u.name}}</h4>
-                <p>{{u.description}}</p>
-                <button>
+                <img src="{{course.imageUrl}}">
+                <h4>{{course.name}}</h4>
+                <p>{{course.description}}</p>
+                <button (click)="joinCourse()">
                     <strong>Join now</strong>
                 </button>
             </div>

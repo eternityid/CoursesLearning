@@ -14,7 +14,7 @@ export class CategoryService {
     return this.firestore.collection('categories').snapshotChanges().map(categories =>{      
       return categories.map(category =>{
         const data = category.payload.doc.data() as Category;
-        data.key = category.payload.doc.id;              
+        data.key = category.payload.doc.id;      
         return data;
       })
     })
