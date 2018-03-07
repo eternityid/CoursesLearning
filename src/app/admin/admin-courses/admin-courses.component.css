@@ -5,6 +5,9 @@
     min-width: 300px;
     margin: 0 1em 1.2em 1em; 
   }
+  .mat-cell{
+    padding: .3em;
+  }
   .actionBtns {
     display: flex;
     align-items: center;
@@ -13,9 +16,13 @@
   .actionBtns > a{
     min-width: auto;
   }
-  .filter{
-    min-height: 64px;
+  .search{
+    display: flex;
+    flex-flow: wrap;
+  }
+  .search > div{
     padding: 8px 24px 0;
+    width: 49%;
   }
   .mat-form-field {
     font-size: 14px;

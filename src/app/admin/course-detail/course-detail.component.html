@@ -1,22 +1,16 @@
+
 <div class="modal">
-  <div class="header-title">
-    <h3>{{title}}</h3>
-    <div class="create-category">
-      <mat-form-field class="input-category">
-        <input matInput [(ngModel)]="newCategoryName" placeholder="Category's name">
-      </mat-form-field>
-      <button mat-button (click)="clickToCheckCategory(newCategoryName)">Create</button>
+    <div class="header-title">
+        <h1 mat-dialog-title>{{title}}</h1>
     </div>
-  </div>
-
+    <hr>
   <div mat-dialog-content>
-
     <mat-grid-list cols="2" rowHeight="6.5em">
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
           <p>What's teacher name?</p>
           <mat-form-field>
-            <input matInput [(ngModel)]="data.teacherName" placeholder="Teacher's name">
+            <input matInput [(ngModel)]="course.teacherName" placeholder="Teacher's name">
           </mat-form-field>
         </div>
       </mat-grid-tile>
@@ -24,14 +18,18 @@
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
           <p>Choose category for course!</p>
-          <mat-form-field>
-            <input type="text" placeholder="Pick one" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSelectionChanged($event)">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option.name }}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
+          <div class="block--category">
+            <a mat-icon-button color="primary" matTooltip="Create new category" (click)="showCreateCategoryModal()">
+              <mat-icon class="icon-create">add</mat-icon>
+            </a>
+            <mat-form-field>
+              <mat-select (selectionChange)="onSelectionChanged($event)" [(ngModel)]="categoryDefault" placeholder="Category">
+                <mat-option *ngFor="let category of categories" [value]="category.key">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
         </div>
       </mat-grid-tile>
 
@@ -55,7 +53,7 @@
         <div class="block">
           <p>How long the course is?</p>
           <mat-form-field>
-            <input matInput [(ngModel)]="data.time" placeholder="Time">
+            <input matInput [(ngModel)]="course.time" placeholder="Time">
           </mat-form-field>
         </div>
       </mat-grid-tile>
@@ -64,7 +62,7 @@
         <div class="block">
           <p>What time is it beginning?</p>
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="data.beginingOfDate" placeholder="Choose a date">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="course.beginingOfDate" placeholder="Choose a date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -75,14 +73,14 @@
         <div class="block">
           <p>Describe about the course!</p>
           <mat-form-field>
-            <textarea matInput placeholder="Fill description" [(ngModel)]="data.description">{{data.description}}</textarea>
+            <textarea matInput rows="3" placeholder="Fill description" [(ngModel)]="course.description">{{course.description}}</textarea>
           </mat-form-field>
         </div>
       </mat-grid-tile>
     </mat-grid-list>
   </div>
   <div mat-dialog-actions class="dialog-actions">
-    <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial class="saveBtn">Save</button>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="course" cdkFocusInitial class="saveBtn">Save</button>
   </div>
 </div>

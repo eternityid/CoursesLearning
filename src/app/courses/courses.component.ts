@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
-import { startWith } from 'rxjs/operators/startWith';
-import { map } from 'rxjs/operators/map';
 import { Category } from '../shared/category';
 import {CategoryService} from '../shared/category.service';
 import {Course} from '../shared/course';
 import {CourseService} from '../shared/course.service';
+import {UserService} from '../shared/user.service';
 import { MatSelectChange } from '@angular/material';
 
 @Component({
@@ -23,7 +20,8 @@ export class CoursesComponent implements OnInit {
   selectedDefault:string;
 
   constructor(private categorySvc:CategoryService,
-    private courseSvc:CourseService){}
+    private courseSvc:CourseService,
+  private userSvc:UserService){}
 
   ngOnInit() {
     this.selectedDefault = "000000000000001";
@@ -53,6 +51,9 @@ export class CoursesComponent implements OnInit {
 
   joinCourse(){
     console.log("courses component 56:59")
+    if(this.userSvc.isLoggedIn){
+
+    }
   }
 
   onKeySearch(event:any){    

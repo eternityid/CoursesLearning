@@ -7,10 +7,21 @@
   </div>
 </div>
 <div class="container mat-elevation-z8">
-  <div class="filter">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-    </mat-form-field>
+  <div class="search">
+    <div>
+      <mat-form-field>
+        <mat-select (selectionChange)="onSelectionChanged($event)" placeholder="Category" [(ngModel)]="selectedDefault">
+          <mat-option *ngFor="let category of categories" [value]="category.key">
+            {{ category.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+    </div>
   </div>
   <mat-table #table [dataSource]="coursesList" matSort>
 
@@ -25,15 +36,7 @@
     </ng-container>
 
     <ng-container matColumnDef="categories">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-          <mat-form-field>
-            <mat-select (selectionChange)="onSelectionChanged($event)" placeholder="Categories" [(ngModel)]="selectedDefault">
-              <mat-option *ngFor="let category of categories" [value]="category.key">
-                {{ category.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-      </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Category</mat-header-cell>
       <mat-cell *matCellDef="let course"> {{course.category.name}} </mat-cell>
     </ng-container>
 

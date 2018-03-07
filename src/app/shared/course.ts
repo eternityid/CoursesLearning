@@ -10,5 +10,6 @@ export interface Course{
     time?:number,    
     currentStudents?:number,
     category?:Category,
+    categoryId?:string,
     listOrder?:Array<Course>    
 }

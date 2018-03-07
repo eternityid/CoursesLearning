@@ -6,6 +6,7 @@ import { MatTableDataSource, MatSort, MatFormFieldControl, MatDialog, MatSelectC
 import { CourseDetailComponent } from '../course-detail/course-detail.component';
 import {Category} from '../../shared/category';
 import {CategoryService} from '../../shared/category.service';
+import { ModalConfirmComponent } from '../modal-confirm/modal-confirm.component';
 
 @Component({
   selector: 'app-admin-courses',
@@ -88,7 +89,17 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   deleteCourse(id: string) {
-    this.courseSvc.deleteCourse(id);
+
+    let dialogRef = this.dialog.open(ModalConfirmComponent, {
+      width: '50%'    
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)      
+      if (result) {
+        // this.courseSvc.deleteCourse(id);
+      }
+    });
   }
 
   mockcourse: any = { id: 161, teacherName: 'Leeanne Calles', description: 'Food Science', amountOfStudents: '20' };

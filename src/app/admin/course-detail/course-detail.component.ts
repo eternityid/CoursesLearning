@@ -1,15 +1,12 @@
 import { Component, OnInit, Inject, ViewContainerRef } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatAutocompleteSelectedEvent, MatOption } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSelectChange, MatOption } from '@angular/material';
 import { Category } from '../../shared/category';
 import { Course } from '../../shared/course';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { CategoryService } from '../../shared/category.service';
-import { Observable } from 'rxjs/Observable';
-import { FormControl } from '@angular/forms';
-import { startWith } from 'rxjs/operators/startWith';
-import { map } from 'rxjs/operators/map';
 import { FirebaseApp } from 'angularfire2';
 import 'firebase/storage';
+import { CreateCategoryComponent } from '../create-category/create-category.component';
 
 @Component({
   selector: 'app-course-detail',
@@ -18,67 +15,64 @@ import 'firebase/storage';
 })
 export class CourseDetailComponent implements OnInit {
 
-  title = this.data.key == undefined ? "Create new Course" : "Edit course";
+  title = this.data.key == undefined ? "CREATE NEW COURSE" : "EDIT COURSE";
   newCategoryName: string;
-  filteredOptions: Observable<Category[]>;
-  myControl: FormControl = new FormControl();
+  course: Course;
+  categories: Category[];
+  categoryDefault: string;
 
   constructor(
     private categorySvc: CategoryService,
     private toastr: ToastsManager,
-    private firebaseApp:FirebaseApp,
+    private firebaseApp: FirebaseApp,
     private vcr: ViewContainerRef,
+    private dialog: MatDialog,
     public dialogRef: MatDialogRef<CourseDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course
   ) {
+    this.course = Object.assign({}, data);
     this.toastr.setRootViewContainerRef(vcr);
   }
 
-
   ngOnInit() {
     this.getCategories();
-    this.myControl.setValue(this.data.category);
-  }
-
-  filterCategories(name: string,categories:Category[]): Category[] {
-    return categories.filter(category =>
-      category.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
-  }
-
-  displayFn(category?: Category): string | undefined {
-    if(this.data != undefined){
-      return this.data.category.name;
-    }
-    return category ? category.name : undefined;
+    this.categoryDefault = this.course.category.key;
   }
 
   getCategories() {
     this.categorySvc.getCategories().subscribe(categories => {
-      this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith<string | Category>(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this.filterCategories(name,categories) : categories.slice())
-      );     
+      this.categories = categories;
     });
   }
 
-  clickToCheckCategory(newCategoryName: string) {
-    if (newCategoryName === undefined || newCategoryName === null || newCategoryName === "" ) {
-      this.toastr.error(`Please fill category's name when click Create Button`, 'Error');
-    } else {
-      this.categorySvc.addCategory(newCategoryName);
-      this.toastr.success(`Create category successful`, 'Success');
-      this.newCategoryName = null;      
+  onSelectionChanged(event: MatSelectChange) {
+    let selectedCategory = {
+      key: event.value,
+      name: event.source.triggerValue
     }
+    this.course.category = selectedCategory;
   }
 
-  onSelectionChanged(event: MatAutocompleteSelectedEvent) {
-    this.data.category = event.option.value;
+  showCreateCategoryModal() {
+    let dialogRef = this.dialog.open(CreateCategoryComponent, {
+      width: '50%'
+    });
+
+    dialogRef.afterClosed().subscribe(newCategoryName => {
+      if (newCategoryName !== null && newCategoryName !== '' && newCategoryName !== undefined) {
+        this.categorySvc.addCategory(newCategoryName).then(category => {
+          this.categoryDefault = category.id;
+          this.course.category = {
+            key:category.id,
+            name:newCategoryName
+          }
+          this.toastr.success("New category is created successful!", "Success");
+        });
+      }
+    });
   }
 
-  onNoClick(): void {
-    console.log("teteing")
+  onCancelClick(): void {
     this.dialogRef.close();
   }
 }

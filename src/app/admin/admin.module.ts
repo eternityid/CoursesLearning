@@ -11,6 +11,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminCoursesComponent } from './admin-courses/admin-courses.component';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
+
 
 import {
   MatToolbarModule,
@@ -25,7 +28,8 @@ import {
   MatSortModule,
   MatInputModule,
   MatMenuModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatTooltipModule
 } from '@angular/material';
 
 @NgModule({
@@ -45,10 +49,14 @@ import {
     MatSortModule,
     MatInputModule,
     MatMenuModule,
+    MatTooltipModule,
     MatAutocompleteModule,
     ReactiveFormsModule
   ],
-  entryComponents: [CourseDetailComponent],
+  entryComponents: [
+    CourseDetailComponent,
+    ModalConfirmComponent,
+    CreateCategoryComponent],
   declarations: [
     AdminComponent,
     CourseDetailComponent,
@@ -56,6 +64,8 @@ import {
     AdminHeaderComponent,
     AdminCoursesComponent,
     AdminNewsComponent,
+    ModalConfirmComponent,
+    CreateCategoryComponent
   ],
   providers: []
 })

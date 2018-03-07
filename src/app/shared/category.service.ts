@@ -20,7 +20,7 @@ export class CategoryService {
     })
   }
 
-  addCategory(category:string):void{
-    this.firestore.collection('categories').add({name:category});
+  addCategory(category:string){
+    return this.firestore.collection('categories').add({name:category});
   }
 }

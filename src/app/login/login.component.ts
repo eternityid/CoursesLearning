@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     username: string,
     password: string
   }
+  hide = true;
 
   constructor(private userSvc: UserService,
     private toastr: ToastsManager,

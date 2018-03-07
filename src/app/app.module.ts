@@ -51,6 +51,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
 import { CategoryService } from './shared/category.service';
+import { ViewCourseDetailComponent } from './courses/view-course-detail/view-course-detail.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { CategoryService } from './shared/category.service';
     LoginComponent,
     SignUpComponent,
     PageNotFoundComponent,
+    ViewCourseDetailComponent
   ],
   imports: [
     CommonModule,

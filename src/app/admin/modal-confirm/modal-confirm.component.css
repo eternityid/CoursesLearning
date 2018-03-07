@@ -1,0 +1,10 @@
+.title{
+    color:rgb(161, 124, 20);
+    font-size:3em;
+}
+.cancel-btn{
+    color: rgb(252, 4, 4); 
+}
+.dialog-actions{
+    flex-flow: row-reverse;
+}
