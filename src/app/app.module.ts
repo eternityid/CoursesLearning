@@ -49,6 +49,11 @@ import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
 import { CategoryService } from './shared/category.service';
 import { NormalScreenComponent } from './normal-screen/normal-screen.component';
+import { ViewCourseDetailComponent } from './courses/view-course-detail/view-course-detail.component';
+
+
+import { TruncateModule } from 'ng2-truncate';
+
 
 @NgModule({
   declarations: [
@@ -56,8 +61,9 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
     LoginComponent,
     SignUpComponent,
     PageNotFoundComponent,
+    ViewCourseDetailComponent,
   ],
-  imports: [
+  imports: [    
     LoginRoutingModule,
     AppRoutingModule,
     Ng2CarouselamosModule,
@@ -87,6 +93,7 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
+    TruncateModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )

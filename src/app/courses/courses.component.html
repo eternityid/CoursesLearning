@@ -43,14 +43,18 @@
     <hr class="hr_main">
     <div class="course_main">
         <div class="column" *ngFor="let u of e ">
-            <div class="col_course">
-                <img src="{{u.imageUrl}}">
-                <h4>{{u.name}}</h4>
-                <p>{{u.description}}</p>
+          <app-course-card class="column" [course]="u" 
+          ></app-course-card>
+          <!-- <div class="col_course">
+                <a class="course"><img src="{{u.imageUrl}}">
+                    <h4>{{u.name}}</h4>
+                    <p>{{u.description}}</p></a>
+                
                 <button>
                     <strong>Join now</strong>
                 </button>
             </div>
-        </div>
+             -->
+        <!-- </div> -->
     </div>
 </div>

@@ -18,8 +18,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "../node_modules/font-awesome/scss/font-awesome.scss",
+      "styles": [        
         "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css",
         "styles.css"
       ],

@@ -21,6 +21,12 @@ display: block;
   align-items: unset !important;
 }
 
+mat-list{
+  h2:hover{
+    color: #3f51b5;
+    text-decoration-line: inherit;
+  }
+}
 mat-card-title {
   font-size: 1.9rem;
   text-align: center;
@@ -84,6 +90,7 @@ mat-card-subtitle{
 .card_Main {
   background: #ffffff;
   box-shadow: none;
+  height: 100%;
 }
 
 ::ng-deep .list_Cource .mat-figure {
@@ -105,7 +112,7 @@ mat-card-subtitle{
 
 #carousel {
   width: 100%;
-  margin: 1em auto;
+  margin: 1em 0em;
   padding: 0;
   background: #ffffff;
   box-sizing: border-box;
@@ -125,8 +132,12 @@ mat-card-subtitle{
     img{
       width: 1000px;
       height: 200px;
+      padding-left: 2.7rem;
     }
   }
+}
+#left{
+    padding-left: 1.6rem;
 }
 
 #left,
@@ -141,12 +152,15 @@ mat-card-subtitle{
 
 .avt_card {
   float: left;
-  margin-left: 0;
+  margin-left: 15%;
   margin-right: .7rem;
   margin-bottom: 1rem;
   width: 17em;
   height: 22em;
   border-radius: 0%;
+}
+.mat-card:not(){
+  box-shadow: none;
 }
 
 
@@ -177,8 +191,6 @@ mat-card-subtitle{
 
 }
 
-
-
 .row::after {
   content: "";
   clear: both;
@@ -188,7 +200,6 @@ mat-card-subtitle{
   float: left;
   
 }
-
 
 
 /* For mobile phones: */
@@ -220,13 +231,14 @@ mat-card-subtitle{
       margin: 2rem 0rem;
       padding: 1rem 0;
       width: 100%;
+      font-weight: bold;
     }
   
   }
   /* For desktop: */
   .col-0{
     width: 4%;
-    margin-left: 4rem;
+    margin-left: 1.6rem;
   }
   .col-05{
     width: 4.165%;
@@ -258,4 +270,19 @@ mat-card-subtitle{
 
 .card--title {
   margin-top: 0;
+}
+@media only screen and (min-width: 1028px) {
+  .avt_card {
+    float: left;
+    margin-left: 0;
+    margin-right: .7rem;
+    margin-bottom: 1rem;
+    width: 17em;
+    height: 22em;
+    border-radius: 0%;
+  }
+}
+
+.paragharp{
+  height: 100%;
 }
