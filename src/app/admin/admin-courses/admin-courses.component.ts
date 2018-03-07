@@ -2,14 +2,10 @@ import { Component, OnInit, ViewChild, AfterViewInit, OnChanges, Input  } from '
 import { DatePipe } from '@angular/common';
 import { Course } from '../../shared/course';
 import { CourseService } from '../../shared/course.service';
-import { MatTableDataSource, MatSort, MatFormFieldControl, MatDialog, MatAutocompleteSelectedEvent } from '@angular/material';
+import { MatTableDataSource, MatSort, MatFormFieldControl, MatDialog, MatSelectChange } from '@angular/material';
 import { CourseDetailComponent } from '../course-detail/course-detail.component';
 import {Category} from '../../shared/category';
 import {CategoryService} from '../../shared/category.service';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
-import {startWith} from 'rxjs/operators/startWith';
-import {map} from 'rxjs/operators/map';
 
 @Component({
   selector: 'app-admin-courses',
@@ -21,47 +17,27 @@ export class AdminCoursesComponent implements OnInit {
   coursesList = new MatTableDataSource();
   displayedColumns = ['teacherName', 'description', 'categories', 'amountOfStudents', 'beginingOfDate', 'actionBtns'];
 
-  constantCategory:Category = {
-    key:'000000000001',
-    name:'All'
-  }
-  filteredOptions: Observable<Category[]>;
-  myControl: FormControl = new FormControl();
+  categories:Category[];
+  selectedDefault:string;
 
   constructor(private courseSvc: CourseService,
     private categorySvc:CategoryService,
-    private dialog: MatDialog) {
-  }
+    private dialog: MatDialog) {}
 
   ngOnInit() {
+    this.selectedDefault = "000000000000001";
     this.getSourceCourses();
     this.getCategories();
-    this.myControl.setValue(this.constantCategory);
   }
 
   getCategories() {
     this.categorySvc.getCategories().subscribe(categories => {
-      this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith<string | Category>(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this.filterCategories(name,categories) : categories.slice())
-      );     
+      this.categories = categories;
     });
   }
 
-  filterCategories(name: string,categories:Category[]): Category[] {
-    return categories.filter(category =>
-      category.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
-  }
-
-  displayFn(category?: Category): string | undefined {
-    return category ? category.name : undefined;
-  }
-
-  onSelectionChanged(event: MatAutocompleteSelectedEvent) {
-    let temp = event.option.value as Category;
-     let categoryId = temp.key;
+  onSelectionChanged(event: MatSelectChange) {
+     let categoryId = event.value;
      this.getSourceCourses(categoryId);
   }
 

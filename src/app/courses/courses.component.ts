@@ -7,6 +7,7 @@ import { Category } from '../shared/category';
 import {CategoryService} from '../shared/category.service';
 import {Course} from '../shared/course';
 import {CourseService} from '../shared/course.service';
+import { MatSelectChange } from '@angular/material';
 
 @Component({
   selector: 'app-courses',
@@ -18,43 +19,36 @@ export class CoursesComponent implements OnInit {
   countCourses:number;
   courses:Course[];
   filterCourses:Course[];
-  filteredOptions: Observable<Category[]>;
-  myControl: FormControl = new FormControl();
+  categories:Category[];
+  selectedDefault:string;
 
   constructor(private categorySvc:CategoryService,
     private courseSvc:CourseService){}
 
   ngOnInit() {
+    this.selectedDefault = "000000000000001";
     this.getCategories();
     this.getCourses();
   }
 
-  filterCategories(name: string,categories:Category[]): Category[] {
-    return categories.filter(category =>
-      category.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
-  }
-
-  displayFn(category?: Category): string | undefined {
-    return category ? category.name : undefined;
-  }
 
   getCategories() {
     this.categorySvc.getCategories().subscribe(categories => {
-      this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith<string | Category>(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this.filterCategories(name,categories) : categories.slice())
-      );     
+     this.categories=categories;
     });
   }
 
-  getCourses(){
-    this.courseSvc.getCourses().subscribe(courses => {
+  getCourses(categoryId?:string){    
+    this.courseSvc.getCourses(categoryId).subscribe(courses => {
       this.courses = courses;
       this.countCourses = courses.length;
       this.assignCopy();
     });
+  }
+
+  onSelectionChanged(event:MatSelectChange){
+    let categoryId=event.value;
+    this.getCourses(categoryId);
   }
 
   joinCourse(){

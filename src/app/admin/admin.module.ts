@@ -15,6 +15,7 @@ import { AdminNewsComponent } from './admin-news/admin-news.component';
 import {
   MatToolbarModule,
   MatIconModule,
+  MatSelectModule,
   MatButtonModule,
   MatGridListModule,
   MatFormFieldModule,
@@ -34,6 +35,7 @@ import {
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatSelectModule,
     MatToolbarModule,
     MatGridListModule,
     MatFormFieldModule,

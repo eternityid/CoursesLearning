@@ -20,12 +20,11 @@
     </div>
     <div class="form-filter-category">
         <mat-form-field>
-            <input type="text" placeholder="category" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onSelectionChanged($event)">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                    {{ option.name }}
+            <mat-select (selectionChange)="onSelectionChanged($event)" placeholder="Categories" [(ngModel)]="selectedDefault">
+                <mat-option *ngFor="let category of categories" [value]="category.key">
+                    {{ category.name }}
                 </mat-option>
-            </mat-autocomplete>
+            </mat-select>
         </mat-form-field>
     </div>
     <div class="bar-search">

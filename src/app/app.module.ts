@@ -23,7 +23,8 @@ import {
   MatAutocompleteModule,
   MatCardModule,
   MatDividerModule,
-  MAT_DATE_LOCALE
+  MAT_DATE_LOCALE,
+  MatSelectModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -71,6 +72,7 @@ import { CategoryService } from './shared/category.service';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
+    MatSelectModule,
     MatTableModule,
     MatSortModule,
     MatIconModule,

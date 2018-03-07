@@ -1,13 +1,9 @@
 .container {
     display: flex;
     flex-direction: column;
-    max-height: 100%;
+    height: auto;
     min-width: 300px;
     margin: 0 1em 1.2em 1em; 
-  }
-  .mat-table {
-    overflow: auto;
-    max-height: 500px;
   }
   .actionBtns {
     display: flex;
