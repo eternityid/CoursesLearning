@@ -74,11 +74,11 @@
 .directiveBtn{
     display: flex;
     justify-content: space-between;
-}
-.directiveBtn > a{
-    display: inline-flex;
-    text-decoration: none;
-    margin-top:2em;
-    font-size: .7em;
-    align-items: center;  
+    a{
+        display: inline-flex;
+        text-decoration: none;
+        margin-top:2em;
+        font-size: .7em;
+        align-items: center;  
+    }
 }

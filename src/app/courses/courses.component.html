@@ -41,15 +41,9 @@
 
     <hr class="hr_main">
     <div class="course_main">
-        <div class="column" *ngFor="let course of filterCourses ">
-            <div class="col_course">
-                <img src="{{course.imageUrl}}">
-                <h4>{{course.name}}</h4>
-                <p>{{course.description}}</p>
-                <button (click)="joinCourse()">
-                    <strong>Join now</strong>
-                </button>
-            </div>
+        <div class="column" *ngFor="let u of e ">
+          <app-course-card class="column" [course]="u" 
+          ></app-course-card>
         </div>
     </div>
 </div>

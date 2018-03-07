@@ -24,6 +24,8 @@ import { MatButtonModule,
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { FooterComponent } from '../footer/footer.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
+import { CourseCardComponent } from '../courses/course-card/course-card.component';
+
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { AboutUsComponent } from '../about-us/about-us.component';
     HomeComponent,
     CoursesComponent,
     AboutUsComponent,
-    FooterComponent
+    FooterComponent,
+    CourseCardComponent
   ]
 })
 export class NormalScreenModule { }

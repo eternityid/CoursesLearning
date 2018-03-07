@@ -11,7 +11,7 @@ import { ModalConfirmComponent } from '../modal-confirm/modal-confirm.component'
 @Component({
   selector: 'app-admin-courses',
   templateUrl: './admin-courses.component.html',
-  styleUrls: ['./admin-courses.component.css']
+  styleUrls: ['./admin-courses.component.scss']
 })
 export class AdminCoursesComponent implements OnInit {
 

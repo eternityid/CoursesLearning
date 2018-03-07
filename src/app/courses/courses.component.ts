@@ -9,7 +9,7 @@ import { MatSelectChange } from '@angular/material';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.css']
+  styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
 

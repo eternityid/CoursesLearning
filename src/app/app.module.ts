@@ -24,7 +24,8 @@ import {
   MatCardModule,
   MatDividerModule,
   MAT_DATE_LOCALE,
-  MatSelectModule
+  MatSelectModule,
+  MatIconRegistry
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -51,7 +52,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
 import { CategoryService } from './shared/category.service';
+import { NormalScreenComponent } from './normal-screen/normal-screen.component';
 import { ViewCourseDetailComponent } from './courses/view-course-detail/view-course-detail.component';
+
+
+import { TruncateModule } from 'ng2-truncate';
 
 @NgModule({
   declarations: [
@@ -93,18 +98,21 @@ import { ViewCourseDetailComponent } from './courses/view-course-detail/view-cou
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
+    TruncateModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
   providers: [CourseService,
     CategoryService,
+    MatIconRegistry,
     UserService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(router: Router) {
+  constructor(router: Router, public matIconRegistry: MatIconRegistry ){
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }

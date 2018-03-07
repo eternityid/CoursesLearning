@@ -1,0 +1,288 @@
+.title_Top {
+ 
+  color: #3a343a;
+
+  margin-top: 4em;
+  font-weight: 400;
+display: block;
+  line-height: 4rem;
+  text-align: center;
+  h1{
+
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 4rem;
+    margin: 4rem 5rem;
+    margin-top: 6rem;
+  }
+}
+
+::ng-deep .colCenter .mat-figure {
+  align-items: unset !important;
+}
+
+mat-list{
+  h2:hover{
+    color: #3f51b5;
+    text-decoration-line: inherit;
+  }
+}
+mat-card-title {
+  font-size: 1.9rem;
+  text-align: center;
+  font-family: 'Europa';
+  a {
+    margin-bottom: 2rem;
+  }
+  h1 {
+    text-align: center;
+    color: #3a343a;
+    font-family: 'Europa';
+    margin-bottom: 3rem;
+  }
+}
+
+mat-card-subtitle{ 
+  p {
+  color: #393b42;
+  line-height: 1.39063;
+  font-size: 18px;
+}
+}
+
+.btn_signIn {
+  background: #3f51b5;
+  margin-left: 45%;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+}
+
+.btn_signIn::after {
+  width: 100%;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  opacity: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.btn_signIn:hover {
+  color: #3f51b5;
+  background: #ffffff;
+  border: 3px solid #3f51b5;
+}
+
+.card_Main {
+  background: #ffffff;
+  box-shadow: none;
+  height: 100%;
+}
+
+::ng-deep .list_Cource .mat-figure {
+  align-items: unset !important;
+}
+
+.item_cource:hover {
+  background: rgba(197, 202, 233, .3);
+}
+
+.item_cource mat-divider:hover {
+  background: #3f51b5;
+}
+
+.colCenter {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+#carousel {
+  width: 100%;
+  margin: 1em 0em;
+  padding: 0;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.items {
+
+  height: 200px;
+  background: #ffffff;
+  img{
+    width: 768px;
+    height: 200px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .items{
+    img{
+      width: 1000px;
+      height: 200px;
+      padding-left: 2.7rem;
+    }
+  }
+}
+#left{
+    padding-left: 1.6rem;
+}
+
+#left,
+#right {
+  margin: 30px;
+}
+
+.container {
+  margin-top: 5em;
+
+}
+
+.avt_card {
+  float: left;
+  margin-left: 15%;
+  margin-right: .7rem;
+  margin-bottom: 1rem;
+  width: 17em;
+  height: 22em;
+  border-radius: 0%;
+}
+.mat-card:not(){
+  box-shadow: none;
+}
+
+
+.example-card {
+  position: sticky;
+  display: flex;
+
+  padding: 2em 0;
+  opacity: 0.9;
+  -webkit-transition: all ease-out 0.4s;
+  transition: all ease-out 0.4s;
+
+  a {
+    z-index: 1;
+
+    background: rgba(238, 240, 255, 0.411);
+    color: #080808;
+    opacity: .9;
+
+    font-size: 1.6rem;
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    margin: 2rem .5rem;
+    padding: 1rem 0;
+
+  }
+
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+[class*="col-"] {
+  float: left;
+  
+}
+
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 80%;
+   margin-left: 20%; 
+}
+
+@media only screen and (min-width: 600px) {
+  [class*="col-"] {
+    width: 80%;
+     margin-left: 30%; 
+  }
+  
+}
+
+@media only screen and (min-width: 700px) {
+  [class*="col-"] {
+     padding: 1%; 
+     margin-left: 0%;
+  }
+  .example-card {
+
+    img{
+      width: 100%;
+    }
+    a {
+      font-size: 1.5rem;
+      margin: 2rem 0rem;
+      padding: 1rem 0;
+      width: 100%;
+      font-weight: bold;
+    }
+  
+  }
+  /* For desktop: */
+  .col-0{
+    width: 4%;
+    margin-left: 1.6rem;
+  }
+  .col-05{
+    width: 4.165%;
+  }
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+
+
+.bottom_Title {
+  font-family: 'Europa';
+  color: #3a343a;
+  margin: 1em 3em;
+  font-weight: 400;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.card--title {
+  margin-top: 0;
+}
+@media only screen and (min-width: 1028px) {
+  .avt_card {
+    float: left;
+    margin-left: 0;
+    margin-right: .7rem;
+    margin-bottom: 1rem;
+    width: 17em;
+    height: 22em;
+    border-radius: 0%;
+  }
+}
+
+.paragharp{
+  height: 100%;
+}
