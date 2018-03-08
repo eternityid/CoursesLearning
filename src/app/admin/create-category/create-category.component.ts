@@ -9,13 +9,13 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class CreateCategoryComponent implements OnInit {
 
   categoryName: string = '';
-  constructor(public dialogRef: MatDialogRef<CreateCategoryComponent>) { }
+  constructor(public _dialogRef: MatDialogRef<CreateCategoryComponent>) { }
 
   ngOnInit() {
   }
 
   onCancelClick(): void {
-    this.dialogRef.close();
+    this._dialogRef.close();
   }
 
 }

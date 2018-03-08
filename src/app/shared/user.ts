@@ -8,5 +8,5 @@ export interface User{
     username:string,
     password:string,
     studyingCourse:string,
-    studiedCourses:Array<string>
+    studiedCourses:string[]
 }

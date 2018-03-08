@@ -13,13 +13,13 @@ import {
 export class HeaderComponent {
 
   isLoggedIn: boolean;
-  constructor(private userSvc: UserService,
-    private router: Router) {
-    this.isLoggedIn = this.userSvc.isLoggedIn;
+  constructor(private _userSvc: UserService,
+    private _router: Router) {
+    this.isLoggedIn = this._userSvc.isLoggedIn;
   }
 
   logout() {
-    this.userSvc.logout();
-    this.router.navigate(['/login']);
+    this._userSvc.logout();
+    this._router.navigate(['/login']);
   }
 }

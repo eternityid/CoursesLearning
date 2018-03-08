@@ -20,11 +20,11 @@ export class LoginComponent implements OnInit {
   }
   hide = true;
 
-  constructor(private userSvc: UserService,
-    private toastr: ToastsManager,
-    private vcr: ViewContainerRef,
-    private router: Router) {
-    this.toastr.setRootViewContainerRef(vcr);
+  constructor(private _userSvc: UserService,
+    private _toastr: ToastsManager,
+    private _vcr: ViewContainerRef,
+    private _router: Router) {
+    this._toastr.setRootViewContainerRef(_vcr);
   }
 
   ngOnInit() { }
@@ -32,13 +32,13 @@ export class LoginComponent implements OnInit {
   onLogin(username, password) {
     this.userInfo = { username: username, password: password };
 
-    this.userSvc.login(this.userInfo).subscribe(() => {
-      if (this.userSvc.isLoggedIn) {
-        let redirect = this.userSvc.redirectUrl ? this.userSvc.redirectUrl : '/';
-        this.toastr.success('You are right and wait a minute!', 'Successful');
-        this.router.navigate([redirect]);
+    this._userSvc.login(this.userInfo).subscribe(() => {
+      if (this._userSvc.isLoggedIn) {
+        let redirect = this._userSvc.redirectUrl ? this._userSvc.redirectUrl : '/';
+        this._toastr.success('You are right and wait a minute!', 'Successful');
+        this._router.navigate([redirect]);
       } else {
-        this.toastr.error('Your username or password is wrong', 'Error');
+        this._toastr.error('Your username or password is wrong', 'Error');
       }
     });
   }

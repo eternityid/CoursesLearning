@@ -12,7 +12,7 @@ import {
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
-  constructor(private userSvc:UserService,private router: Router) {
+  constructor(private _userSvc:UserService,private _router: Router) {
    }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -30,17 +30,17 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   checkLogin(url: string): boolean {
-    if(this.userSvc.isLoggedIn && this.userSvc.userRole === "admin")
+    if(this._userSvc.isLoggedIn && this._userSvc.userInfo.role === "admin")
     {
       return true;
-    }else if(this.userSvc.isLoggedIn){
+    }else if(this._userSvc.isLoggedIn){
       if(url === "/admin"){
         url = "/";
       }
-      this.router.navigate([url]);
+      this._router.navigate([url]);
     }else{
-      this.userSvc.redirectUrl = url;
-      this.router.navigate(['/login']);
+      this._userSvc.redirectUrl = url;
+      this._router.navigate(['/login']);
       return false;
     }
   }

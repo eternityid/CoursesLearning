@@ -21,9 +21,9 @@ export class AdminCoursesComponent implements OnInit {
   categories:Category[];
   selectedDefault:string;
 
-  constructor(private courseSvc: CourseService,
-    private categorySvc:CategoryService,
-    private dialog: MatDialog) {}
+  constructor(private _courseSvc: CourseService,
+    private _categorySvc:CategoryService,
+    private _dialog: MatDialog) {}
 
   ngOnInit() {
     this.selectedDefault = "000000000000001";
@@ -32,7 +32,7 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   getCategories() {
-    this.categorySvc.getCategories().subscribe(categories => {
+    this._categorySvc.getCategories().subscribe(categories => {
       this.categories = categories;
     });
   }
@@ -43,7 +43,7 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   getSourceCourses(categoryId?:string){
-    this.courseSvc.getCourses(categoryId).subscribe(c => {
+    this._courseSvc.getCourses(categoryId).subscribe(c => {
       this.coursesList.data = c;
     });
   }
@@ -61,37 +61,41 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   showModalCreate(): void {
-    let course: Course = {};
-    let dialogRef = this.dialog.open(CourseDetailComponent, {
+    const coursesList = this.coursesList.data;
+    let dialogRef = this._dialog.open(CourseDetailComponent, {
       width: '85%',
-      maxHeight: '90%',      
-      data: course
+      maxHeight: '90%',    
+      data: coursesList
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != null) {
-        this.courseSvc.addCourse(result);
+        this._courseSvc.addCourse(result);
       }
     });
   }
 
   showModalEdit(course: Course): void {
-    console.log(this.coursesList.data)
-    let dialogRef = this.dialog.open(CourseDetailComponent, {
+    const coursesList = this.coursesList.data.filter(c => c != course);
+    const dataRequest = {
+      course: course,
+      coursesList: coursesList
+    }
+    let dialogRef = this._dialog.open(CourseDetailComponent, {
       width: '85%',
-      data: course
+      data: dataRequest
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != null) {
-        this.courseSvc.updateCourse(result);
+        this._courseSvc.updateCourse(result);
       }
     });
   }
 
   deleteCourse(course: Course) {
 
-    let dialogRef = this.dialog.open(ModalConfirmComponent, {
+    let dialogRef = this._dialog.open(ModalConfirmComponent, {
       width: '50%',
       maxHeight: '20%',
       data: course        
@@ -100,7 +104,7 @@ export class AdminCoursesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result)      
       if (result) {
-        // this.courseSvc.deleteCourse(course.key);
+        // this._courseSvc.deleteCourse(course.key);
       }
     });
   }

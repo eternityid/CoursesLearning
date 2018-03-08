@@ -11,5 +11,5 @@ export interface Course{
     currentStudents?:number,
     category?:Category,
     categoryId?:string,
-    listOrder?:Array<Course>    
+    orderList?:string[]
 }

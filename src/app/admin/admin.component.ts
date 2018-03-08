@@ -10,19 +10,10 @@ export class AdminComponent implements OnInit {
 
   coursesList:Course[];
   check=true;
-  // ssourceCourses:any;
+
   asideMenu=['Dashboard','Courses','News'];
   constructor() { }
 
-  // @ViewChild(MatSort) sort: MatSort;
-
   ngOnInit() {  
-    
-    //this.sourceCourses = new MatTableDataSource(this.coursesList);
   }
-
-  ngAfterViewInit() {
-    // this.sourceCourses.sort = this.sort;
-  }
-
 }

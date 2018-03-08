@@ -8,10 +8,10 @@ import { Observable } from 'rxjs/Observable';
 export class CategoryService {
   
   categories:Observable<Category[]>;
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private _firestore: AngularFirestore) { }
 
   getCategories(){
-    return this.firestore.collection('categories').snapshotChanges().map(categories =>{      
+    return this._firestore.collection('categories').snapshotChanges().map(categories =>{      
       return categories.map(category =>{
         const data = category.payload.doc.data() as Category;
         data.key = category.payload.doc.id;      
@@ -21,6 +21,6 @@ export class CategoryService {
   }
 
   addCategory(category:string){
-    return this.firestore.collection('categories').add({name:category});
+    return this._firestore.collection('categories').add({name:category});
   }
 }

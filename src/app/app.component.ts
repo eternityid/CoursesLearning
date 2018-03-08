@@ -8,9 +8,8 @@ import { Course } from './shared/course';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
 
-  constructor(private courseSvc: CourseService) { }
+  constructor() { }
 
   ngOnInit() {
   }

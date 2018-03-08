@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     path: 'learning',
     loadChildren: 'app/normal-screen/normal-screen.module#NormalScreenModule'
   },
-  {path:'sign-up',component:SignUpComponent},
+  { path: 'sign-up', component: SignUpComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

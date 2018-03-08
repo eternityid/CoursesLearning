@@ -12,14 +12,14 @@ import {
 })
 export class AdminHeaderComponent implements OnInit {
 
-  constructor(private userSvc:UserService,private router:Router) { }
+  constructor(private _userSvc:UserService,private _router:Router) { }
 
   ngOnInit() {
   }
 
   logout(){
-    this.userSvc.logout();
-    this.router.navigate(['/']);
+    this._userSvc.logout();
+    this._router.navigate(['/']);
   }
 
 }

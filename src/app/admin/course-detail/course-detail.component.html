@@ -6,22 +6,22 @@
     <mat-grid-list cols="2" rowHeight="6.5em">
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
-          <p>What's teacher name?</p>
+          <h5>What's the course's name?</h5>
           <mat-form-field>
-            <input matInput [(ngModel)]="course.teacherName" placeholder="Teacher's name">
+            <input matInput [(ngModel)]="course.name" placeholder="Course's name">
           </mat-form-field>
         </div>
       </mat-grid-tile>
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
-          <p>Choose category for course!</p>
+          <h5>Choose category for course!</h5>
           <div class="block--category">
             <a mat-icon-button class="create-category-btn" color="primary" matTooltip="Create new category" (click)="showCreateCategoryModal()">
               <mat-icon class="icon-create">add</mat-icon>
             </a>
             <mat-form-field>
-              <mat-select (selectionChange)="onSelectionChanged($event)" [(ngModel)]="categoryDefault" placeholder="Category">
+              <mat-select (selectionChange)="onCategoryChanged($event)" [(ngModel)]="categoryDefault" placeholder="Category">
                 <mat-option *ngFor="let category of categories" [value]="category.key">
                   {{ category.name }}
                 </mat-option>
@@ -33,23 +33,27 @@
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
-          <p>Upload picture 1</p>
+          <h5>Add list order</h5>
           <mat-form-field>
-            <input matInput placeholder="testing">
-          </mat-form-field>
+              <mat-select [formControl]="formControlOrderList" (selectionChange)="onOrderListChanged($event)" placeholder="list order" multiple>
+                <mat-option *ngFor="let course of coursesList" [value]="course.key">
+                  {{ course.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
         </div>
       </mat-grid-tile>
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
-          <p>Upload picture 2</p>
+          <h5>Upload picture 2</h5>
           <input type="file">
         </div>
       </mat-grid-tile>
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
-          <p>How long the course is?</p>
+          <h5>How long the course is?</h5>
           <mat-form-field>
             <input matInput [(ngModel)]="course.time" placeholder="Time">
           </mat-form-field>
@@ -58,7 +62,7 @@
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
-          <p>What time is it beginning?</p>
+          <h5>What time is it beginning?</h5>
           <mat-form-field>
             <input matInput [matDatepicker]="picker" [(ngModel)]="course.beginingOfDate" placeholder="Choose a date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -68,8 +72,8 @@
       </mat-grid-tile>
 
       <mat-grid-tile [colspan]="2" [rowspan]="1">
-        <div class="block">
-          <p>Describe about the course!</p>
+        <div class="block">s
+          <h5>Describe about the course!</h5>
           <mat-form-field>
             <textarea matInput rows="3" placeholder="Fill description" [(ngModel)]="course.description">{{course.description}}</textarea>
           </mat-form-field>

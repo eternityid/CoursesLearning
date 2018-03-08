@@ -41,8 +41,8 @@
 
     <hr class="hr_main">
     <div class="course_main">
-        <div class="column" *ngFor="let u of e ">
-          <app-course-card class="column" [course]="u" 
+        <div class="column" *ngFor="let course of filterCourses ">
+          <app-course-card class="column" [course]="course" 
           ></app-course-card>
         </div>
     </div>

@@ -9,20 +9,22 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class UserService {
 
-  private tokenKey: string = "accessToken";
+  private _tokenKey: string = "accessToken";
   isLoggedIn = false;
-  userRole:string;
+  userInfo:User;
   redirectUrl: string;
-  constructor(private firestore: AngularFirestore) {}
+
+
+  constructor(private _firestore: AngularFirestore) {}
 
   login(user: any): Observable<boolean> {
     const currentTime = (new Date).getTime();
-    return this.firestore.collection<User>('users', ref => ref.where('username', "==", user.username).limit(1)).valueChanges()
+    return this._firestore.collection<User>('users', ref => ref.where('username', "==", user.username).limit(1)).valueChanges()
       .map(users => {
         if (users.length == 1 && users[0].password === user.password) {
           let jwtToken = { expire: currentTime, token: this.generateToken(), username: users[0].username };
           this.store(jwtToken);
-          this.userRole = users[0].role;
+          this.userInfo = users[0];
           this.isLoggedIn = true;
           return true;
         }
@@ -32,11 +34,11 @@ export class UserService {
   }
 
   store(jwtToken: Object) {
-    localStorage.setItem(this.tokenKey, JSON.stringify(jwtToken));
+    localStorage.setItem(this._tokenKey, JSON.stringify(jwtToken));
   }
 
   retrieve() {
-    let storedToken: string = localStorage.getItem(this.tokenKey);
+    let storedToken: string = localStorage.getItem(this._tokenKey);
     if (!storedToken) throw 'no token found';
     return storedToken;
   }
@@ -51,11 +53,16 @@ export class UserService {
     }));
 
     this.isLoggedIn = true;
-    this.firestore.collection<User>('users').add(user);
+    this._firestore.collection<User>('users').add(user);
+  }
+
+  addCourse(){
+    console.log(this.userInfo);
+    return this.userInfo
   }
 
   logout() {
-    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this._tokenKey);
     this.isLoggedIn = false;
   }
 
