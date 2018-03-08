@@ -76,6 +76,7 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   showModalEdit(course: Course): void {
+    console.log(this.coursesList.data)
     let dialogRef = this.dialog.open(CourseDetailComponent, {
       width: '85%',
       data: course
@@ -88,16 +89,18 @@ export class AdminCoursesComponent implements OnInit {
     });
   }
 
-  deleteCourse(id: string) {
+  deleteCourse(course: Course) {
 
     let dialogRef = this.dialog.open(ModalConfirmComponent, {
-      width: '50%'    
+      width: '50%',
+      maxHeight: '20%',
+      data: course        
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result)      
       if (result) {
-        // this.courseSvc.deleteCourse(id);
+        // this.courseSvc.deleteCourse(course.key);
       }
     });
   }

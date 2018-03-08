@@ -1,9 +1,7 @@
-
 <div class="modal">
-    <div class="header-title">
-        <h1 mat-dialog-title>{{title}}</h1>
-    </div>
-    <hr>
+  <div class="header-title">
+    <h1 mat-dialog-title>{{title}}</h1>
+  </div>
   <div mat-dialog-content>
     <mat-grid-list cols="2" rowHeight="6.5em">
       <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -19,7 +17,7 @@
         <div class="block">
           <p>Choose category for course!</p>
           <div class="block--category">
-            <a mat-icon-button color="primary" matTooltip="Create new category" (click)="showCreateCategoryModal()">
+            <a mat-icon-button class="create-category-btn" color="primary" matTooltip="Create new category" (click)="showCreateCategoryModal()">
               <mat-icon class="icon-create">add</mat-icon>
             </a>
             <mat-form-field>
@@ -80,7 +78,7 @@
     </mat-grid-list>
   </div>
   <div mat-dialog-actions class="dialog-actions">
-    <button mat-button (click)="onCancelClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="course" cdkFocusInitial class="saveBtn">Save</button>
+    <button mat-button [mat-dialog-close]="course" cdkFocusInitial class="save-btn">Save</button>
+    <button mat-button class="close-btn" (click)="onCancelClick()">Cancel</button>
   </div>
 </div>

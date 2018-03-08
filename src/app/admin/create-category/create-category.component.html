@@ -1,10 +1,12 @@
-<h1 mat-dialog-title> Create new category</h1>
+<div class="header-title">
+  <h1 mat-dialog-title> Create new category</h1>
+</div>
 <div mat-dialog-content>
   <mat-form-field>
     <input matInput placeholder="Fill category's name" [(ngModel)]="categoryName">
   </mat-form-field>
 </div>
-<div mat-dialog-actions class="dialog-actions">
-  <button mat-button (click)="onCancelClick()">Cancel</button>
+<div mat-dialog-actions>
   <button mat-button class="create-btn" [mat-dialog-close]="categoryName" cdkFocusInitial>Create</button>
+  <button mat-button class="close-btn" (click)="onCancelClick()">Cancel</button>
 </div>

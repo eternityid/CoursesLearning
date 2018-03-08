@@ -31,14 +31,20 @@
   .button-row{
     display: flex;
     align-items: center;
-    margin: .5em 1em;    
+    margin: .5em 1em;
+    .title-header{
+      h3{
+        margin-left:.3em;
+        color: rgb(51, 24, 114);
+      }
+    }
+    a{
+      &:hover{
+        background-color: rgba(33, 42, 95, 0.89);
+      }
+      .icon-create{
+        font-weight: bold;
+      }
+    }            
   }
-  .title-header{
-     h3{
-    margin-left:.3em;
-    color: rgb(51, 24, 114);
-  }
-  }
-  .icon-create{
-    font-weight: bold;
-  }
+

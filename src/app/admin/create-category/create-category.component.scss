@@ -1,11 +1,28 @@
 .mat-form-field{
     width: 100%;
 }
-.dialog-actions{
-    flex-flow: row-reverse;
+.mat-dialog-actions{
+    justify-content: flex-end;
 }
 .create-btn{
-    background-color: blue;
+    background-color: #3f51b5;
     color: white;
-    font-size: bold;
+    font-size: bold;    
+}
+.create-btn:hover{
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+.close-btn{
+    border: 1px solid rgb(126, 124, 124); 
+}
+.header-title{
+    text-align: center;
+}
+.mat-dialog-title{
+    font-weight: bold;
+    color:white;
+    margin: -24px -24px 20px;
+    padding: .5em 1em;
+    box-shadow: 0 0 10px #24306e;
+    background-color: #3f51b5;   
 }
