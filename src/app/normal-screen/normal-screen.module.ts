@@ -25,6 +25,7 @@ import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { FooterComponent } from '../footer/footer.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { CourseCardComponent } from '../courses/course-card/course-card.component';
+import { ViewCourseDetailComponent } from '../courses/view-course-detail/view-course-detail.component';
 
 
 
@@ -56,7 +57,8 @@ import { CourseCardComponent } from '../courses/course-card/course-card.componen
     CoursesComponent,
     AboutUsComponent,
     FooterComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    ViewCourseDetailComponent
   ]
 })
 export class NormalScreenModule { }

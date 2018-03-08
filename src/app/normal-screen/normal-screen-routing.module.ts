@@ -5,6 +5,8 @@ import { NormalScreenComponent } from './normal-screen.component';
 import { HomeComponent } from '../home/home.component';
 import { CoursesComponent } from '../courses/courses.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
+import { ViewCourseDetailComponent } from '../courses/view-course-detail/view-course-detail.component';
+
 
 
 const normalRoutes: Routes = [
@@ -13,6 +15,7 @@ const normalRoutes: Routes = [
         component: NormalScreenComponent,
         children: [
             { path: '', component: HomeComponent },
+            { path: 'detail', component: ViewCourseDetailComponent },
             { path: 'courses', component: CoursesComponent },
             { path: 'about-us', component: AboutUsComponent },
         ]

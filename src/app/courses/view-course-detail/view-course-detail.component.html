@@ -1,3 +1,68 @@
-<p>
-  view-course-detail works!
-</p>
+<div class="container">
+  <mat-toolbar>
+    <mat-toolbar-row class="content_name">
+      <span>Food as Medicine</span>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <div class="paragraph">
+        <p class="content-top">
+          <mat-icon style="padding-right: 2px; padding-top:3px;">trending_flat</mat-icon> Thinking about a career change? Identify your key strengths
+          <br>and professional skills, and learn how to sell them and yourself.
+        </p>
+        <button>Join now</button>
+      </div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="banner">
+      <img src="assets/img/detail.png">
+    </mat-toolbar-row>
+    <!-- <mat-toolbar-row class="title_light">
+          <p>
+              This course is part of the program <a class="highlight">Introduction to IT Professional Practice</a> , 
+              which is one of the building blocks <br>that leads to a 
+              <a class="hightlight">Information Technology Leadership</a> degree. Find out more.  
+          </p>
+           
+        </mat-toolbar-row> -->
+
+    <mat-toolbar-row class="main_title">
+      <span>
+        Learn how to benefit from your work and life experience
+      </span>
+
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="main_content">
+      <p>
+        Most people change their jobs multiple times, some make dramatic
+        <br> career shifts. Being able to identify your transferable skills is vital in
+        <br>a changing career marketplace.
+
+        <br>
+        <br> This course investigates the current career environment and, using
+        <br>case studies and a series of unique audit tools, it will challenge you to
+        <br> explore your successes and what success means to you. It will also
+        <br> develop your capacity to reflect on your strengths and weaknesses
+        <br>and increase your knowledge of credentials (the skills and capabilities
+        <br> you have built during your life and career).</p>
+      <img src="assets/img/learning_detail.jpg">
+    </mat-toolbar-row>
+    <mat-toolbar-row class="content_name">
+      <span>More course</span>
+
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+  <div class="more_course">
+      <div class="column" *ngFor="let u of e ">
+          <app-course-card class="column" [course]="u"></app-course-card>
+        </div>
+    
+  </div>
+ 
+
+</div>
