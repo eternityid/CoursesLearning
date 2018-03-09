@@ -103,27 +103,7 @@ export class CourseDetailComponent implements OnInit {
       this.teachers = teachers;
     });
   }
-
-  showAddTeacherModal() {
-    let _dialogRef = this._dialog.open(CreateCategoryComponent, {
-      width: '50%',
-      data: this.titleAddTeacher
-    });
-
-    _dialogRef.afterClosed().subscribe(newTeacherName => {
-      if (newTeacherName !== null && newTeacherName !== '' && newTeacherName !== undefined) {
-        this._teacherSvc.addNewTeacher(newTeacherName).then(teacher => {
-          this.teacherDefault = teacher.id;
-          this.course.teacher = {
-            key: teacher.id,
-            name: newTeacherName
-          }
-          this._toastr.success(`New teacher is added successful!`, "Success");
-        });
-      }
-    });
-  }
-
+  
   onTeacherChanged(event: MatSelectChange) {    
     const selectedTeacher = {
       key: event.value,

@@ -6,7 +6,7 @@
       <button mat-button routerLink="./">Home</button>
       <button mat-button routerLink="./courses">Courses</button>
       <button mat-button routerLink="./about-us">About Us</button>
-      <button mat-button *ngIf="!isLoggedIn" routerLink="/sign-up">Sign Up</button>
+      <button class="login" mat-button *ngIf="!isLoggedIn" routerLink="/sign-up">Sign Up</button>
       <button mat-button *ngIf="isLoggedIn" [matMenuTriggerFor]="settingMenu" class="setting-btn">
         <mat-icon>settings</mat-icon>
       </button>
