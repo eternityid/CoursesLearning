@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, AfterViewInit, OnChanges, Input  } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, OnChanges, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Course } from '../../shared/course';
 import { CourseService } from '../../shared/course.service';
 import { MatTableDataSource, MatSort, MatFormFieldControl, MatDialog, MatSelectChange } from '@angular/material';
 import { CourseDetailComponent } from '../course-detail/course-detail.component';
-import {Category} from '../../shared/category';
-import {CategoryService} from '../../shared/category.service';
+import { Category } from '../../shared/category';
+import { CategoryService } from '../../shared/category.service';
 import { ModalConfirmComponent } from '../modal-confirm/modal-confirm.component';
 
 @Component({
@@ -15,15 +15,16 @@ import { ModalConfirmComponent } from '../modal-confirm/modal-confirm.component'
 })
 export class AdminCoursesComponent implements OnInit {
 
-  coursesList = new MatTableDataSource();
+  coursesList = new MatTableDataSource<Course>();
+  sourceCourses:Course[];
   displayedColumns = ['teacherName', 'description', 'categories', 'amountOfStudents', 'beginingOfDate', 'actionBtns'];
 
-  categories:Category[];
-  selectedDefault:string;
+  categories: Category[];
+  selectedDefault: string;
 
   constructor(private _courseSvc: CourseService,
-    private _categorySvc:CategoryService,
-    private _dialog: MatDialog) {}
+    private _categorySvc: CategoryService,
+    private _dialog: MatDialog) { }
 
   ngOnInit() {
     this.selectedDefault = "000000000000001";
@@ -38,12 +39,13 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   onSelectionChanged(event: MatSelectChange) {
-     let categoryId = event.value;
-     this.getSourceCourses(categoryId);
+    let categoryId = event.value;
+    this.getSourceCourses(categoryId);
   }
 
-  getSourceCourses(categoryId?:string){
+  getSourceCourses(categoryId?: string) {
     this._courseSvc.getCourses(categoryId).subscribe(c => {
+      this.sourceCourses = c;
       this.coursesList.data = c;
     });
   }
@@ -54,17 +56,20 @@ export class AdminCoursesComponent implements OnInit {
     this.getSourceCourses();
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim();
-    filterValue = filterValue.toLowerCase();
-    this.coursesList.filter = filterValue;
+  applyFilter(searchKeyword: string) {
+    if(searchKeyword === null){
+      this.coursesList.data = this.sourceCourses;
+    }
+    this.coursesList.data = this.sourceCourses.filter((course) =>
+      course.name.toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1
+    );
   }
 
   showModalCreate(): void {
     const coursesList = this.coursesList.data;
     let dialogRef = this._dialog.open(CourseDetailComponent, {
       width: '85%',
-      maxHeight: '90%',    
+      maxHeight: '90%',
       data: coursesList
     });
 
@@ -98,11 +103,11 @@ export class AdminCoursesComponent implements OnInit {
     let dialogRef = this._dialog.open(ModalConfirmComponent, {
       width: '50%',
       maxHeight: '20%',
-      data: course        
+      data: course
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)      
+      console.log(result)
       if (result) {
         // this._courseSvc.deleteCourse(course.key);
       }

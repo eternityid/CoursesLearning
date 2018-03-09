@@ -32,6 +32,11 @@ import { AppComponent } from './app.component';
 
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { CourseService } from './shared/course.service';
+import { TeacherService } from './shared/teacher.service';
+import { CategoryService } from './shared/category.service';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { NormalScreenComponent } from './normal-screen/normal-screen.component';
 import { PageNotFoundComponent } from './page-not-found-component';
 
 import { UserService } from './shared/user.service';
@@ -43,20 +48,15 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
-import { CategoryService } from './shared/category.service';
-import { NormalScreenComponent } from './normal-screen/normal-screen.component';
-
-
 
 import { TruncateModule } from 'ng2-truncate';
+
+
 
 @NgModule({
   declarations: [
@@ -104,6 +104,7 @@ import { TruncateModule } from 'ng2-truncate';
   ],
   providers: [CourseService,
     CategoryService,
+    TeacherService,
     MatIconRegistry,
     UserService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],

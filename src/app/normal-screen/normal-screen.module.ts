@@ -26,7 +26,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { CourseCardComponent } from '../courses/course-card/course-card.component';
 import { ViewCourseDetailComponent } from '../courses/view-course-detail/view-course-detail.component';
-
+import { FilterTopListPipe } from '../shared/filter-top-list.pipe';
 
 
 @NgModule({
@@ -58,7 +58,9 @@ import { ViewCourseDetailComponent } from '../courses/view-course-detail/view-co
     AboutUsComponent,
     FooterComponent,
     CourseCardComponent,
+    FilterTopListPipe,
     ViewCourseDetailComponent
-  ]
+  ],
+  exports:[FilterTopListPipe]
 })
 export class NormalScreenModule { }

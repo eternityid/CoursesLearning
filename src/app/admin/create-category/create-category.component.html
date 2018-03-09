@@ -1,9 +1,9 @@
 <div class="header-title">
-  <h1 mat-dialog-title> Create new category</h1>
+  <h1 mat-dialog-title>{{title}}</h1>
 </div>
 <div mat-dialog-content>
   <mat-form-field>
-    <input matInput placeholder="Fill category's name" [(ngModel)]="categoryName">
+    <input matInput placeholder="Enter a new name" [(ngModel)]="categoryName">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

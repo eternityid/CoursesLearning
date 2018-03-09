@@ -6,8 +6,7 @@ import { Category } from './category';
 import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class CategoryService {
-  
-  categories:Observable<Category[]>;
+
   constructor(private _firestore: AngularFirestore) { }
 
   getCategories(){
@@ -20,7 +19,7 @@ export class CategoryService {
     })
   }
 
-  addCategory(category:string){
-    return this._firestore.collection('categories').add({name:category});
+  addCategory(categoryName:string){
+    return this._firestore.collection('categories').add({name:categoryName});
   }
 }

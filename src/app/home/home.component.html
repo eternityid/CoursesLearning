@@ -61,10 +61,10 @@
     <hr style="width: 98%; margin-bottom: 2rem">
     <mat-grid-list cols="5" rowHeight="80em">
         <mat-grid-tile class="list_Cource ">
-            <mat-list #shoes>
-                <h2>Top Cource</h2>
-                <mat-list-item *ngFor="let shoe of typesOfCources" class="item_cource">
-                    {{shoe}}
+            <mat-list>
+                <h2>Top Courses</h2>
+                <mat-list-item *ngFor="let course of coursesList | filterTopList:5" class="item_cource">
+                    {{course.name}}
                     <mat-divider></mat-divider>
                 </mat-list-item>
             </mat-list>
@@ -106,9 +106,9 @@
         </mat-grid-tile>
         <mat-grid-tile class="list_Cource">
             <mat-list #shoes>
-                <h2>News Cource</h2>
-                <mat-list-item *ngFor="let shoe of typesOfCources" class="item_cource">
-                    {{shoe}}
+                <h2>Top Teachers</h2>
+                <mat-list-item *ngFor="let teacher of teachersList | filterTopList:5" class="item_cource">
+                    {{teacher.name}}
                     <mat-divider></mat-divider>
                 </mat-list-item>
             </mat-list>
