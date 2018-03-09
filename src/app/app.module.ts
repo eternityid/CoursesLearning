@@ -53,7 +53,7 @@ import { LoginRoutingModule } from './login/login-routing.module';
 import { Router } from '@angular/router';
 import { CategoryService } from './shared/category.service';
 import { NormalScreenComponent } from './normal-screen/normal-screen.component';
-import { ViewCourseDetailComponent } from './courses/view-course-detail/view-course-detail.component';
+
 
 
 import { TruncateModule } from 'ng2-truncate';
@@ -63,8 +63,7 @@ import { TruncateModule } from 'ng2-truncate';
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    PageNotFoundComponent,
-    ViewCourseDetailComponent
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,

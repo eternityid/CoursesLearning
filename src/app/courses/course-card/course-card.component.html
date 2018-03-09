@@ -1,10 +1,13 @@
 <div class="col_course">
-    <a class="course"><img src="{{course.imageUrl}}">
+    <a class="course">
+        <img src="{{course.imageUrl}}">
         <h4>{{course.name}}</h4>
         <p>{{course.description}}</p>
-        </a>
-    
-    <button (click)="joinCourse()">
+    </a>
+    <button class="join_now" (click)="joinCourse()">
         <strong>Join now</strong>
+    </button>
+    <button class="detail">
+        <strong>Detail</strong>
     </button>
 </div>
