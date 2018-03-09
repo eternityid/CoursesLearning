@@ -19,7 +19,7 @@ export class CourseService {
       return this._firestore.collection('courses').snapshotChanges().map(actions => {
         if(this._userSvc.userInfo && this._userSvc.userInfo.passedCourses !== undefined && this._userSvc.userInfo.role !== "admin"){            
           let passedCoursesIdList = this._userSvc.userInfo.passedCourses;
-          actions = actions.filter(act => passedCoursesIdList.indexOf(act.payload.doc.id))
+          actions = actions.filter(act => passedCoursesIdList.indexOf(act.payload.doc.id) < 1)
         }
         return actions.map(act => {
           const data = act.payload.doc.data() as Course;
@@ -28,10 +28,10 @@ export class CourseService {
         });
       });
     }
-    return this._firestore.collection('courses',ref => ref.where('category.key', "==", categoryId)).snapshotChanges().map(actions => {      
+    return this._firestore.collection('courses',ref => ref.where('category.key', "==", categoryId)).snapshotChanges().map(actions => {
       if(this._userSvc.userInfo && this._userSvc.userInfo.passedCourses !== undefined && this._userSvc.userInfo.role !== "admin"){
         let passedCoursesIdList = this._userSvc.userInfo.passedCourses;
-        actions = actions.filter(act => passedCoursesIdList.indexOf(act.payload.doc.id))
+        actions = actions.filter(act => passedCoursesIdList.indexOf(act.payload.doc.id) > -1)
       }
       return actions.map(act => {
         const data = act.payload.doc.data() as Course;
