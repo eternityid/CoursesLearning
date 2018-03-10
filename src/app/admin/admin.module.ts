@@ -10,7 +10,7 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminCoursesComponent } from './admin-courses/admin-courses.component';
-import { AdminNewsComponent } from './admin-news/admin-news.component';
+import { AdminSessionsComponent } from './admin-sessions/admin-sessions.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 
@@ -31,6 +31,7 @@ import {
   MatAutocompleteModule,
   MatTooltipModule
 } from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -63,9 +64,9 @@ import {
     DashboardComponent,
     AdminHeaderComponent,
     AdminCoursesComponent,
-    AdminNewsComponent,
     ModalConfirmComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    AdminSessionsComponent
   ],
   providers: []
 })

@@ -58,26 +58,6 @@
         </div>
       </mat-grid-tile>
 
-      <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <div class="block">
-          <h5>How long the course is?</h5>
-          <mat-form-field>
-            <input matInput [(ngModel)]="course.time" placeholder="Time">
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-
-      <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <div class="block">
-          <h5>What time is it beginning?</h5>
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="course.beginingOfDate" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-
       <mat-grid-tile [colspan]="2" [rowspan]="1">
         <div class="block">s
           <h5>Describe about the course!</h5>

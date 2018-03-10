@@ -8,13 +8,15 @@
   .mat-cell{
     padding: .3em;
   }
-  .actionBtns {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  .mat-column-actionBtns {
+    max-width: 62px;
     a{
       min-width: auto;
     }
+  }
+  .mat-column-name,
+  .mat-column-categories{
+    max-width: 140px;
   }
   .search{
     display: flex;

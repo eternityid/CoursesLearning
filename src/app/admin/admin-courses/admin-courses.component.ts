@@ -17,7 +17,7 @@ export class AdminCoursesComponent implements OnInit {
 
   coursesList = new MatTableDataSource<Course>();
   sourceCourses:Course[];
-  displayedColumns = ['teacherName', 'description', 'categories', 'amountOfStudents', 'beginingOfDate', 'actionBtns'];
+  displayedColumns = ['name', 'categories', 'description', 'orderList', 'actionBtns'];
 
   categories: Category[];
   selectedDefault: string;
@@ -38,7 +38,7 @@ export class AdminCoursesComponent implements OnInit {
     });
   }
 
-  onSelectionChanged(event: MatSelectChange) {
+  onCategoryChanged(event: MatSelectChange) {
     let categoryId = event.value;
     this.getSourceCourses(categoryId);
   }
@@ -113,6 +113,4 @@ export class AdminCoursesComponent implements OnInit {
       }
     });
   }
-
-  mockcourse: any = { id: 161, teacherName: 'Leeanne Calles', description: 'Food Science', amountOfStudents: '20' };
 }
