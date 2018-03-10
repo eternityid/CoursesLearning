@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
-import {Course} from '../../shared/course';
-import {UserService} from '../../shared/user.service';
+import {Course} from '../../../shared/course';
+import {UserService} from '../../../shared/user.service';
 import {Router} from '@angular/router';
 
 @Component({

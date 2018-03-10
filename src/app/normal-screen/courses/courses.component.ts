@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from '../shared/category';
-import { CategoryService } from '../shared/category.service';
-import { Course } from '../shared/course';
-import { CourseService } from '../shared/course.service';
-import { UserService } from '../shared/user.service';
+import { Category } from '../../shared/category';
+import { CategoryService } from '../../shared/category.service';
+import { Course } from '../../shared/course';
+import { CourseService } from '../../shared/course.service';
+import { UserService } from '../../shared/user.service';
 import { MatSelectChange } from '@angular/material';
 
 @Component({
