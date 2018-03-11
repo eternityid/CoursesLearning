@@ -13,6 +13,7 @@ import { AdminCoursesComponent } from './admin-courses/admin-courses.component';
 import { AdminSessionsComponent } from './admin-sessions/admin-sessions.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
+import { SessionDetailComponent } from './session-detail/session-detail.component';
 
 
 import {
@@ -31,6 +32,7 @@ import {
   MatAutocompleteModule,
   MatTooltipModule
 } from '@angular/material';
+
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import {
   entryComponents: [
     CourseDetailComponent,
     ModalConfirmComponent,
-    CreateCategoryComponent],
+    CreateCategoryComponent,
+    SessionDetailComponent],
   declarations: [
     AdminComponent,
     CourseDetailComponent,
@@ -66,7 +69,8 @@ import {
     AdminCoursesComponent,
     ModalConfirmComponent,
     CreateCategoryComponent,
-    AdminSessionsComponent
+    AdminSessionsComponent,
+    SessionDetailComponent
   ],
   providers: []
 })

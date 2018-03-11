@@ -15,33 +15,6 @@
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
-          <h5>Add list order</h5>
-          <mat-form-field>
-            <mat-select [formControl]="formControlOrderList" (selectionChange)="onOrderListChanged($event)" placeholder="list order"
-              multiple>
-              <mat-option *ngFor="let course of coursesList" [value]="course.key">
-                {{ course.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-
-      <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <div class="block">
-          <h5>Choose teacher for course!</h5>
-          <mat-form-field>
-            <mat-select (selectionChange)="onTeacherChanged($event)" [(ngModel)]="teacherDefault" placeholder="Teacher">
-              <mat-option *ngFor="let teacher of teachers" [value]="teacher.key">
-                {{ teacher.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-
-      <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <div class="block">
           <h5>Choose category for course!</h5>
           <div class="block--category">
             <a mat-icon-button class="create-category-btn" color="primary" matTooltip="Create new category" (click)="showCreateCategoryModal()">
@@ -55,6 +28,29 @@
               </mat-select>
             </mat-form-field>
           </div>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <h5>Choose a image!</h5>
+          <mat-form-field>
+            <input matInput type="text" name="sa" id="sas">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <h5>Add list order</h5>
+          <mat-form-field>
+            <mat-select [formControl]="formControlOrderList" (selectionChange)="onOrderListChanged($event)" placeholder="list order"
+              multiple>
+              <mat-option *ngFor="let course of coursesList" [value]="course.key">
+                {{ course.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
       </mat-grid-tile>
 

@@ -45,7 +45,6 @@ export class CourseDetailComponent implements OnInit {
       this.course = Object.assign({}, data.course);
       this.coursesList = Object.assign([], data.coursesList);
       this.categoryDefault = this.course.category.key;
-      this.teacherDefault = this.course.teacher.key;
       this.formControlOrderList.setValue(this.course.orderList);
     } else {
       this.course = {};
@@ -109,7 +108,6 @@ export class CourseDetailComponent implements OnInit {
       key: event.value,
       name: event.source.triggerValue
     }
-    this.course.teacher = selectedTeacher;
   }
 
   onCancelClick(): void {

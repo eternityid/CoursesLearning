@@ -40,6 +40,7 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
 import { PageNotFoundComponent } from './page-not-found-component';
 
 import { UserService } from './shared/user.service';
+import { SessionService } from './shared/session.service';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { AngularFireModule } from 'angularfire2';
@@ -107,6 +108,7 @@ import { TruncateModule } from 'ng2-truncate';
     TeacherService,
     MatIconRegistry,
     UserService,
+    SessionService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,67 @@
+<div class="modal">
+  <div class="header-title">
+    <h1 mat-dialog-title>CREATE NEW SESSION</h1>
+  </div>
+  <div mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="6.5em">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <h5>Choose course to create session!</h5>
+          <mat-form-field>
+            <mat-select (selectionChange)="onCourseChanged($event)" [(ngModel)]="session.course" placeholder="Course">
+              <mat-option *ngFor="let course of courses" [value]="course">
+                {{ course.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <h5>Generate the session's id!</h5>
+          <mat-form-field>
+            <input matInput [(ngModel)]="session.id" placeholder="session's id" disabled>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <h5>Choose teacher for session!</h5>
+          <mat-form-field>
+            <mat-select (selectionChange)="onTeacherChanged($event)" [(ngModel)]="session.teacher" placeholder="Teacher">
+              <mat-option *ngFor="let teacher of teachers" [value]="teacher">
+                {{ teacher.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <h5>Choose date to begin!</h5>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker" [(ngModel)]="session.time" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="block">
+          <h5>Max students study in!</h5>
+          <mat-form-field>
+            <input matInput type="number" [(ngModel)]="session.maxStudents" placeholder="Max students">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button [mat-dialog-close]="session" cdkFocusInitial class="save-btn">Save</button>
+    <button mat-button class="close-btn" (click)="onCancelClick()">Cancel</button>
+  </div>
+</div>

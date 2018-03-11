@@ -14,12 +14,21 @@
     min-width: auto;
   }
 }
-.mat-column-name,
-.mat-column-categories{
-  max-width: 140px;
+.mat-column-id,
+.mat-column-beginningDate{
+  max-width: 160px;
+}
+.mat-column-registeredStudents, 
+.mat-column-maxStudents{
+  max-width: 100px;
 }
 .search{
-  padding: 8px 24px 0 24px;
+  display: flex;
+  flex-flow: wrap;
+}
+.search > div{
+  padding: 8px 24px 0;
+  width: 49%;
 }
 .mat-form-field {
   font-size: 14px;
@@ -28,34 +37,20 @@
 .button-row{
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin: .5em 1em;
-  div{
-    width: 49%;
-  }
-  .mat-form-field{
-    font-size: 14px;
-    width: 100%;
-  }
-  .create-session-btn{
-    display: flex;
-    justify-content: flex-end;
-    .title-header{
-      width: 180px;
-      h3{        
-        margin-left:.3em;
-        color: rgb(51, 24, 114);
-      }
+  .title-header{
+    h3{
+      margin-left:.3em;
+      color: rgb(51, 24, 114);
     }
-    a{
-      &:hover{
-        background-color: rgba(33, 42, 95, 0.89);
-      }
-      .icon-create{
-        font-weight: bold;
-      }
-    }           
   }
-   
+  a{
+    &:hover{
+      background-color: rgba(33, 42, 95, 0.89);
+    }
+    .icon-create{
+      font-weight: bold;
+    }
+  }            
 }
 

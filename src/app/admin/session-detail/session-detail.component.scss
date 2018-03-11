@@ -1,0 +1,50 @@
+.header-title{
+    text-align: center;   
+}
+.header-title > h1{
+    font-weight: bolder;
+    color:white;
+    margin: -24px -24px 20px;
+    padding: .5em 1em;
+    box-shadow: 0 0 10px #24306e;
+    background-color: #3f51b5;      
+}
+.block{
+    width: 100%;
+    margin: 0 .5em;
+}
+.block > h5{
+    margin: 1em 0;
+}
+.mat-form-field{
+    font-size: 14px;
+    align-items: flex-start;
+    width: 100%;
+}
+.create-category-btn:hover{
+    color:white;
+    background-color: rgba(21, 31, 88, 0.847);    
+    box-shadow: 3px 4px 15px 1px rgba(12, 3, 3, 0.418);    
+}
+.mat-dialog-actions{
+    justify-content: flex-end;
+}
+.save-btn{
+    background-color: #3f51b5;
+    color:white;
+}
+.save-btn:hover{
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+.close-btn{
+    border: 1px solid rgb(126, 124, 124); 
+}
+.input-category{
+    width: 8em;
+}
+.block--category{
+    display: flex;
+}
+.mat-toolbar-row, .mat-toolbar-single-row{
+    width: 94% !important;
+}
