@@ -8,8 +8,12 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class CreateCategoryComponent implements OnInit {
 
+  title: string;
   categoryName: string = '';
-  constructor(public _dialogRef: MatDialogRef<CreateCategoryComponent>) { }
+  constructor(public _dialogRef: MatDialogRef<CreateCategoryComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.title = data;
+  }
 
   ngOnInit() {
   }

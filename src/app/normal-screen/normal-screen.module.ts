@@ -2,12 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NormalScreenComponent } from './normal-screen.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseCardComponent } from './courses/course-card/course-card.component';
+import { ViewCourseDetailComponent } from './courses/view-course-detail/view-course-detail.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { FooterComponent } from './footer/footer.component';
+
 import { NormalScreenRoutingModule } from './normal-screen-routing.module';
 
-import { NormalScreenComponent } from './normal-screen.component';
-import { HeaderComponent } from '../header/header.component';
-import { HomeComponent } from '../home/home.component';
-import { CoursesComponent } from '../courses/courses.component';
+import { FilterTopListPipe } from '../shared/filter-top-list.pipe';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { MatButtonModule,
    MatToolbarModule, 
    MatGridListModule,
@@ -21,12 +28,6 @@ import { MatButtonModule,
    MatAutocompleteModule,
    MatInputModule,
    MatMenuModule} from '@angular/material';
-import { Ng2CarouselamosModule } from 'ng2-carouselamos';
-import { FooterComponent } from '../footer/footer.component';
-import { AboutUsComponent } from '../about-us/about-us.component';
-import { CourseCardComponent } from '../courses/course-card/course-card.component';
-import { ViewCourseDetailComponent } from '../courses/view-course-detail/view-course-detail.component';
-
 
 
 @NgModule({
@@ -58,7 +59,9 @@ import { ViewCourseDetailComponent } from '../courses/view-course-detail/view-co
     AboutUsComponent,
     FooterComponent,
     CourseCardComponent,
+    FilterTopListPipe,
     ViewCourseDetailComponent
-  ]
+  ],
+  exports:[FilterTopListPipe]
 })
 export class NormalScreenModule { }

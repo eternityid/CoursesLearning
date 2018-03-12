@@ -64,6 +64,7 @@ export class UserService {
   logout() {
     localStorage.removeItem(this._tokenKey);
     this.isLoggedIn = false;
+    this.userInfo = undefined;
   }
 
   generateToken() {

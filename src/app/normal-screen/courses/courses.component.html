@@ -28,9 +28,7 @@
         </mat-form-field>
     </div>
     <div class="bar-search">
-        <div>
-            <h5 class="amount-category">Amount of courses: {{countCourses}}</h5>
-        </div>
+        
         <div>
             <input class="search_input" type="search" placeholder="Search" (keyup)="onKeySearch($event)">
             <button class="btn_search" type="submit">
@@ -38,8 +36,14 @@
             </button>
         </div>
     </div>
+ 
 
     <hr class="hr_main">
+    <div class="amount">
+        <div>
+            <h5 class="amount-category">Amount of courses: {{countCourses}}</h5>
+        </div>
+    </div>
     <div class="course_main">
         <div class="column" *ngFor="let course of filterCourses ">
           <app-course-card class="column" [course]="course" 

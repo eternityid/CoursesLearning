@@ -59,10 +59,11 @@
 }
 
 .hr_main {
-    width: 95%;
+    width: 91%;
     box-sizing: border-box;
     position: absolute;
-    margin-left: 2em;
+    margin-left: 4em;
+    margin-top: 8.5rem
 }
 
 .course_main {
@@ -73,6 +74,7 @@
 
 .column {
     width: 94%;
+    margin-top: 15rem;
 }
 
 
@@ -134,18 +136,23 @@
     margin-left: 10%;
 }
 .form-filter-category{
-    margin:1em 0;
+    float: left;
+    margin:5.1rem 4rem;
     text-align: center;
 }
 .bar-search{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
+    float: right;
+    width: 20%;
+    margin-top: 6rem;    
+   
 }
 .amount-category{
-    margin: 0 2em;
+    margin: 0 -18em;
 }
 .material-icons{
     background: #fff;
+}
+.amount{
+    float: left;
+    margin-top: 9rem;
 }

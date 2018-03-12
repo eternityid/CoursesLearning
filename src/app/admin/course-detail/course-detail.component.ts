@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, ViewContainerRef } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSelectChange, MatOption } from '@angular/material';
 import { Category } from '../../shared/category';
 import { Course } from '../../shared/course';
@@ -8,6 +8,8 @@ import { CategoryService } from '../../shared/category.service';
 import { FirebaseApp } from 'angularfire2';
 import 'firebase/storage';
 import { CreateCategoryComponent } from '../create-category/create-category.component';
+import { TeacherService } from '../../shared/teacher.service';
+import { Teacher } from '../../shared/teacher';
 
 @Component({
   selector: 'app-course-detail',
@@ -17,16 +19,21 @@ import { CreateCategoryComponent } from '../create-category/create-category.comp
 export class CourseDetailComponent implements OnInit {
 
   title = this.data.course === undefined ? "CREATE NEW COURSE" : "EDIT COURSE";
+  titleAddTeacher = "ADD NEW TEACHER";
+  titleCreateCategory = "CREATE NEW CATEGORY";
   newCategoryName: string;
   course: Course;
   coursesList: Course[];
   categories: Category[];
+  teachers: Teacher[];
   orderListDefault: string[];
+  teacherDefault: string = '';
   categoryDefault: string = '';
   formControlOrderList = new FormControl;
 
   constructor(
     private _categorySvc: CategoryService,
+    private _teacherSvc: TeacherService,
     private _toastr: ToastsManager,
     private _firebaseApp: FirebaseApp,
     private _vcr: ViewContainerRef,
@@ -34,12 +41,13 @@ export class CourseDetailComponent implements OnInit {
     public _dialogRef: MatDialogRef<CourseDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    if(this.data.course){
+    if (this.data.course) {
       this.course = Object.assign({}, data.course);
       this.coursesList = Object.assign([], data.coursesList);
       this.categoryDefault = this.course.category.key;
+      this.teacherDefault = this.course.teacher.key;
       this.formControlOrderList.setValue(this.course.orderList);
-    }else{
+    } else {
       this.course = {};
       this.coursesList = Object.assign([], data);
     }
@@ -48,11 +56,32 @@ export class CourseDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
+    this.getTeachers();
   }
 
   getCategories() {
     this._categorySvc.getCategories().subscribe(categories => {
       this.categories = categories;
+    });
+  }
+
+  showCreateCategoryModal() {
+    let _dialogRef = this._dialog.open(CreateCategoryComponent, {
+      width: '50%',
+      data: this.titleCreateCategory
+    });
+
+    _dialogRef.afterClosed().subscribe(newCategoryName => {
+      if (newCategoryName !== null && newCategoryName !== '' && newCategoryName !== undefined) {
+        this._categorySvc.addCategory(newCategoryName).then(category => {
+          this.categoryDefault = category.id;
+          this.course.category = {
+            key: category.id,
+            name: newCategoryName
+          }
+          this._toastr.success("New category is created successful!", "Success");
+        });
+      }
     });
   }
 
@@ -64,28 +93,23 @@ export class CourseDetailComponent implements OnInit {
     this.course.category = selectedCategory;
   }
 
-  onOrderListChanged(event:MatSelectChange){
+  onOrderListChanged(event: MatSelectChange) {
     const selectedOrderList = event.value;
-    this.course.orderList = selectedOrderList;    
+    this.course.orderList = selectedOrderList;
   }
 
-  showCreateCategoryModal() {
-    let _dialogRef = this._dialog.open(CreateCategoryComponent, {
-      width: '50%'
+  getTeachers() {
+    this._teacherSvc.getTeachersList().subscribe(teachers => {
+      this.teachers = teachers;
     });
-
-    _dialogRef.afterClosed().subscribe(newCategoryName => {
-      if (newCategoryName !== null && newCategoryName !== '' && newCategoryName !== undefined) {
-        this._categorySvc.addCategory(newCategoryName).then(category => {
-          this.categoryDefault = category.id;
-          this.course.category = {
-            key:category.id,
-            name:newCategoryName
-          }
-          this._toastr.success("New category is created successful!", "Success");
-        });
-      }
-    });
+  }
+  
+  onTeacherChanged(event: MatSelectChange) {    
+    const selectedTeacher = {
+      key: event.value,
+      name: event.source.triggerValue
+    }
+    this.course.teacher = selectedTeacher;
   }
 
   onCancelClick(): void {
