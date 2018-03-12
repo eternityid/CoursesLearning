@@ -17,6 +17,42 @@
     <mat-toolbar-row class="banner">
       <img src="assets/img/detail.png">
     </mat-toolbar-row>
+    <mat-toolbar-row>
+        <div class="title_join_session"> What time do you want to join? </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="table_join_session">
+        <mat-list class="list_course">
+            <mat-list-item *ngFor="let c of courses">
+              <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
+              <h4 mat-line>{{c.name}}</h4>
+              <p mat-line> {{c.teacher}} </p>
+              <button mat-line class="btn_join_list">Join now</button>
+            </mat-list-item>
+
+          </mat-list>
+          
+
+    
+
+      <!-- <table class="main_join_session">
+        <tr>
+          <th mat-sort-header="number">Number</th>
+          <th mat-sort-header="teacher_name">Teacher Name</th>
+          <th mat-sort-header="quanlity">Quanlity</th>
+          <th mat-sort-header="time">Time</th>
+          <th mat-sort-header="join"></th>
+        </tr>
+      
+        <tr *ngFor="let dessert of sortedData">
+          <td>{{dessert.number}}</td>
+          <td>{{dessert.teacher_name}}</td>
+          <td>{{dessert.quanlity}}</td>
+          <td>{{dessert.time}}</td>
+       
+          <td><button class="btn_join">Join now</button></td>
+        </tr>
+      </table> -->
+    </mat-toolbar-row>
     <!-- <mat-toolbar-row class="title_light">
           <p>
               This course is part of the program <a class="highlight">Introduction to IT Professional Practice</a> , 
@@ -48,6 +84,7 @@
         <br> you have built during your life and career).</p>
       <img src="assets/img/learning_detail.jpg">
     </mat-toolbar-row>
+  
     <mat-toolbar-row class="content_name">
       <span>More course</span>
 
