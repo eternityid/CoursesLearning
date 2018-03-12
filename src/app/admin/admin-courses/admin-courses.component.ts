@@ -16,8 +16,8 @@ import { ModalConfirmComponent } from '../modal-confirm/modal-confirm.component'
 export class AdminCoursesComponent implements OnInit {
 
   coursesList = new MatTableDataSource<Course>();
-  sourceCourses:Course[];
-  displayedColumns = ['teacherName', 'description', 'categories', 'amountOfStudents', 'beginingOfDate', 'actionBtns'];
+  sourceCourses: Course[];
+  displayedColumns = ['name', 'categories', 'description', 'orderList', 'actionBtns'];
 
   categories: Category[];
   selectedDefault: string;
@@ -38,7 +38,7 @@ export class AdminCoursesComponent implements OnInit {
     });
   }
 
-  onSelectionChanged(event: MatSelectChange) {
+  onCategoryChanged(event: MatSelectChange) {
     let categoryId = event.value;
     this.getSourceCourses(categoryId);
   }
@@ -57,25 +57,25 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   applyFilter(searchKeyword: string) {
-    if(searchKeyword === null){
-      this.coursesList.data = this.sourceCourses;
+    this.coursesList.data = this.sourceCourses;
+    if (searchKeyword !== null) {
+      this.coursesList.data = this.sourceCourses.filter((course) =>
+        course.name.toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1
+      );
     }
-    this.coursesList.data = this.sourceCourses.filter((course) =>
-      course.name.toLowerCase().indexOf(searchKeyword.toLowerCase()) > -1
-    );
   }
 
   showModalCreate(): void {
     const coursesList = this.coursesList.data;
     let dialogRef = this._dialog.open(CourseDetailComponent, {
-      width: '85%',
+      width: '75%',
       maxHeight: '90%',
       data: coursesList
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result != null) {
-        this._courseSvc.addCourse(result);
+    dialogRef.afterClosed().subscribe(newCourse => {
+      if (newCourse != null) {
+        this._courseSvc.addCourse(newCourse);
       }
     });
   }
@@ -87,13 +87,14 @@ export class AdminCoursesComponent implements OnInit {
       coursesList: coursesList
     }
     let dialogRef = this._dialog.open(CourseDetailComponent, {
-      width: '85%',
+      width: '80%',
+      maxHeight: '90%',
       data: dataRequest
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result != null) {
-        this._courseSvc.updateCourse(result);
+    dialogRef.afterClosed().subscribe(editedCourse => {
+      if (editedCourse != null) {
+        this._courseSvc.updateCourse(editedCourse);
       }
     });
   }
@@ -102,8 +103,7 @@ export class AdminCoursesComponent implements OnInit {
 
     let dialogRef = this._dialog.open(ModalConfirmComponent, {
       width: '50%',
-      maxHeight: '20%',
-      data: course
+      maxHeight: '20%'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -113,6 +113,4 @@ export class AdminCoursesComponent implements OnInit {
       }
     });
   }
-
-  mockcourse: any = { id: 161, teacherName: 'Leeanne Calles', description: 'Food Science', amountOfStudents: '20' };
 }

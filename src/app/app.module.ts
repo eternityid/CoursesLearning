@@ -40,10 +40,12 @@ import { NormalScreenComponent } from './normal-screen/normal-screen.component';
 import { PageNotFoundComponent } from './page-not-found-component';
 
 import { UserService } from './shared/user.service';
+import { SessionService } from './shared/session.service';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
@@ -96,6 +98,7 @@ import { TruncateModule } from 'ng2-truncate';
     MatListModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AngularFireStorageModule,
     AngularFireAuthModule,
     TruncateModule,
     HttpClientInMemoryWebApiModule.forRoot(
@@ -107,11 +110,12 @@ import { TruncateModule } from 'ng2-truncate';
     TeacherService,
     MatIconRegistry,
     UserService,
+    SessionService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(router: Router, public matIconRegistry: MatIconRegistry ){
+  constructor(router: Router, public matIconRegistry: MatIconRegistry) {
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }

@@ -11,7 +11,7 @@ export class ModalConfirmComponent implements OnInit {
 
   delete = true;
   constructor(public dialogRef: MatDialogRef<ModalConfirmComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Course) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
   }

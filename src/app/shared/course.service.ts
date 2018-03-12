@@ -29,8 +29,10 @@ export class CourseService {
       });
     }
     return this._firestore.collection('courses',ref => ref.where('category.key', "==", categoryId)).snapshotChanges().map(actions => {
+      console.log(this._userSvc.userInfo);
       if(this._userSvc.userInfo && this._userSvc.userInfo.passedCourses !== undefined && this._userSvc.userInfo.role !== "admin"){
         let passedCoursesIdList = this._userSvc.userInfo.passedCourses;
+        console.log(passedCoursesIdList);
         actions = actions.filter(act => passedCoursesIdList.indexOf(act.payload.doc.id) > -1)
       }
       return actions.map(act => {

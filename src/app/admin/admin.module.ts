@@ -10,9 +10,10 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminCoursesComponent } from './admin-courses/admin-courses.component';
-import { AdminNewsComponent } from './admin-news/admin-news.component';
+import { AdminSessionsComponent } from './admin-sessions/admin-sessions.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
+import { SessionDetailComponent } from './session-detail/session-detail.component';
 
 
 import {
@@ -29,8 +30,12 @@ import {
   MatInputModule,
   MatMenuModule,
   MatAutocompleteModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+
+
 
 @NgModule({
   imports: [
@@ -51,21 +56,26 @@ import {
     MatMenuModule,
     MatTooltipModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule
   ],
   entryComponents: [
     CourseDetailComponent,
     ModalConfirmComponent,
-    CreateCategoryComponent],
+    CreateCategoryComponent,
+    SessionDetailComponent,
+    FileUploadComponent],
   declarations: [
     AdminComponent,
     CourseDetailComponent,
     DashboardComponent,
     AdminHeaderComponent,
     AdminCoursesComponent,
-    AdminNewsComponent,
     ModalConfirmComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    AdminSessionsComponent,
+    SessionDetailComponent,
+    FileUploadComponent
   ],
   providers: []
 })
