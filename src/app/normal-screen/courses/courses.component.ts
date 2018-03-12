@@ -38,6 +38,7 @@ export class CoursesComponent implements OnInit {
 
   getCourses(categoryId?: string) {
     this._courseSvc.getCourses(categoryId).subscribe(courses => {
+      console.log("course component")
       this.courses = courses;
       this.countCourses = courses.length;
       this.assignCopy();

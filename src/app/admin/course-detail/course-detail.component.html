@@ -3,7 +3,7 @@
     <h1 mat-dialog-title>{{title}}</h1>
   </div>
   <div mat-dialog-content>
-    <mat-grid-list cols="2" rowHeight="6.5em">
+    <mat-grid-list cols="2" rowHeight="7em">
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
           <h5>What's the course's name?</h5>
@@ -18,7 +18,7 @@
           <h5>Choose category for course!</h5>
           <div class="block--category">
             <a mat-icon-button class="create-category-btn" color="primary" matTooltip="Create new category" (click)="showCreateCategoryModal()">
-              <mat-icon class="icon-create">add</mat-icon>
+              <mat-icon>add</mat-icon>
             </a>
             <mat-form-field>
               <mat-select (selectionChange)="onCategoryChanged($event)" [(ngModel)]="categoryDefault" placeholder="Category">
@@ -33,10 +33,15 @@
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
-          <h5>Choose a image!</h5>
-          <mat-form-field>
-            <input matInput type="text" name="sa" id="sas">
-          </mat-form-field>
+          <h5>Choose image for course!</h5>
+          <div class="block--category">
+            <a mat-icon-button class="upload-image-btn" color="primary" matTooltip="Upload image" (click)="showUploadImageyModal()">
+              <mat-icon>add</mat-icon>
+            </a>
+            <mat-form-field>
+              <input matInput [(ngModel)]="course.imageUrl" placeholder="Url image" disabled>
+            </mat-form-field>
+          </div>
         </div>
       </mat-grid-tile>
 

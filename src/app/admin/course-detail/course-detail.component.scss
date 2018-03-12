@@ -17,11 +17,12 @@
     margin: 1em 0;
 }
 .mat-form-field{
-    font-size: 14px;
+    font-size: 15px;
     align-items: flex-start;
     width: 100%;
 }
-.create-category-btn:hover{
+.create-category-btn:hover,
+.upload-image-btn:hover{
     color:white;
     background-color: rgba(21, 31, 88, 0.847);    
     box-shadow: 3px 4px 15px 1px rgba(12, 3, 3, 0.418);    

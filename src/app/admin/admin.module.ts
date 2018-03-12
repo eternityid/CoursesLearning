@@ -30,8 +30,10 @@ import {
   MatInputModule,
   MatMenuModule,
   MatAutocompleteModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 
@@ -54,13 +56,15 @@ import {
     MatMenuModule,
     MatTooltipModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule
   ],
   entryComponents: [
     CourseDetailComponent,
     ModalConfirmComponent,
     CreateCategoryComponent,
-    SessionDetailComponent],
+    SessionDetailComponent,
+    FileUploadComponent],
   declarations: [
     AdminComponent,
     CourseDetailComponent,
@@ -70,7 +74,8 @@ import {
     ModalConfirmComponent,
     CreateCategoryComponent,
     AdminSessionsComponent,
-    SessionDetailComponent
+    SessionDetailComponent,
+    FileUploadComponent
   ],
   providers: []
 })

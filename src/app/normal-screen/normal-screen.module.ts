@@ -27,7 +27,10 @@ import { MatButtonModule,
    MatIconModule,
    MatAutocompleteModule,
    MatInputModule,
-   MatMenuModule} from '@angular/material';
+   MatMenuModule,
+   MatDialogModule,
+   MatRadioModule} from '@angular/material';
+import { JoinCourseComponent } from './join-course/join-course.component';
 
 
 @NgModule({
@@ -36,6 +39,7 @@ import { MatButtonModule,
     NormalScreenRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
     MatButtonModule,
     MatToolbarModule,
     MatGridListModule,
@@ -48,6 +52,7 @@ import { MatButtonModule,
     MatIconModule,
     MatMenuModule,
     MatSelectModule,
+    MatRadioModule,
     MatAutocompleteModule,
     Ng2CarouselamosModule ,
   ],
@@ -60,8 +65,10 @@ import { MatButtonModule,
     FooterComponent,
     CourseCardComponent,
     FilterTopListPipe,
-    ViewCourseDetailComponent
+    ViewCourseDetailComponent,
+    JoinCourseComponent
   ],
+  entryComponents:[JoinCourseComponent],
   exports:[FilterTopListPipe]
 })
 export class NormalScreenModule { }

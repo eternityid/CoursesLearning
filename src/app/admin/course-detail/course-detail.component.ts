@@ -8,8 +8,7 @@ import { CategoryService } from '../../shared/category.service';
 import { FirebaseApp } from 'angularfire2';
 import 'firebase/storage';
 import { CreateCategoryComponent } from '../create-category/create-category.component';
-import { TeacherService } from '../../shared/teacher.service';
-import { Teacher } from '../../shared/teacher';
+import { FileUploadComponent } from '../file-upload/file-upload.component';
 
 @Component({
   selector: 'app-course-detail',
@@ -18,22 +17,18 @@ import { Teacher } from '../../shared/teacher';
 })
 export class CourseDetailComponent implements OnInit {
 
-  title = this.data.course === undefined ? "CREATE NEW COURSE" : "EDIT COURSE";
-  titleAddTeacher = "ADD NEW TEACHER";
+  title = this.data.course ? "EDIT COURSE" : "CREATE NEW COURSE";
   titleCreateCategory = "CREATE NEW CATEGORY";
   newCategoryName: string;
   course: Course;
   coursesList: Course[];
   categories: Category[];
-  teachers: Teacher[];
   orderListDefault: string[];
-  teacherDefault: string = '';
   categoryDefault: string = '';
   formControlOrderList = new FormControl;
 
   constructor(
     private _categorySvc: CategoryService,
-    private _teacherSvc: TeacherService,
     private _toastr: ToastsManager,
     private _firebaseApp: FirebaseApp,
     private _vcr: ViewContainerRef,
@@ -41,7 +36,7 @@ export class CourseDetailComponent implements OnInit {
     public _dialogRef: MatDialogRef<CourseDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    if (this.data.course) {
+    if (data.course) {
       this.course = Object.assign({}, data.course);
       this.coursesList = Object.assign([], data.coursesList);
       this.categoryDefault = this.course.category.key;
@@ -55,7 +50,6 @@ export class CourseDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
-    this.getTeachers();
   }
 
   getCategories() {
@@ -84,6 +78,18 @@ export class CourseDetailComponent implements OnInit {
     });
   }
 
+  showUploadImageyModal(){
+    let _dialogRef = this._dialog.open(FileUploadComponent, {
+      width: '50%'      
+    });
+
+    _dialogRef.afterClosed().subscribe(newImageUrl => {
+      if(newImageUrl){
+        this.course.imageUrl = newImageUrl.value;
+      }      
+    });
+  }
+
   onCategoryChanged(event: MatSelectChange) {
     const selectedCategory = {
       key: event.value,
@@ -95,19 +101,6 @@ export class CourseDetailComponent implements OnInit {
   onOrderListChanged(event: MatSelectChange) {
     const selectedOrderList = event.value;
     this.course.orderList = selectedOrderList;
-  }
-
-  getTeachers() {
-    this._teacherSvc.getTeachersList().subscribe(teachers => {
-      this.teachers = teachers;
-    });
-  }
-  
-  onTeacherChanged(event: MatSelectChange) {    
-    const selectedTeacher = {
-      key: event.value,
-      name: event.source.triggerValue
-    }
   }
 
   onCancelClick(): void {
