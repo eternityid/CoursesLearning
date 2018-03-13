@@ -1,0 +1,13 @@
+<div class="header-title">
+  <h1 mat-dialog-title>Recommendation</h1>
+</div>
+<div mat-dialog-content>
+  <p>You should complete all required course first to join the course
+    <span>"{{course.name}}"</span>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="create-btn" [mat-dialog-close]="" routerLink="/learning/courses/detail/{{course.key}}">Do need more info!
+    <mat-icon>fast_forward</mat-icon>
+  </button>
+</div>

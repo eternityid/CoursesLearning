@@ -13,26 +13,28 @@ import { Course } from '../../shared/course';
 })
 export class JoinCourseComponent implements OnInit {
 
+  course:Course;
   sessions:Session[];
   Recommendedcourses:Course[];
   constructor(private _sessionSvc:SessionService,
     private _courseSvc:CourseService,
     public _dialogRef: MatDialogRef<JoinCourseComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: Course) { 
+      this.course = Object.assign({},data);
+    }
 
   ngOnInit() {
-
-    this.getSessions();
+    this.getSessions(this.course);
   }
 
   getCourses(){
     this._courseSvc.getCourses().subscribe(courses =>{
-      this.Recommendedcourses = courses.filter(course => this.data.indexOf(course.key) > -1);
+      this.Recommendedcourses = courses.filter(course => this.course.key.indexOf(course.key) > -1);
     })
   }
 
-  getSessions(){
-    this._sessionSvc.getSessionsBasedCourse(this.data).subscribe(sessions =>{
+  getSessions(course:Course){    
+    this._sessionSvc.getSessionsBasedCourse(course).subscribe(sessions =>{
       this.sessions = sessions;
     })
   }

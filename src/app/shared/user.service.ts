@@ -13,6 +13,7 @@ export class UserService {
   isLoggedIn = false;
   userInfo:User;
   redirectUrl: string;
+  recommendCourses = new Array<string>();
 
 
   constructor(private _firestore: AngularFirestore) {}
@@ -65,6 +66,7 @@ export class UserService {
     localStorage.removeItem(this._tokenKey);
     this.isLoggedIn = false;
     this.userInfo = undefined;
+    this.recommendCourses = new Array<string>();
   }
 
   generateToken() {

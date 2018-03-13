@@ -20,7 +20,7 @@ export class AdminSessionsComponent implements OnInit {
   sourceSessions: Session[];
   categoryDefault:string;
   categories: Category[];
-  displayedColumns = ['id', 'course', 'teacher', 'registeredStudents', 'maxStudents', 'beginningDate', 'actionBtns'];
+  displayedColumns = ['id', 'course', 'teacher',  'beginningDate','during', 'registeredStudents', 'maxStudents','actionBtns'];
   constructor(private _courseSvc: CourseService,
     private _categorySvc: CategoryService,
     private _sessionSvc: SessionService,

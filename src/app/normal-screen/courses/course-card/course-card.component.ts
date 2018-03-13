@@ -4,6 +4,7 @@ import { UserService } from '../../../shared/user.service';
 import { Router } from '@angular/router';
 import { JoinCourseComponent } from '../../join-course/join-course.component';
 import { MatDialog } from '@angular/material';
+import { WarningRecommendedCourseComponent } from '../../warning-recommended-course/warning-recommended-course.component';
 
 @Component({
   selector: 'app-course-card',
@@ -27,40 +28,38 @@ export class CourseCardComponent implements OnInit {
       let passedCourses = this._userSvc.userInfo.passedCourses;
       if (passedCourses) {
         let orderList = this.course.orderList;
-        let i = 0;
-        let recommendCourses = orderList.filter(courseId => {
-          if (passedCourses.indexOf(courseId) > -1) {
-            i++;
-            return true;
-          }
-          return false;
-        })
-
-        if (orderList.length > i) {
-          console.log(recommendCourses);
-          // this.showRecommendedCoursesModal(recommendCourses);
+        let recommendCourses = orderList.filter(courseId => passedCourses.indexOf(courseId) == -1)
+        if (recommendCourses.length !== 0) {
+          this._userSvc.recommendCourses = recommendCourses;
+          this.showRecommendedCoursesModal(this.course);
         } else {
-
+          this.showJoinCourseModal(this.course);
         }
-
       }
     }
   }
 
-  showRecommendedCoursesModal(recommendCourses: string[]) {
-    let _dialogRef = this._dialog.open(JoinCourseComponent, {
+  showRecommendedCoursesModal(course:Course) {
+    let _dialogRef = this._dialog.open(WarningRecommendedCourseComponent, {
       width: '50%',
-      data: recommendCourses
+      data: course
     });
   }
 
-  showJoinCourseModal() {
+  showJoinCourseModal(course:Course) {
     let _dialogRef = this._dialog.open(JoinCourseComponent, {
-      width: '50%'
+      width: '80%',
+      maxHeight:'90%',
+      data: course
     });
 
     _dialogRef.afterClosed().subscribe(infoStudent => {
 
     });
+  }
+
+  show(key) {
+    console.log(key);
+
   }
 }

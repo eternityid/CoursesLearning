@@ -43,6 +43,16 @@
       <mat-cell *matCellDef="let session"> {{session.teacher.name}} </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="beginningDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</mat-header-cell>
+        <mat-cell *matCellDef="let session"> {{session.beginningDate | date:'dd-MM-yyyy'}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="during">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+          <mat-cell *matCellDef="let session"> {{session.time}} </mat-cell>
+        </ng-container>
+
     <ng-container matColumnDef="registeredStudents">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Registered Students </mat-header-cell>
       <mat-cell *matCellDef="let session">{{session.registeredStudents !== undifined?session.registeredStudents:0}} </mat-cell>
@@ -53,10 +63,7 @@
       <mat-cell *matCellDef="let session">{{session.maxStudents}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="beginningDate">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</mat-header-cell>
-      <mat-cell *matCellDef="let session"> {{session.time | date:'dd-MM-yyyy'}} </mat-cell>
-    </ng-container>
+
 
     <ng-container matColumnDef="actionBtns">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>

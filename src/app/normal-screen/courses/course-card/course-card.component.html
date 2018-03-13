@@ -1,13 +1,13 @@
 <div class="col_course">
     <a class="course">
-        <img src="{{course.imageUrl}}">
+        <img src="{{course.imageUrl}}" alt="image of {{course.name}}">
         <h4>{{course.name}}</h4>
         <p>{{course.description}}</p>
     </a>
     <button class="join_now" (click)="joinCourse()">
         <strong>Join now</strong>
     </button>
-    <button class="detail">
+    <button class="detail" routerLink="/learning/courses/detail/{{course.key}}" (click)="show(course.key)">
         <strong>Detail</strong>
     </button>
 </div>

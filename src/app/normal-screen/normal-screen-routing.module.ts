@@ -15,9 +15,9 @@ const normalRoutes: Routes = [
         component: NormalScreenComponent,
         children: [
             { path: '', component: HomeComponent },
-            { path: 'detail', component: ViewCourseDetailComponent },
-            { path: 'courses', component: CoursesComponent },
             { path: 'about-us', component: AboutUsComponent },
+            { path: 'courses', component: CoursesComponent },
+            { path: 'courses/detail/:id', component: ViewCourseDetailComponent },
         ]
     }
 ];

@@ -43,12 +43,21 @@
         <div class="block">
           <h5>Choose date to begin!</h5>
           <mat-form-field>
-              <input matInput [matDatepicker]="picker" [(ngModel)]="session.time" placeholder="Choose a date">
+              <input matInput [matDatepicker]="picker" [(ngModel)]="session.beginningDate" placeholder="Choose a date">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
         </div>
       </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <div class="block">
+            <h5>All time for course!</h5>
+            <mat-form-field>
+              <input matInput [(ngModel)]="session.time" placeholder="Fill time hours/course">
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div class="block">
