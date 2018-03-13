@@ -5,6 +5,7 @@ import { User } from './user';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/do';
+import { Course } from './course';
 
 @Injectable()
 export class UserService {
@@ -19,13 +20,12 @@ export class UserService {
   constructor(private _firestore: AngularFirestore) {}
 
   login(user: any): Observable<boolean> {
-    const currentTime = (new Date).getTime();
-    return this._firestore.collection<User>('users', ref => ref.where('username', "==", user.username).limit(1)).valueChanges()
+    return this._firestore.collection<User>('users', ref => ref.where('username', "==", user.username).limit(1)).snapshotChanges()
       .map(users => {
-        if (users.length == 1 && users[0].password === user.password) {
-          let jwtToken = { expire: currentTime, token: this.generateToken(), username: users[0].username };
-          this.store(jwtToken);
-          this.userInfo = users[0];
+        let currentUser = users[0].payload.doc.data() as User;
+        currentUser.key = users[0].payload.doc.id;
+        if (users.length == 1 && currentUser.password === user.password) {
+          this.userInfo = currentUser;
           this.isLoggedIn = true;
           return true;
         }
@@ -57,9 +57,11 @@ export class UserService {
     this._firestore.collection<User>('users').add(user);
   }
 
-  addCourse(){
+  addStudyingCourse(course:Course){
+    
+    this.userInfo.studyingCourse = course;
     console.log(this.userInfo);
-    return this.userInfo
+    this._firestore.doc(`users/${this.userInfo.key}`).update(this.userInfo);
   }
 
   logout() {

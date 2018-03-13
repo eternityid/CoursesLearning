@@ -13,6 +13,7 @@ import { MatSelectChange } from '@angular/material';
 })
 export class CoursesComponent implements OnInit {
 
+  hideSignIn:boolean = this._userSvc.isLoggedIn?true:false;
   countCourses: number;
   courses: Course[];
   filterCourses: Course[];

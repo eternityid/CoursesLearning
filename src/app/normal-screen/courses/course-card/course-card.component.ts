@@ -53,8 +53,10 @@ export class CourseCardComponent implements OnInit {
       data: course
     });
 
-    _dialogRef.afterClosed().subscribe(infoStudent => {
-
+    _dialogRef.afterClosed().subscribe(infoSession => {      
+      if(infoSession){
+        this._userSvc.addStudyingCourse(infoSession.key);
+      }      
     });
   }
 

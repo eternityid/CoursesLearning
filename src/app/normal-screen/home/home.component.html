@@ -20,7 +20,7 @@
         </ng-template>
     </div>
     <div>
-        <button class="btn_signIn" mat-raised-button color="primary" routerLink="/login">
+        <button *ngIf="!hideSignIn" class="btn_signIn" mat-raised-button color="primary" routerLink="/login">
             <strong>Sign In</strong>
         </button>
     </div>
@@ -64,7 +64,7 @@
             <mat-list>
                 <h2>Top Courses</h2>
                 <mat-list-item *ngFor="let course of coursesList | filterTopList:5" class="item_cource">
-                    {{course.name}}
+                    <a routerLink="/learning/courses/detail/{{course.key}}">{{course.name}}</a> 
                     <mat-divider></mat-divider>
                 </mat-list-item>
             </mat-list>

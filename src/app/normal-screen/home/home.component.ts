@@ -3,6 +3,7 @@ import { TeacherService } from '../../shared/teacher.service';
 import { CourseService } from '../../shared/course.service';
 import { Course } from '../../shared/course';
 import { Teacher } from '../../shared/teacher';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { Teacher } from '../../shared/teacher';
 })
 export class HomeComponent implements OnInit {
 
+  hideSignIn:boolean = this._userSvc.isLoggedIn?true:false;
   teachersList: Teacher[];
   coursesList:Course[];
   items: Array<any> = []
@@ -19,6 +21,7 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private _teacherSvc: TeacherService,
+    private _userSvc:UserService,
     private _courseSvc: CourseService) {
     this.items = [
       { name: 'assets/img/6.png' },

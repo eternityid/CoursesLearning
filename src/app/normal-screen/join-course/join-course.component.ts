@@ -15,7 +15,7 @@ export class JoinCourseComponent implements OnInit {
 
   course:Course;
   sessions:Session[];
-  Recommendedcourses:Course[];
+  selectedSession:Session;
   constructor(private _sessionSvc:SessionService,
     private _courseSvc:CourseService,
     public _dialogRef: MatDialogRef<JoinCourseComponent>,
@@ -27,18 +27,11 @@ export class JoinCourseComponent implements OnInit {
     this.getSessions(this.course);
   }
 
-  getCourses(){
-    this._courseSvc.getCourses().subscribe(courses =>{
-      this.Recommendedcourses = courses.filter(course => this.course.key.indexOf(course.key) > -1);
-    })
-  }
-
   getSessions(course:Course){    
     this._sessionSvc.getSessionsBasedCourse(course).subscribe(sessions =>{
       this.sessions = sessions;
     })
   }
-
 
   onCloseClick(): void {
     this._dialogRef.close();
