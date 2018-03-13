@@ -1,11 +1,28 @@
 <div class="header">
   <mat-toolbar color="primary">
-    <mat-toolbar-row>
+    <mat-toolbar-row >
       <span class="header--title">CourseLearning</span>
+
+
+      
       <span class="header--spacer"></span>
-      <button mat-button routerLink="./">Home</button>
-      <button mat-button routerLink="./courses">Courses</button>
-      <button mat-button routerLink="./about-us">About Us</button>
+ 
+
+      <mat-button-toggle-group #group="matButtonToggleGroup">
+          <mat-button-toggle value="left" mat-button routerLink="./">
+              Home
+          </mat-button-toggle>
+          <mat-button-toggle value="center" mat-button routerLink="./courses">
+              Courses
+          </mat-button-toggle>
+          <mat-button-toggle value="right" mat-button routerLink="./about-us">
+              About Us
+          </mat-button-toggle>
+      
+        </mat-button-toggle-group>
+
+
+
       <button class="login" mat-button *ngIf="!isLoggedIn" routerLink="/sign-up">Sign In</button>
       <button mat-button *ngIf="isLoggedIn" [matMenuTriggerFor]="settingMenu" class="setting-btn">
         <mat-icon>settings</mat-icon>

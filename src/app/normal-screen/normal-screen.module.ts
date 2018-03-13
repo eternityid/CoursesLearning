@@ -29,7 +29,7 @@ import { MatButtonModule,
    MatInputModule,
    MatMenuModule,
    MatDialogModule,
-   MatRadioModule} from '@angular/material';
+   MatRadioModule, MatButtonToggleModule} from '@angular/material';
 import { JoinCourseComponent } from './join-course/join-course.component';
 
 
@@ -55,6 +55,7 @@ import { JoinCourseComponent } from './join-course/join-course.component';
     MatRadioModule,
     MatAutocompleteModule,
     Ng2CarouselamosModule ,
+    MatButtonToggleModule,
   ],
   declarations: [
     NormalScreenComponent,    

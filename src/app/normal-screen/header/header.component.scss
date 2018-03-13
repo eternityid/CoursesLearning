@@ -59,8 +59,17 @@
     -moz-box-shadow: 1px 2px 8px 1px rgba(0,0,0,0.86);
     box-shadow: 1px 2px 8px 1px rgba(0,0,0,0.86);
   }
-  .activea{
-    background-color:#d90000!important;
-    color:#fff!important;
-  
+
+  .mat-button-toggle-group{
+      box-shadow: none;
+      
+  }
+
+  .mat-button-toggle{
+    color: #fff;
+    font-size: 1rem;
+    
+  }
+  .mat-button-toggle-checked {
+      background: #0e2984;
   }
