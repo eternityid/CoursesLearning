@@ -10,4 +10,35 @@
       display: flex;
       flex-flow: wrap;
       justify-content: space-between;
+      width: 100%;
+      height: 90%;
+  }
+  .column{
+      margin-left: 6rem;
+      text-align: center;
+     
+  }
+  .create-btn .close-btn{
+      margin-left: 45%;
+      margin-top: 1.7rem;
+      padding: .3rem .5rem;
+  }
+
+  ::ng-deep .create-btn{
+    margin-left: 40%;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(241, 67, 122, 0.877);
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: #ff4081;
+    padding: .2rem 2rem;
+  }
+
+  ::ng-deep .close-btn{
+    margin-top: 1.5rem;
+    border: 1px solid #fff;
+    color: rgb(19, 18, 18);
+    font-size: 1.3rem;
+    padding: .2rem 2rem;
   }

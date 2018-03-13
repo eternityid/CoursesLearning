@@ -20,8 +20,12 @@
 }
 
 .create-btn{
-    border: 2px solid #80797b;
-    color: #ff3373;
+    border: 2px solid #cac8c8;
+    color: #0035ff;
     font-weight: bold;
     background: #fff;
+}
+.create-btn:hover{
+    border: 3px solid #0035ff; 
+    color: #100d10;
 }
