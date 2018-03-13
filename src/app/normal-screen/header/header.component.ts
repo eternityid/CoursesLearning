@@ -5,6 +5,8 @@ import {
   NavigationExtras
 } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -22,4 +24,7 @@ export class HeaderComponent {
     this._userSvc.logout();
     this._router.navigate(['/login']);
   }
+
+
+
 }
