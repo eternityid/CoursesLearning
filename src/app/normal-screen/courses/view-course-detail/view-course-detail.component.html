@@ -14,27 +14,10 @@
       </div>
     </mat-toolbar-row>
 
-    <mat-toolbar-row class="banner">
-      <img src="assets/img/detail.png">
-    </mat-toolbar-row>
-    <mat-toolbar-row>
-        <div class="title_join_session"> What time do you want to join? </div>
-    </mat-toolbar-row>
-    <mat-toolbar-row class="table_join_session">
-        <mat-list class="list_course">
-            <mat-list-item *ngFor="let c of courses">
-              <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
-              <h4 mat-line>{{c.name}}</h4>
-              <p mat-line> {{c.teacher}} </p>
-              <button mat-line class="btn_join_list">Join now</button>
-            </mat-list-item>
-
-          </mat-list>
-          
-
-    
-
-      <!-- <table class="main_join_session">
+      
+<mat-toolbar-row>
+  
+    <table class="main_join_session">
         <tr>
           <th mat-sort-header="number">Number</th>
           <th mat-sort-header="teacher_name">Teacher Name</th>
@@ -51,7 +34,28 @@
        
           <td><button class="btn_join">Join now</button></td>
         </tr>
-      </table> -->
+      </table>
+</mat-toolbar-row>
+
+    <mat-toolbar-row class="banner">
+      <img src="assets/img/detail.png">
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <div class="title_join_session"> What time do you want to join? </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="table_join_session">
+        <mat-list class="list_course">
+            <mat-list-item *ngFor="let c of courses">
+              <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
+              <h4 mat-line>{{c.name}}</h4>
+            
+              <button mat-line class="btn_join_list">Join now</button>
+            </mat-list-item>
+
+          </mat-list>
+          
+
+  
     </mat-toolbar-row>
     <!-- <mat-toolbar-row class="title_light">
           <p>

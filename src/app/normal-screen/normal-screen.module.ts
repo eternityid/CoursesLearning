@@ -15,23 +15,22 @@ import { NormalScreenRoutingModule } from './normal-screen-routing.module';
 
 import { FilterTopListPipe } from '../shared/filter-top-list.pipe';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
-import {
-  MatButtonModule,
-  MatToolbarModule,
-  MatGridListModule,
-  MatListModule,
-  MatDividerModule,
-  MatCardModule,
-  MatFormFieldModule,
-  MatSlideToggleModule,
-  MatSelectModule,
-  MatIconModule,
-  MatAutocompleteModule,
-  MatInputModule,
-  MatMenuModule,
-  MatDialogModule,
-  MatRadioModule
-} from '@angular/material';
+import { MatButtonModule,
+   MatToolbarModule, 
+   MatGridListModule,
+   MatListModule,
+   MatDividerModule,
+   MatCardModule,
+   MatFormFieldModule,
+   MatSlideToggleModule,
+   MatSelectModule,
+   MatIconModule,
+   MatAutocompleteModule,
+   MatInputModule,
+   MatMenuModule,
+   MatDialogModule,
+   MatRadioModule,
+    MatButtonToggleModule} from '@angular/material';
 import { JoinCourseComponent } from './join-course/join-course.component';
 import { WarningRecommendedCourseComponent } from './warning-recommended-course/warning-recommended-course.component';
 
@@ -57,7 +56,8 @@ import { WarningRecommendedCourseComponent } from './warning-recommended-course/
     MatSelectModule,
     MatRadioModule,
     MatAutocompleteModule,
-    Ng2CarouselamosModule,
+    Ng2CarouselamosModule ,
+    MatButtonToggleModule,
   ],
   declarations: [
     NormalScreenComponent,
