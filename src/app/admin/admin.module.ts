@@ -14,7 +14,8 @@ import { AdminSessionsComponent } from './admin-sessions/admin-sessions.componen
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 import { SessionDetailComponent } from './session-detail/session-detail.component';
-
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FilterOrderListPipe } from '../shared/filter-order-list.pipe';
 
 import {
   MatToolbarModule,
@@ -33,9 +34,6 @@ import {
   MatTooltipModule,
   MatProgressSpinnerModule
 } from '@angular/material';
-import { FileUploadComponent } from './file-upload/file-upload.component';
-
-
 
 @NgModule({
   imports: [
@@ -75,8 +73,10 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     CreateCategoryComponent,
     AdminSessionsComponent,
     SessionDetailComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    FilterOrderListPipe
   ],
+  exports:[FilterOrderListPipe],
   providers: []
 })
 export class AdminModule { }

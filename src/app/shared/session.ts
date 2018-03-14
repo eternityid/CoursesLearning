@@ -10,5 +10,5 @@ export interface Session{
     teacher?:Teacher,
     time?:number,
     maxStudents?:number,
-    registedStudents?:User[]
+    registedStudents?:string[]
 }

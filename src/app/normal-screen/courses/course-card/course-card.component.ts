@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { JoinCourseComponent } from '../../join-course/join-course.component';
 import { MatDialog } from '@angular/material';
 import { WarningRecommendedCourseComponent } from '../../warning-recommended-course/warning-recommended-course.component';
+import { SessionService } from '../../../shared/session.service';
+import { User } from '../../../shared/user';
+import { Session } from '../../../shared/session';
 
 @Component({
   selector: 'app-course-card',
@@ -16,7 +19,8 @@ export class CourseCardComponent implements OnInit {
   @Input() course: Course;
   constructor(private _userSvc: UserService,
     private _router: Router,
-    private _dialog: MatDialog, ) { }
+    private _sessionSvc: SessionService,
+    private _dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -39,29 +43,18 @@ export class CourseCardComponent implements OnInit {
     }
   }
 
-  showRecommendedCoursesModal(course:Course) {
+  showRecommendedCoursesModal(course: Course) {
     let _dialogRef = this._dialog.open(WarningRecommendedCourseComponent, {
       width: '50%',
       data: course
     });
   }
 
-  showJoinCourseModal(course:Course) {
+  showJoinCourseModal(course: Course) {
     let _dialogRef = this._dialog.open(JoinCourseComponent, {
       width: '80%',
-      maxHeight:'90%',
+      maxHeight: '90%',
       data: course
     });
-
-    _dialogRef.afterClosed().subscribe(infoSession => {      
-      if(infoSession){
-        this._userSvc.addStudyingCourse(infoSession.key);
-      }      
-    });
-  }
-
-  show(key) {
-    console.log(key);
-
   }
 }

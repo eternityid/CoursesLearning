@@ -1,5 +1,5 @@
 import { Time } from "@angular/common";
-import { Course } from "./course";
+import { Session } from "./session";
 
 export interface User{
     key:string,
@@ -8,6 +8,6 @@ export interface User{
     role:string,
     username:string,
     password:string,
-    studyingCourse:Course,
+    studyingCourse:Session,
     passedCourses:string[]
 }

@@ -60,6 +60,7 @@ import { TruncateModule } from 'ng2-truncate';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

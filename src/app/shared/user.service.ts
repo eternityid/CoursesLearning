@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/do';
 import { Course } from './course';
+import { Session } from './session';
 
 @Injectable()
 export class UserService {
@@ -57,10 +58,8 @@ export class UserService {
     this._firestore.collection<User>('users').add(user);
   }
 
-  addStudyingCourse(course:Course){
-    
-    this.userInfo.studyingCourse = course;
-    console.log(this.userInfo);
+  addStudyingCourse(studyingCourse:Session){    
+    this.userInfo.studyingCourse = studyingCourse;
     this._firestore.doc(`users/${this.userInfo.key}`).update(this.userInfo);
   }
 

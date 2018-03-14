@@ -24,7 +24,7 @@
     </div>
   </div>
   <div *ngIf="!sessions">
-      <h2>Please choose category to display sessions</h2>
+    <h2>Please choose category to display sessions</h2>
   </div>
   <mat-table *ngIf="sessions" #table [dataSource]="sessions" matSort>
 
@@ -44,14 +44,14 @@
     </ng-container>
 
     <ng-container matColumnDef="beginningDate">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</mat-header-cell>
-        <mat-cell *matCellDef="let session"> {{session.beginningDate | date:'dd-MM-yyyy'}} </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="during">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
-          <mat-cell *matCellDef="let session"> {{session.time}} </mat-cell>
-        </ng-container>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</mat-header-cell>
+      <mat-cell *matCellDef="let session"> {{session.beginningDate | date:'dd-MM-yyyy'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="during">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+      <mat-cell *matCellDef="let session"> {{session.time}} </mat-cell>
+    </ng-container>
 
     <ng-container matColumnDef="registeredStudents">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Registered Students </mat-header-cell>
@@ -62,8 +62,6 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Max Students </mat-header-cell>
       <mat-cell *matCellDef="let session">{{session.maxStudents}} </mat-cell>
     </ng-container>
-
-
 
     <ng-container matColumnDef="actionBtns">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>

@@ -42,7 +42,7 @@
 
     <ng-container matColumnDef="orderList">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Order List </mat-header-cell>
-      <mat-cell *matCellDef="let course">{{course.orderList}} </mat-cell>
+      <mat-cell *matCellDef="let course">{{sourceCourses | filterOrderList:course.orderList}} </mat-cell>
     </ng-container>    
 
     <ng-container matColumnDef="actionBtns">

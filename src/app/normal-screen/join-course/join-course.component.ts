@@ -4,6 +4,7 @@ import { SessionService } from '../../shared/session.service';
 import { Session } from '../../shared/session';
 import { CourseService } from '../../shared/course.service';
 import { Course } from '../../shared/course';
+import { UserService } from '../../shared/user.service';
 
 
 @Component({
@@ -13,24 +14,47 @@ import { Course } from '../../shared/course';
 })
 export class JoinCourseComponent implements OnInit {
 
-  course:Course;
-  sessions:Session[];
-  selectedSession:Session;
-  constructor(private _sessionSvc:SessionService,
-    private _courseSvc:CourseService,
+  studyingCourse: boolean;
+  course: Course;
+  sessions: Session[];
+  selectedSession: Session;
+  constructor(private _sessionSvc: SessionService,
+    private _userSvc: UserService,
+    private _courseSvc: CourseService,
     public _dialogRef: MatDialogRef<JoinCourseComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Course) { 
-      this.course = Object.assign({},data);
-    }
-
-  ngOnInit() {
-    this.getSessions(this.course);
+    @Inject(MAT_DIALOG_DATA) public data: Course) {
+    this.course = Object.assign({}, data);
   }
 
-  getSessions(course:Course){    
-    this._sessionSvc.getSessionsBasedCourse(course).subscribe(sessions =>{
+  ngOnInit() {
+    this.studyingCourse = this._userSvc.userInfo.studyingCourse?true:false;
+    this.getSessions(this.course.key);
+  }
+
+  getSessions(courseId: string) {
+    this._sessionSvc.getSessionsBasedCourseId(courseId).subscribe(sessions => {
       this.sessions = sessions;
     })
+  }
+
+  onSaveClick(selectedSession:Session){
+    if(selectedSession){
+      this._userSvc.addStudyingCourse(selectedSession);
+      this.addRegistedStudent(selectedSession);
+      this._dialogRef.close();
+    }
+    console.log("please choose!");
+    
+  }
+
+  addRegistedStudent(session: Session) {
+    let userKey = this._userSvc.userInfo.key;
+    if (!session.registedStudents) {
+      session.registedStudents = [];
+    }
+    session.registedStudents.push(userKey);
+
+    this._sessionSvc.updateSession(session);
   }
 
   onCloseClick(): void {

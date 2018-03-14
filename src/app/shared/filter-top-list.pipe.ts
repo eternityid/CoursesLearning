@@ -10,7 +10,7 @@ export class FilterTopListPipe implements PipeTransform {
     data.sort((leftSide,rightSide) => {
       return rightSide.likes - leftSide.likes
     })      
-    return data.slice(0,5);
+    return data.slice(0,topNumber);
   }
 
 }

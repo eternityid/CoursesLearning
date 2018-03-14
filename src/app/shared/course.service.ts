@@ -12,12 +12,22 @@ export class CourseService {
   constantCategoryDefault = "000000000000001";
 
   constructor(private _firestore: AngularFirestore,
-  private _userSvc:UserService) {}
+    private _userSvc: UserService) { }
 
-  getCourses(categoryId?:string): Observable<Course[]> {
-    if(categoryId === undefined || categoryId === this.constantCategoryDefault){
+  getAllCourses() {
+    return this._firestore.collection('courses').snapshotChanges().map(actions => {
+      return actions.map(act => {
+        const data = act.payload.doc.data() as Course;
+        data.key = act.payload.doc.id;
+        return data;
+      });
+    });
+  }
+
+  getCourses(categoryId?: string): Observable<Course[]> {
+    if (categoryId === undefined || categoryId === this.constantCategoryDefault) {
       return this._firestore.collection('courses').snapshotChanges().map(actions => {
-        if(this._userSvc.userInfo && this._userSvc.userInfo.passedCourses !== undefined && this._userSvc.userInfo.role !== "admin"){            
+        if (this._userSvc.userInfo && this._userSvc.userInfo.passedCourses !== undefined && this._userSvc.userInfo.role !== "admin") {
           let passedCoursesIdList = this._userSvc.userInfo.passedCourses;
           actions = actions.filter(act => passedCoursesIdList.indexOf(act.payload.doc.id) == -1)
         }
@@ -28,8 +38,8 @@ export class CourseService {
         });
       });
     }
-    return this._firestore.collection('courses',ref => ref.where('category.key', "==", categoryId)).snapshotChanges().map(actions => {      
-      if(this._userSvc.userInfo && this._userSvc.userInfo.passedCourses !== undefined && this._userSvc.userInfo.role !== "admin"){
+    return this._firestore.collection('courses', ref => ref.where('category.key', "==", categoryId)).snapshotChanges().map(actions => {
+      if (this._userSvc.userInfo && this._userSvc.userInfo.passedCourses !== undefined && this._userSvc.userInfo.role !== "admin") {
         let passedCoursesIdList = this._userSvc.userInfo.passedCourses;
         actions = actions.filter(act => passedCoursesIdList.indexOf(act.payload.doc.id) == -1)
       }
@@ -39,6 +49,10 @@ export class CourseService {
         return data;
       });
     });
+  }
+
+  getCourseById(id: string) {
+    return this._firestore.doc<Course>(`courses/${id}`).valueChanges();
   }
 
   addCourse(course: Course): void {

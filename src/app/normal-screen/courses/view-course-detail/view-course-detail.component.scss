@@ -134,14 +134,14 @@
 .list_course {
     margin-left: 25%;
     margin-bottom: 5rem;
-    
+    width: 100%;
     display: block; 
     mat-list-item{
         border-bottom: 1px solid #cecece;
         font-size: 1.5rem;
         font-weight: bold;
         height: 7rem;
-
+        width: 100%;
         
         p{
             float: left;

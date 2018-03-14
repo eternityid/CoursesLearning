@@ -31,8 +31,8 @@ export class SessionService {
     });
   }
 
-  getSessionsBasedCourse(course:Course){
-    return this._firestore.collection('sessions',ref => ref.where('course.key', "==", course.key)).snapshotChanges().map(actions => {     
+  getSessionsBasedCourseId(courseId:string){
+    return this._firestore.collection('sessions',ref => ref.where('course.key', "==", courseId)).snapshotChanges().map(actions => {     
       return actions.map(act => {
         const data = act.payload.doc.data() as Session;
         data.key = act.payload.doc.id;
@@ -46,6 +46,8 @@ export class SessionService {
   }
 
   updateSession(session:Session){
+    console.log(session);
+    
     this._firestore.doc(`sessions/${session.key}`).update(session);
   }
 

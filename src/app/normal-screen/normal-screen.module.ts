@@ -33,6 +33,7 @@ import { MatButtonModule,
     MatButtonToggleModule} from '@angular/material';
 import { JoinCourseComponent } from './join-course/join-course.component';
 import { WarningRecommendedCourseComponent } from './warning-recommended-course/warning-recommended-course.component';
+import { FilterDisabledButtonPipe } from '../shared/filter-disabled-button.pipe';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { WarningRecommendedCourseComponent } from './warning-recommended-course/
     FilterTopListPipe,
     ViewCourseDetailComponent,
     JoinCourseComponent,
-    WarningRecommendedCourseComponent
+    WarningRecommendedCourseComponent,
+    FilterDisabledButtonPipe
   ],
   entryComponents: [
     JoinCourseComponent,
