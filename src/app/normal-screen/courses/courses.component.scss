@@ -50,21 +50,21 @@
 }
 
 .btn_search {
-    margin-top: .2rem;
+    margin-top: -1.4rem;
     border: 0px none #000000;
     background: #ffffff00;
     z-index: 1;
     float: right;
-    margin-right: -13rem;
+    margin-right: 9rem;
 }
 
 .hr_main {
-    width: 82%;
+    width: 71%;
     box-sizing: border-box;
     position: absolute;
     margin-left: 8em;
     margin-top: 8rem;
-    background: #ededee;    
+    background: #ededee;
 }
 
 .course_main {
@@ -75,20 +75,10 @@
 
 .column {
     width: 94%;
-    margin-top: 15rem;
+    margin-top: 15.5rem;
 }
 
-
-@media only screen and (min-width: 1028px) {
-    .course_main {
-        height: 100%;
-        margin-top: 15rem;
-        margin-left: 6%;
-    }
-    
-  }
-
-.sign-in_btn{
+.sign-in_btn {
     text-align: center;
 }
 
@@ -140,24 +130,55 @@
 .show_value {
     margin-left: 10%;
 }
-.form-filter-category{
+
+.form-filter-category {
     float: left;
-    margin:3.8rem 10rem;
+    margin: 3.8rem 10rem;
     text-align: center;
 }
-.bar-search{
+
+.bar-search {
     float: right;
     width: 20%;
-    margin-top: 5.6rem;    
-   
+    margin-top: 5.6rem;
 }
-.amount-category{
-    margin: .2rem -25.5em;
+
+.amount-category {
+    margin: .2rem -20.5em;
 }
-.material-icons{
+
+.material-icons {
     background: #fff;
 }
-.amount{
+
+.amount {
     float: left;
     margin-top: 9rem;
+    margin-left: -4rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    .hr_main {
+        width: 78.5%;
+    }
+    .btn_search {
+        margin-top: -1.8rem;
+        margin-right: 9rem;
+    }
+    .form-filter-category {
+        float: left;
+        margin: 4.7rem 10rem;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1028px) {
+    .course_main {
+        height: 100%;
+        margin-top: 15rem;
+        margin-left: 6%;
+    }
+    .hr_main {
+        width: 77%;
+    }
 }

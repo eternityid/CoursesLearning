@@ -1,99 +1,110 @@
 <div class="container">
-  <mat-toolbar>
-    <mat-toolbar-row class="content_name">
-      <span>Food as Medicine</span>
-    </mat-toolbar-row>
+    <mat-toolbar>
+        <mat-toolbar-row class="content_name">
+            <span>Food as Medicine</span>
+        </mat-toolbar-row>
 
-    <mat-toolbar-row>
-      <div class="paragraph">
-        <p class="content-top">
-          <mat-icon style="padding-right: 2px; padding-top:3px;">trending_flat</mat-icon> Thinking about a career change? Identify your key strengths
-          <br>and professional skills, and learn how to sell them and yourself.
-        </p>
-        <button>Join now</button>
-      </div>
-    </mat-toolbar-row>
+        <mat-toolbar-row>
+            <div class="paragraph">
+                <p class="content-top">
+                    <mat-icon style="padding-right: 2px; padding-top:3px;">trending_flat</mat-icon> Thinking about a career change? Identify your key strengths
+                    <br>and professional skills, and learn how to sell them and yourself.
+                </p>
+                <button>Join now</button>
+            </div>
+        </mat-toolbar-row>
 
-    <mat-toolbar-row>
-      <table class="main_join_session">
-        <tr>
-          <th mat-sort-header="number">Number</th>
-          <th mat-sort-header="teacher_name">Teacher Name</th>
-          <th mat-sort-header="quanlity">Start Date</th>
-          <th mat-sort-header="time">Time</th>
-          <th mat-sort-header="join">Registed Students</th>
-          <th mat-sort-header="join">Max Students</th>
-          <th mat-sort-header="join"></th>
-        </tr>
+        <mat-toolbar-row class="table" id="in">
+            <table class="main_join_session">
+                <tr>
+                    <th colspan="7" class="info_table">
+                        Information
+                    </th>
+                </tr>
+                <tr>
+                    <th mat-sort-header="number">Number</th>
 
-        <tr *ngFor="let session of sessions; let i = index">
-          <td>{{i + 1}}</td>
-          <td>{{session.teacher.name}}</td>
-          <td>{{session.beginningDate | date:'dd-MM-yyyy'}}</td>
-          <td>{{session.time}}</td>
-          <td>{{session.registedStudents?session.registedStudents.length:0}}</td>
-          <td>{{session.maxStudents}}</td>
-          <td>
-            <button class="btn_join" (click)="onJoinCourse(session)">Join now</button>
-          </td>
-        </tr>
-      </table>
-    </mat-toolbar-row>
+                    <th mat-sort-header="quanlity">Start Date</th>
+                    <th mat-sort-header="teacher_name">Teacher Name</th>
 
-    <mat-toolbar-row class="banner">
-      <img src="assets/img/detail.png">
-    </mat-toolbar-row>
+                    <th mat-sort-header="join">Registed</th>
+                    <th mat-sort-header="join">Max Join</th>
+                    <th mat-sort-header="time">Time</th>
 
-    <mat-toolbar-row>
-        <div class="title_join_session"> Prerequisite Courses</div>
-    </mat-toolbar-row>
+                </tr>
 
-    <mat-toolbar-row class="table_join_session">      
-      <mat-list class="list_course">
-        <mat-list-item *ngFor="let course of recommendCourses">
-          <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
-          <h4 mat-line>{{course.name}}</h4>
-          <button mat-button [disabled]="course | filterDisabledButton:leftCourses">Join Now</button>
-        </mat-list-item>
-      </mat-list>
-    </mat-toolbar-row>
+                <tr *ngFor="let session of sessions; let i = index">
+                    <td class="stt">{{i + 1}}</td>
+                    <td>{{session.beginningDate | date:'dd-MM-yyyy'}}</td>
+                    <td>{{session.teacher.name}}</td>
 
 
-    <mat-toolbar-row class="main_title">
-      <span>
+                    <td>{{session.registedStudents?session.registedStudents.length:0}}</td>
+                    <td>{{session.maxStudents}}</td>
+                    <td>{{session.time}} hour</td>
+                </tr>
+                <tr>
+                    <th colspan="6" class="btn_table">
+                        <button class="btn_join" (click)="onJoinCourse(session)">Join now</button>
+                    </th>
+                </tr>
+            </table>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="banner">
+            <img src="assets/img/detail.png">
+        </mat-toolbar-row>
+
+        <mat-toolbar-row>
+            <div class="title_join_session"> Prerequisite Courses</div>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="table_join_session">
+            <mat-list class="list_course">
+                <mat-list-item *ngFor="let course of recommendCourses">
+                    <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
+                    <h4 mat-line>{{course.name}}</h4>
+                    <button class="btn_join_list" mat-button [disabled]="course | filterDisabledButton:leftCourses">Join Now</button>
+                </mat-list-item>
+            </mat-list>
+        </mat-toolbar-row>
+
+
+        <mat-toolbar-row class="main_title">
+            <span>
         Learn how to benefit from your work and life experience
       </span>
 
-    </mat-toolbar-row>
+        </mat-toolbar-row>
 
-    <mat-toolbar-row class="main_content">
-      <p>
-        Most people change their jobs multiple times, some make dramatic
-        <br> career shifts. Being able to identify your transferable skills is vital in
-        <br>a changing career marketplace.
+        <mat-toolbar-row class="main_content">
+            <p>
+                Most people change their jobs multiple times, some make dramatic
+                <br> career shifts. Being able to identify your transferable skills is vital in
+                <br>a changing career marketplace.
 
-        <br>
-        <br> This course investigates the current career environment and, using
-        <br>case studies and a series of unique audit tools, it will challenge you to
-        <br> explore your successes and what success means to you. It will also
-        <br> develop your capacity to reflect on your strengths and weaknesses
-        <br>and increase your knowledge of credentials (the skills and capabilities
-        <br> you have built during your life and career).</p>
-      <img src="assets/img/learning_detail.jpg">
-    </mat-toolbar-row>
+                <br>
+                <br> This course investigates the current career environment and, using
+                <br>case studies and a series of unique audit tools, it will challenge you to
+                <br> explore your successes and what success means to you. It will also
+                <br> develop your capacity to reflect on your strengths and weaknesses
+                <br>and increase your knowledge of credentials (the skills and capabilities
+                <br> you have built during your life and career).</p>
+            <img src="assets/img/learning_detail.jpg">
+        </mat-toolbar-row>
 
-    <mat-toolbar-row class="content_name">
-      <span>More course</span>
+        <mat-toolbar-row class="content_name">
+            <span>More course</span>
 
-    </mat-toolbar-row>
-    <mat-toolbar-row>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
 
-    </mat-toolbar-row>
+        </mat-toolbar-row>
 
-  </mat-toolbar>
-  <div class="more_course">
-    <div class="column" *ngFor="let course of coursesByCategoryId | filterTopList:3 ">
-      <app-course-card class="column" [course]="course"></app-course-card>
+    </mat-toolbar>
+    <div class="more_course">
+        <div class="column" *ngFor="let course of coursesByCategoryId | filterTopList:3 ">
+            <app-course-card class="column" [course]="course"></app-course-card>
+        </div>
     </div>
-  </div>
 </div>

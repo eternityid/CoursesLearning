@@ -1,74 +1,88 @@
-.footer{
+.footer {
     background: #4a4d55;
     height: 13rem;
     width: 100%;
     flex-direction: row;
     box-sizing: border-box;
     display: flow-root;
+}
+
+.icon_block {
+    float: right;
+    margin: 4% 8%;
+    width: 23%;
+}
+
+.icon {
+    float: left;
+    border-radius: 50%;
+    margin: 0 2px;
+    margin: 10% 8%;
+    font-size: 26px;
+    text-align: center;
+}
+
+.icon:hover {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
     }
-    
-    .icon_block{
-        float: right;
-        margin: 1% 8%;
-        width: 10%;
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
     }
-    .icon{
-        float: left;
-        background: #fff;
-        border-radius: 50%;
-        margin: 0 2px;
-        width: 40px;
-        height: 40px;
-    
-        margin: 20% 0;
-        font-size: 26px;
-           
-        text-align: center;
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
     }
-    
-    .fa-facebook-f{
-        padding-top: 20%;
-        padding-left: 16%;
-        color: #0053A7;
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
     }
-    .fa-google-plus{
-        padding-top: 20%;
-    
-        text-align: center;
-        font-size: 26px;
-    
-        color: #dd4b39;
-    
+}
+
+.info {
+    width: 28.5rem;
+    float: left;
+    margin: 0;
+    padding: 0 .9rem;
+    font-family: 'Europa';
+    color: #ffffff;
+}
+
+.info h3 {
+    margin: 0;
+    margin-left: .8rem;
+}
+
+.info i {
+    padding-bottom: .2rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .info {
+        padding: 3rem 1rem;
     }
-    .fa{
-        display: inline-flex;
-        margin-bottom: .7rem;
-        
+    .icon {
+        margin: 26% 7%;
     }
-    .info{
-        width: 28.25rem;
-        float: left;
-        margin: 0;
-        padding: 0 .9rem;
-        font-family: 'Europa';
-        color: #ffffff;
-   
+}
+
+@media only screen and (min-width: 1024px) {
+    .info {
+        width: 35rem;
+        padding: 3rem;
     }
-    .info h3{
-        margin: 0;
-        margin-left: .8rem;
+    .icon {
+        margin: 3% 8%;
     }
-    .info i{
-        padding-bottom: .2rem;
+    .icon_block {
+        margin: 5%;
     }
-    @media only screen and (min-width: 600px) {
-        .info{
-            padding: 2rem 1rem;
-        
-        }
-        .icon_block[_ngcontent-c3] {
-            float: right;
-            margin: 1% 8%;
-            width: 4%;
-        }
-    }
+}

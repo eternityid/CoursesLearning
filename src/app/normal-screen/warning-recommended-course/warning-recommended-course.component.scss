@@ -1,31 +1,45 @@
-.mat-dialog-actions{
+.mat-dialog-actions {
     justify-content: flex-end;
 }
-.header-title{
+
+.header-title {
     text-align: center;
 }
-.mat-dialog-title{
+
+.mat-dialog-title {
     font-weight: bold;
-    color:white;
+    color: white;
     margin: -24px -24px 20px;
     padding: .5em 1em;
     box-shadow: 0 0 10px #24306e;
-    background-color: #3f51b5;   
+    background-color: #3f51b5;
 }
 
-.course_name{
-    color:#de00a5;
+.course_name {
+    color: #de00a5;
     font-size: 1.1rem;
     font-weight: bold;
 }
 
-.create-btn{
+.create-btn {
     border: 2px solid #cac8c8;
     color: #0035ff;
     font-weight: bold;
     background: #fff;
+    border-radius: 3px;
 }
-.create-btn:hover{
-    border: 3px solid #0035ff; 
+
+.create-btn:hover {
+    border: 3px solid #0035ff;
     color: #100d10;
+}
+
+.close-btn {
+    background: transparent;
+}
+
+.close-btn:hover {
+    font-weight: bold;
+    border: 1px solid #cecece;
+    background: #fff !important;
 }
