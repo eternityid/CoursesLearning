@@ -169,6 +169,15 @@
         float: left;
         margin: 4.7rem 10rem;
         text-align: center;
+        .category {
+            width: 20.6rem;
+        }
+    }
+    .amount {
+        margin-left: -13.2rem;
+    }
+    .search_input {
+        width: 20.3rem;
     }
 }
 
@@ -180,5 +189,16 @@
     }
     .hr_main {
         width: 77%;
+    }
+    .amount {
+        margin-left: -18.3rem;
+    }
+    .search_input {
+        width: 26.5rem;
+    }
+    .form-filter-category {
+        .category {
+            width: 25.6rem;
+        }
     }
 }

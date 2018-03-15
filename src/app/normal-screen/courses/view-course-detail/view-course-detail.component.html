@@ -1,69 +1,4 @@
 <div class="container">
-  <mat-toolbar>
-    <mat-toolbar-row class="content_name">
-      <span>Food as Medicine</span>
-    </mat-toolbar-row>
-
-    <mat-toolbar-row>
-      <div class="paragraph">
-        <p class="content-top">
-          <mat-icon style="padding-right: 2px; padding-top:3px;">trending_flat</mat-icon> Thinking about a career change? Identify your key strengths
-          <br>and professional skills, and learn how to sell them and yourself.
-        </p>
-        <button>Join now</button>
-      </div>
-    </mat-toolbar-row>
-
-    <mat-toolbar-row>
-      <table class="main_join_session">
-        <tr>
-          <th mat-sort-header="number">Number</th>
-          <th mat-sort-header="teacher_name">Teacher Name</th>
-          <th mat-sort-header="quanlity">Start Date</th>
-          <th mat-sort-header="time">Time</th>
-          <th mat-sort-header="join">Registed Students</th>
-          <th mat-sort-header="join">Max Students</th>
-          <th mat-sort-header="join"></th>
-        </tr>
-
-        <tr *ngFor="let session of sessions; let i = index">
-          <td>{{i + 1}}</td>
-          <td>{{session.teacher.name}}</td>
-          <td>{{session.beginningDate | date:'dd-MM-yyyy'}}</td>
-          <td>{{session.time}}</td>
-          <td>{{session.registedStudents?session.registedStudents.length:0}}</td>
-          <td>{{session.maxStudents}}</td>
-          <td>
-            <button mat-button (click)="addUserInto(session)" [disabled]="hideJoinBtn">Join now</button>
-          </td>
-        </tr>
-      </table>
-    </mat-toolbar-row>
-
-    <mat-toolbar-row class="banner">
-      <img src="assets/img/detail.png">
-    </mat-toolbar-row>
-
-    <mat-toolbar-row>
-        <div class="title_join_session"> Prerequisite Courses</div>
-    </mat-toolbar-row>
-
-    <mat-toolbar-row class="table_join_session">      
-      <mat-list class="list_course">
-        <mat-list-item *ngFor="let course of recommendCourses">
-          <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
-          <h4 mat-line>{{course.name}}</h4>
-          <button mat-button [disabled]="course | filterDisabledButton:leftCourses" (click)="joinCourse(course)">Join Now</button>
-        </mat-list-item>
-      </mat-list>
-    </mat-toolbar-row>
-
-
-    <mat-toolbar-row class="main_title">
-      <span>
-
-        <!-- em coi lại phần này nhé giữ hàm lại cho a rồi xóa phần ko cân thiết đi -->
-<!-- =======
     <mat-toolbar>
         <mat-toolbar-row class="content_name">
             <span>Food as Medicine</span>
@@ -75,7 +10,6 @@
                     <mat-icon style="padding-right: 2px; padding-top:3px;">trending_flat</mat-icon> Thinking about a career change? Identify your key strengths
                     <br>and professional skills, and learn how to sell them and yourself.
                 </p>
-                <button>Join now</button>
             </div>
         </mat-toolbar-row>
 
@@ -110,7 +44,7 @@
                 </tr>
                 <tr>
                     <th colspan="6" class="btn_table">
-                        <button class="btn_join" (click)="onJoinCourse(session)">Join now</button>
+                        <button mat-button class="btn_join" (click)="onJoinCourse(session)">Join now</button>
                     </th>
                 </tr>
             </table>
@@ -137,10 +71,8 @@
 
         <mat-toolbar-row class="main_title">
             <span>
->>>>>>> ui-something -->
-        Learn how to benefit from your work and life experience
-      </span>
-
+                Learn how to benefit from your work and life experience
+            </span>
         </mat-toolbar-row>
 
         <mat-toolbar-row class="main_content">

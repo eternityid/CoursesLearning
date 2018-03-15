@@ -24,47 +24,47 @@
             <strong>Sign Up</strong>
         </button>
     </div>
-    
-<div class="row">
+
+    <div class="row">
         <div class="col-0"></div>
         <div class="col-3 menu">
-         <div class="example-card" id="card_logo_1">
-                    <img src="assets/img/logo1.jpg" alt="Education">
-                    <a>
+            <div class="example-card" id="card_logo_1">
+                <img src="assets/img/logo1.jpg" alt="Education">
+                <a>
                         Business & Management
                     </a>
-                </div>	
+            </div>
         </div>
         <div class="col-05"></div>
         <div class="col-3">
-           <div class="example-card">
-                    <img src="assets/img/logo2.jpg" alt="Photo of a Shiba Inu">
-                    <a>
+            <div class="example-card">
+                <img src="assets/img/logo2.jpg" alt="Photo of a Shiba Inu">
+                <a>
                         Health & Psychology
                     </a>
-                </div>
+            </div>
         </div>
         <div class="col-05"></div>
         <div class="col-3 right">
-        
-         <div class="example-card">
-                    <img src="assets/img/logo3.jpg" alt="Photo of a Shiba Inu">
-                    <a>
+
+            <div class="example-card">
+                <img src="assets/img/logo3.jpg" alt="Photo of a Shiba Inu">
+                <a>
                         Tech & Coding
                     </a>
-                </div>
-        
-        
+            </div>
+
+
         </div>
-         </div>
+    </div>
 
     <hr style="width: 98%; margin-bottom: 2rem">
     <mat-grid-list cols="5" rowHeight="80em">
         <mat-grid-tile class="list_Cource ">
-            <mat-list>
+            <mat-list class="top-teacher">
                 <h2>Top Courses</h2>
                 <mat-list-item *ngFor="let course of coursesList | filterTopList:5" class="item_cource">
-                    <a routerLink="/learning/courses/detail/{{course.key}}">{{course.name}}</a> 
+                    <a routerLink="/learning/courses/detail/{{course.key}}">{{course.name}}</a>
                     <mat-divider></mat-divider>
                 </mat-list-item>
             </mat-list>
@@ -76,39 +76,33 @@
                 </mat-card-title>
                 <button class="join">Join now</button>
                 <img mat-card-avatar class="avt_card" src="assets/img/book1.jpg">
-               
+
                 <mat-card-title>
                     <a>
                         <strong>CRACKING THE CODING INTERVIEW</strong>
                     </a>
-               
+
                 </mat-card-title>
                 <mat-card-subtitle class="paragharp">
                     <p>
-                        I am not a recruiter. I am a software engineer. And as such, I know what it's like to be asked to whip up brilliant algorithms
-                        on the spot and then write flawless code on a whiteboard. I've been through this as a candidate and
-                        as an interviewer.
+                        I am not a recruiter. I am a software engineer. And as such, I know what it's like to be asked to whip up brilliant algorithms on the spot and then write flawless code on a whiteboard. I've been through this as a candidate and as an interviewer.
                     </p>
                     <p>
-                        Cracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and
-                        enabling you to perform at your very best. I've coached and interviewed hundreds of software engineers.
-                        The result is this book.
+                        Cracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best. I've coached and interviewed hundreds of software engineers. The result is this book.
                     </p>
                     <p>
-                        Learn how to uncover the hints and hidden details in a question, discover how to break down a problem into manageable chunks,
-                        develop techniques to unstick yourself when stuck, learn (or re-learn) core computer science concepts,
-                        and practice on 189 interview questions and solutions.
+                        Learn how to uncover the hints and hidden details in a question, discover how to break down a problem into manageable chunks, develop techniques to unstick yourself when stuck, learn (or re-learn) core computer science concepts, and practice on 189 interview
+                        questions and solutions.
                     </p>
                     <p>
-                        These interview questions are real; they are not pulled out of computer science textbooks. They reflect what's truly being
-                        asked at the top companies, so that you can be as prepared as possible.
+                        These interview questions are real; they are not pulled out of computer science textbooks. They reflect what's truly being asked at the top companies, so that you can be as prepared as possible.
                         <strong>WHAT'S INSIDE?</strong>
                     </p>
                 </mat-card-subtitle>
             </mat-card>
         </mat-grid-tile>
         <mat-grid-tile class="list_Cource">
-            <mat-list #shoes>
+            <mat-list class="top-teacher">
                 <h2>Top Teachers</h2>
                 <mat-list-item *ngFor="let teacher of teachersList | filterTopList:5" class="item_cource">
                     {{teacher.name}}
