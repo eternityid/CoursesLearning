@@ -9,6 +9,7 @@ import { FirebaseApp } from 'angularfire2';
 import 'firebase/storage';
 import { CreateCategoryComponent } from '../create-category/create-category.component';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
+import { CourseService } from '../../shared/course.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -17,7 +18,7 @@ import { FileUploadComponent } from '../file-upload/file-upload.component';
 })
 export class CourseDetailComponent implements OnInit {
 
-  title = this.data.course ? "EDIT COURSE" : "CREATE NEW COURSE";
+  title = this.data ? "EDIT COURSE" : "CREATE NEW COURSE";
   titleCreateCategory = "CREATE NEW CATEGORY";
   newCategoryName: string;
   course: Course;
@@ -29,27 +30,34 @@ export class CourseDetailComponent implements OnInit {
 
   constructor(
     private _categorySvc: CategoryService,
+    private _courseSvc:CourseService,
     private _toastr: ToastsManager,
     private _firebaseApp: FirebaseApp,
     private _vcr: ViewContainerRef,
     private _dialog: MatDialog,
     public _dialogRef: MatDialogRef<CourseDetailComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: Course
   ) {
-    if (data.course) {
-      this.course = Object.assign({}, data.course);
-      this.coursesList = Object.assign([], data.coursesList);
+    if (data) {
+      this.course = Object.assign({}, data);
       this.categoryDefault = this.course.category.key;
       this.formControlOrderList.setValue(this.course.orderList);
     } else {
       this.course = {};
-      this.coursesList = Object.assign([], data);
+
     }
     this._toastr.setRootViewContainerRef(_vcr);
   }
 
   ngOnInit() {
+    this.getCourses();
     this.getCategories();
+  }
+
+  getCourses(){
+    this._courseSvc.getAllCourses().subscribe(courses => {
+      this.coursesList = courses.filter(course => course.key !== this.course.key);      
+    })
   }
 
   getCategories() {

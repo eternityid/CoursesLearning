@@ -66,11 +66,9 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   showModalCreate(): void {
-    const coursesList = this.coursesList.data;
     let dialogRef = this._dialog.open(CourseDetailComponent, {
       width: '75%',
-      maxHeight: '90%',
-      data: coursesList
+      maxHeight: '90%'
     });
 
     dialogRef.afterClosed().subscribe(newCourse => {
@@ -82,15 +80,10 @@ export class AdminCoursesComponent implements OnInit {
   }
 
   showModalEdit(course: Course): void {
-    const coursesList = this.coursesList.data.filter(c => c != course);
-    const dataRequest = {
-      course: course,
-      coursesList: coursesList
-    }
     let dialogRef = this._dialog.open(CourseDetailComponent, {
       width: '80%',
       maxHeight: '90%',
-      data: dataRequest
+      data: course
     });
 
     dialogRef.afterClosed().subscribe(editedCourse => {
