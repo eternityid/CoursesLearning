@@ -7,6 +7,7 @@ import { Session } from '../../../shared/session';
 import { CourseService } from '../../../shared/course.service';
 import { Course } from '../../../shared/course';
 import { WarningRecommendedCourseComponent } from '../../warning-recommended-course/warning-recommended-course.component';
+import { JoinCourseComponent } from '../../join-course/join-course.component';
 
 @Component({
   selector: 'app-view-course-detail',
@@ -15,7 +16,8 @@ import { WarningRecommendedCourseComponent } from '../../warning-recommended-cou
 })
 export class ViewCourseDetailComponent implements OnInit {
 
-  courseId: string;
+  hideJoinBtn:boolean;
+  courseId: string;  
   course: Course;
   courses: Course[];
   orderList: string[];
@@ -32,10 +34,13 @@ export class ViewCourseDetailComponent implements OnInit {
     this.courseId = this._route.snapshot.paramMap.get('id');
   }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.getSessions(this.courseId);
     this.getCourseById(this.courseId);
     this.getCourses();
+    if(this._userSvc.userInfo && this._userSvc.userInfo.studyingCourse){
+      this.hideJoinBtn = true;
+    }
   }
 
 
@@ -70,38 +75,58 @@ export class ViewCourseDetailComponent implements OnInit {
   getSessions(courseId: string) {
     this._sessionSvc.getSessionsBasedCourseId(courseId).subscribe(sessions => {
       this.sessions = sessions;
+      console.log(sessions);
+      
     })
   }
 
-  onJoinCourse(session: Session) {
+  addUserInto(session:Session){
+    if (!this._userSvc.isLoggedIn) {
+      this._router.navigate(['/login']);
+    } else {
+      this._userSvc.addStudyingCourse(session);
+      this.addRegistedStudent(session);
+    }
+  }
+  addRegistedStudent(session: Session) {
+    let userKey = this._userSvc.userInfo.key;
+    if (!session.registedStudents) {
+      session.registedStudents = [];
+    }
+    session.registedStudents.push(userKey);
+
+    this._sessionSvc.updateSession(session);
+  }
+
+  joinCourse(course:Course) {
     if (!this._userSvc.isLoggedIn) {
       this._router.navigate(['/login']);
     } else {
       let passedCourses = this._userSvc.userInfo.passedCourses;
-      console.log(passedCourses);
-
       if (passedCourses) {
-        this.leftCourses = this.orderList.filter(courseId => passedCourses.indexOf(courseId) == -1)
-        console.log(this.leftCourses);
-
-        if (this.leftCourses.length !== 0) {
-          this.showRecommendedCoursesModal(this.course);
+        let orderList = course.orderList;
+        let recommendCourses = orderList.filter(courseId => passedCourses.indexOf(courseId) == -1)
+        if (recommendCourses.length !== 0) {
+          this._userSvc.recommendCourses = recommendCourses;
+          this.showRecommendedCoursesModal(course);
         } else {
-          console.log(this.course);
-
-
+          this.showJoinCourseModal(course);
         }
       }
     }
   }
 
-  addUserJoinCourse() {
-
-  }
-
   showRecommendedCoursesModal(course: Course) {
     let _dialogRef = this._dialog.open(WarningRecommendedCourseComponent, {
       width: '50%',
+      data: course
+    });
+  }
+
+  showJoinCourseModal(course: Course) {
+    let _dialogRef = this._dialog.open(JoinCourseComponent, {
+      width: '80%',
+      maxHeight: '90%',
       data: course
     });
   }

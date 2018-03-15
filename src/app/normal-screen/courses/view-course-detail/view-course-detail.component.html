@@ -34,7 +34,7 @@
           <td>{{session.registedStudents?session.registedStudents.length:0}}</td>
           <td>{{session.maxStudents}}</td>
           <td>
-            <button class="btn_join" (click)="onJoinCourse(session)">Join now</button>
+            <button mat-button (click)="addUserInto(session)" [disabled]="hideJoinBtn">Join now</button>
           </td>
         </tr>
       </table>
@@ -53,7 +53,7 @@
         <mat-list-item *ngFor="let course of recommendCourses">
           <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
           <h4 mat-line>{{course.name}}</h4>
-          <button mat-button [disabled]="course | filterDisabledButton:leftCourses">Join Now</button>
+          <button mat-button [disabled]="course | filterDisabledButton:leftCourses" (click)="joinCourse(course)">Join Now</button>
         </mat-list-item>
       </mat-list>
     </mat-toolbar-row>

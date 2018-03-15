@@ -49,6 +49,8 @@ export class AdminSessionsComponent implements OnInit {
     this._sessionSvc.getSessions(categoryId).subscribe(sessions => {
       this.sourceSessions = sessions;
       this.sessions.data = sessions;
+      console.log(sessions);
+      
     })
   }
 
@@ -57,7 +59,7 @@ export class AdminSessionsComponent implements OnInit {
     this.getSessions(categoryId);
   }
 
-  applyFilter(searchKeyword: string) {
+  applyFilter(searchKeyword: string) {    
     this.sessions.data = this.sourceSessions;
     if (searchKeyword !== null) {
       this.sessions.data = this.sourceSessions.filter((session) =>
@@ -73,8 +75,9 @@ export class AdminSessionsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(newSession => {
-      if (newSession != null) {
-        this._sessionSvc.addSession(newSession);
+      let session = newSession as Session;
+      if (Object.keys(session).length === 6) {
+        this._sessionSvc.addSession(session);
       }
     });
   }

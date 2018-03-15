@@ -74,7 +74,8 @@ export class AdminCoursesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(newCourse => {
-      if (newCourse != null) {
+      let course = newCourse as Course;
+      if (Object.keys(course).length >= 4){
         this._courseSvc.addCourse(newCourse);
       }
     });
