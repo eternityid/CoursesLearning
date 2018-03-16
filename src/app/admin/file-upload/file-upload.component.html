@@ -1,16 +1,15 @@
 <h1 mat-dialog-title> UPLOAD FILE</h1>
-<div mat-dialog-content>  
+<div mat-dialog-content>
   <input class="file-input" type="file" (change)="startUpload($event.target.files)">
   <div *ngIf="downloadURL | async as url">
     <h3>Results!</h3>
     <div class="block--image">
-      
       <img [src]="url" style="height:100%;width:100%">
       <br>
     </div>
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="close-btn" (click)="onCloseClick()">Close</button>
   <button mat-button class="save-btn" [mat-dialog-close]="downloadURL" cdkFocusInitial>Save</button>
+  <button mat-button class="close-btn" (click)="onCloseClick()">Close</button>
 </div>

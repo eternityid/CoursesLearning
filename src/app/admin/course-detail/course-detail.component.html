@@ -41,7 +41,11 @@
             <mat-form-field>
               <input matInput [(ngModel)]="course.imageUrl" placeholder="Url image" disabled>
             </mat-form-field>
+            <div class="img-preview">
+              <img src="{{course.imageUrl}}" alt="preview" style="height:60px;width:60px;">
+            </div>
           </div>
+          
         </div>
       </mat-grid-tile>
 

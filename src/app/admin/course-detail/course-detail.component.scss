@@ -45,6 +45,9 @@
 }
 .block--category{
     display: flex;
+    .img-preview{
+        padding: 0 .5rem;
+    }
 }
 .mat-toolbar-row, .mat-toolbar-single-row{
     width: 94% !important;

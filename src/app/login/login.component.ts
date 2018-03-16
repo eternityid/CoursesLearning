@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Location } from '@angular/common';
 import {
   Router,
   NavigationExtras
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _userSvc: UserService,
     private _toastr: ToastsManager,
+    private _location:Location,
     private _vcr: ViewContainerRef,
     private _router: Router) {
     this._toastr.setRootViewContainerRef(_vcr);
@@ -41,6 +43,10 @@ export class LoginComponent implements OnInit {
         this._toastr.error('Your username or password is wrong', 'Error');
       }
     });
+  }
+
+  previous(){
+    this._location.back();
   }
 
 

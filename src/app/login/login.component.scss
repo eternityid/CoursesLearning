@@ -79,7 +79,7 @@
   
     a{
        font-size: .9rem;
-       
+       cursor: pointer;
         display: inline-flex;
         text-decoration: none;
         margin-top:1.3em;
@@ -91,13 +91,12 @@
     }
     .sign_up{
         margin-top: 1em;
-        font-size: 1.2rem;
         color: #f7067e;
+        font-size: 1.2rem;
     }
 
     .sign_up:hover{
-        font-size: 1.4rem;
-       
+        font-weight: bolder;       
     }
 }
 

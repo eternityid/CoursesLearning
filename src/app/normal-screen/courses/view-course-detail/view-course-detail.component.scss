@@ -140,15 +140,17 @@
             background: transparent;
             border: 1px solid #ff3373;
 
+            padding: 0 !important;
             border-radius: 5px;
-            // line-height: 0 !important;
-            // padding: 0 !important;
+            
         }
         .btn_join_list:hover {
             font-weight: bold;
 
             border: 1px solid #000000;
-            color: #fff;
+            color: #000000;
+   
+
         }
     }
 }
@@ -185,20 +187,18 @@ td {
     text-align: center;
 }
 
-.btn_table {
-    button{
+.btn-join,
+.full-slot {
+
         border: 1px solid #ff3373;
         -webkit-transition: all 0.3s;
         transition: all 0.3s;
-        // line-height: 0 !important;
-        // padding: 0 !important;
-    }
-    button:hover{
+        width: 95px;
+}
+.btn-join:hover{
         
-        font-weight: bold;
-        border: 1px solid #8a8184
-    }
-
+    font-weight: bold;
+    border: 1px solid #8a8184
 }
 
 .stt {

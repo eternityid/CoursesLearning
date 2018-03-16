@@ -1,7 +1,7 @@
 <div class="container">
     <mat-toolbar>
         <mat-toolbar-row class="content_name">
-            <span>Food as Medicine</span>
+            <span>{{course?.name}}</span>
         </mat-toolbar-row>
 
         <mat-toolbar-row>
@@ -36,8 +36,9 @@
                     <td>{{session.registedStudents?session.registedStudents.length:0}}</td>
                     <td>{{session.maxStudents}}</td>
                     <td>{{session.time}} hours</td>
-                    <td class="btn_table">
-                        <button mat-button   (click)="addUserInto(session)" [disabled]="session.registedStudents && session.registedStudents.length == session.maxStudents?true:false">Join now</button>
+                    <td>
+                        <button mat-button class="btn-join" *ngIf="session.registedStudents && session.registedStudents.length == session.maxStudents?false:true" (click)="addUserInto(session)">Join now</button>                        
+                        <button mat-raised-button class="full-slot" *ngIf="session.registedStudents && session.registedStudents.length == session.maxStudents?true:false" disabled>Full Slot</button>
                     </td>
                 </tr>
             </table>
@@ -48,7 +49,7 @@
         </mat-toolbar-row>
 
         <mat-toolbar-row>
-            <div class="title_join_session"> Prerequisite Courses</div>
+            <div class="title_join_session"> Requirement Courses</div>
         </mat-toolbar-row>
 
         <mat-toolbar-row class="table_join_session">
@@ -56,7 +57,8 @@
                 <mat-list-item *ngFor="let course of recommendCourses">
                     <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
                     <h4 mat-line>{{course.name}}</h4>
-                    <button class="btn_join_list" mat-button [disabled]="course | filterDisabledButton:leftCourses" (click)="joinCourse(course)">Join Now</button>
+                    <button class="btn_join_list" mat-button *ngIf="!(course | filterDisabledButton:leftCourses)" (click)="joinCourse(course)">Join Now</button>
+                    <div *ngIf="course | filterDisabledButton:leftCourses">Passed!</div>
                 </mat-list-item>
             </mat-list>
         </mat-toolbar-row>
@@ -80,7 +82,7 @@
             <img src="assets/img/learning_detail.jpg">
         </mat-toolbar-row>
         <mat-toolbar-row class="content_name">
-            <span>More course</span>
+            <span>More courses</span>
         </mat-toolbar-row>
 
     </mat-toolbar>
