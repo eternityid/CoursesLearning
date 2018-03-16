@@ -12,13 +12,57 @@
 }
 
 .header--title {
-    font-weight: bolder;
-    text-shadow: 5px 5px 10px rgba(77, 73, 73, 0.863)
+    img{
+        margin-top: 8px;
+        width: 55px;
+        height: 58px;
+    }
+
 }
 
 .header--title:hover {
     animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
     transform: translate3d(0, 0, 0);
+    img{
+        box-shadow:  0 0 10px 5px rgba(0,0,0,0.6);
+		-moz-box-shadow: 0 0 10px  5px rgba(0,0,0,0.6);
+		-webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+        -o-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+        border-radius: 50%; 
+    }
+}
+
+.profile{
+    background: #fff;
+    margin-top: -2px;
+    margin-left: 1.8rem;
+    border: .5px solid #cecece;
+    padding: 4px 10px;
+    .name{
+        float: left;
+    color: #525252;
+    font-size: 1.2rem;
+    padding-right: .8rem;
+    padding-top: 3.8px;
+    }
+    .name:hover{
+        color: #0c0c0c;
+        text-decoration: underline;
+    }
+    .avt{
+        float: left;
+        img{
+            padding-top: 4px;
+            width: 32px;
+            height: 32px;
+            
+        }
+        img:hover{
+            animation: shake 0.99s cubic-bezier(.36, .07, .19, .97) both;
+            transform: translate3d(0, 0, 0);
+        }
+        // margin-top: .3rem;
+    }
 }
 
 @keyframes shake {

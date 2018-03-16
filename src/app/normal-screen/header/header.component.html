@@ -1,7 +1,10 @@
 <div class="header">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span class="header--title"><img src="assets/img/1f331.png"></span>
+            <span class="header--title">
+                <img src="assets/img/graduation.png">
+  
+            </span>
             <span class="header--spacer"></span>
             <mat-button-toggle-group #group="matButtonToggleGroup">
                 <mat-button-toggle value="left" mat-button routerLink="./">
@@ -14,7 +17,14 @@
                     About Us
                 </mat-button-toggle>
             </mat-button-toggle-group>
-            <button class="login" mat-button *ngIf="!isLoggedIn" routerLink="/login">Sign In</button>
+            <!-- <button class="login" mat-button *ngIf="!isLoggedIn" routerLink="/login">Sign In</button> -->
+            <div class="profile">
+                <a class="name">
+                    User Name
+                </a>
+                <a class="avt"><img  src="assets/img/baby.png"></a>
+                
+            </div>
             <button mat-button *ngIf="isLoggedIn" [matMenuTriggerFor]="settingMenu" class="setting-btn">
         <mat-icon>settings</mat-icon>
       </button>

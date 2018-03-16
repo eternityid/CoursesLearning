@@ -29,7 +29,7 @@
                     <th mat-sort-header="join">Registed</th>
                     <th mat-sort-header="join">Max Join</th>
                     <th mat-sort-header="time">Time</th>
-
+                    <th mat-sort-header="join"></th>
                 </tr>
 
                 <tr *ngFor="let session of sessions; let i = index">
@@ -41,11 +41,9 @@
                     <td>{{session.registedStudents?session.registedStudents.length:0}}</td>
                     <td>{{session.maxStudents}}</td>
                     <td>{{session.time}} hour</td>
-                </tr>
-                <tr>
-                    <th colspan="6" class="btn_table">
-                        <button mat-button class="btn_join" (click)="onJoinCourse(session)">Join now</button>
-                    </th>
+                    <td class="btn_table">
+                        <button mat-button   (click)="onJoinCourse(session)" [disabled]="session.registedStudents && session.registedStudents.length == session.maxStudents?true:false">Join now</button>
+                    </td>
                 </tr>
             </table>
         </mat-toolbar-row>

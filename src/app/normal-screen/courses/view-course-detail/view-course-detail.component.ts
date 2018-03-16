@@ -25,6 +25,7 @@ export class ViewCourseDetailComponent implements OnInit {
   recommendCourses: Course[];
   coursesByCategoryId: Course[];
   sessions: Session[];
+
   constructor(private _route: ActivatedRoute,
     private _courseSvc: CourseService,
     private _router: Router,
