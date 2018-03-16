@@ -7,7 +7,8 @@
         </div>
         <div class="content">
             <p>
-                Choose from hundreds of online courses from top universities and specialist organisations. Browse by category and start date, to find the right one for you…
+                Choose from hundreds of online courses from top universities and specialist organisations. Browse by category and start date,
+                to find the right one for you…
             </p>
         </div>
     </div>
@@ -17,35 +18,32 @@
             <strong>Sign Up</strong>
         </button>
     </div>
-    <div class="form-filter-category">
-        <mat-form-field class="category">
-            <mat-select (selectionChange)="onSelectionChanged($event)" placeholder="Categories" [(ngModel)]="selectedDefault">
-                <mat-option *ngFor="let category of categories" [value]="category.key">
-                    {{ category.name }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="bar-search">
-
-        <div>
-            <input class="search_input" type="search" placeholder="Search" (keyup)="onKeySearch($event)">
-            <button mat-button class="btn_search" type="submit">
-                <mat-icon>search</mat-icon>
-            </button>
+    <div class="search--filter">
+        <div class="form-filter-category">
+            <mat-form-field class="category">
+                <mat-select (selectionChange)="onSelectionChanged($event)" placeholder="Categories" [(ngModel)]="selectedDefault">
+                    <mat-option *ngFor="let category of categories" [value]="category.key">
+                        {{ category.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="box-search">
+            <div class="container-box">
+                <span class="icon--search">
+                    <mat-icon>search</mat-icon>
+                </span>
+                <input class="search_input" id="search" type="search" placeholder="Search" (keyup)="onKeySearch($event)">
+            </div>
         </div>
     </div>
-
-
     <hr class="hr_main">
     <div class="amount">
-        <div>
-            <h5 class="amount-category">Amount of courses: {{countCourses}}</h5>
-        </div>
+        <h5>Amount of courses: {{countCourses}}</h5>
     </div>
     <div class="course_main">
-        <div class="column" *ngFor="let course of filterCourses ">
-            <app-course-card class="column" [course]="course"></app-course-card>
+        <div class="card-course" *ngFor="let course of filterCourses ">
+            <app-course-card [course]="course"></app-course-card>
         </div>
     </div>
 </div>

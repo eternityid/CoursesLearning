@@ -1,7 +1,5 @@
 .container {
-    margin: auto;
     margin-top: 5rem;
-    max-width: 768px;
 }
 
 * {
@@ -90,16 +88,6 @@
     p {
         margin-bottom: 3rem;
     }
-}
-
-.more_course {
-    margin: 4rem -1.5rem;
-    padding-left: 1.6rem;
-}
-
-.column {
-    width: 89%;
-    margin: 0 0;
 }
 
 .title_join_session {
@@ -229,16 +217,25 @@ td {
 .mat-sort-header-container {
     align-items: center;
 }
+.more_course{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+.card-course{
+    width: 30%;
+    margin-top: 1em;
+}
+
+@media only screen and (max-width: 1024px) {
+    .card-course{
+        width: 50%;
+    }
+}
 
 @media only screen and (min-width: 1024px) {
-    .more_course {
-        margin: 4rem -9rem;
-        padding-left: .6rem;
-    }
-    .column {
-        width: 88%;
-        margin: 0 0;
-    }
+
     table {
         padding: 3rem;
         border-top: 1px solid #1f1e1f;
@@ -291,14 +288,6 @@ td {
             height: 4rem;
             width: 8rem;
         }
-    }
-    .more_course {
-        margin: 4rem -1.5rem;
-        padding-left: 1.6rem;
-    }
-    .column {
-        width: 94%;
-        margin: 0 0;
     }
     .main_title {
         font-size: 1.5rem;

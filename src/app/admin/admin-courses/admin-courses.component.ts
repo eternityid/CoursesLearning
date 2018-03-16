@@ -73,7 +73,7 @@ export class AdminCoursesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(newCourse => {
       let course = newCourse as Course;
-      if (Object.keys(course).length >= 4){
+      if (course && Object.keys(course).length >= 4 ){
         this._courseSvc.addCourse(newCourse);
       }
     });
@@ -103,7 +103,7 @@ export class AdminCoursesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result)
       if (result) {
-        // this._courseSvc.deleteCourse(course.key);
+        this._courseSvc.deleteCourse(course.key);
       }
     });
   }

@@ -55,7 +55,7 @@
 
         <ng-container matColumnDef="registeredStudents">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Registered </mat-header-cell>
-            <mat-cell *matCellDef="let session">{{session.registeredStudents !== undifined?session.registeredStudents:0}} </mat-cell>
+            <mat-cell *matCellDef="let session">{{session.registedStudents?session.registedStudents.length:0}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="maxStudents">

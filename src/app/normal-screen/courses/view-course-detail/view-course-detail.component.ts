@@ -46,8 +46,6 @@ export class ViewCourseDetailComponent implements OnInit {
 
   getCoursesByCategoryId(categoryId: string) {
     this._courseSvc.getCourses(categoryId).subscribe(courses => {
-      console.log(this.course);
-      
       this.coursesByCategoryId = courses.filter(course => course.key != this.course.key);
     })
   }

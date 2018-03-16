@@ -76,7 +76,7 @@ export class AdminSessionsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(newSession => {
       let session = newSession as Session;
-      if (Object.keys(session).length === 6) {
+      if (session && Object.keys(session).length === 6) {
         this._sessionSvc.addSession(session);
       }
     });
@@ -105,7 +105,7 @@ export class AdminSessionsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result)
       if (result) {
-        // this._courseSvc.deleteCourse(course.key);
+        this._sessionSvc.deleteCourse(session.key);
       }
     });
   }

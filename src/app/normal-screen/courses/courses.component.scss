@@ -1,6 +1,5 @@
 .container {
-    margin-top: 7rem;
-    max-width: 1270px;
+    // max-width: 1270px;
     display: flow-root;
 }
 
@@ -42,11 +41,9 @@
 }
 
 .search_input {
-    margin-right: 8.6rem;
-    width: 13rem;
+    width: 100%;
     height: 2rem;
     border-radius: 5px;
-    float: right;
 }
 
 .btn_search {
@@ -59,23 +56,19 @@
 }
 
 .hr_main {
-    width: 71%;
-    box-sizing: border-box;
-    position: absolute;
-    margin-left: 8em;
-    margin-top: 8rem;
+    width: 85%;
     background: #ededee;
 }
 
 .course_main {
-    height: 100%;
-    margin-top: 5rem;
-    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around
 }
 
-.column {
-    width: 94%;
-    margin-top: 15.5rem;
+.card-course{
+    width: 25%;
 }
 
 .sign-in_btn {
@@ -130,75 +123,74 @@
 .show_value {
     margin-left: 10%;
 }
-
-.form-filter-category {
-    float: left;
-    margin: 3.8rem 10rem;
-    text-align: center;
-}
-
-.bar-search {
-    float: right;
-    width: 20%;
-    margin-top: 5.6rem;
-}
-
-.amount-category {
-    margin: .2rem -20.5em;
-}
-
 .material-icons {
     background: #fff;
 }
 
 .amount {
-    float: left;
-    margin-top: 9rem;
-    margin-left: -4rem;
+    margin: 0 10em 2em 10%;
 }
+.amount > h5{
+    margin: 0;
+}
+.search--filter{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    padding: 0 10%;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.form-filter-category {
+    width: 40%;
+    margin-bottom: -1.3rem;  
+    .category {
+        width: 100%;
+    }
+}
+.box-search {
+    border-bottom: 1px solid #aca2a2;  
+    width: 40%;
+}
+.container-box{
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+.container-box input#search{
+    background: #ffffff;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #262626;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .container-box input#search::-webkit-input-placeholder {
+    color: #65737e;
+ }
 
-@media only screen and (min-width: 1024px) {
-    .hr_main {
-        width: 78.5%;
+ .container-box .icon--search{
+    position: absolute;
+    margin-left: 9px;
+    margin-top: 4px;
+    z-index: 1;
+   
+     -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+  }
+
+@media only screen and (max-width: 1024px) {
+    .card-course{
+        width: 50%;
     }
     .btn_search {
         margin-top: -1.8rem;
         margin-right: 9rem;
-    }
-    .form-filter-category {
-        float: left;
-        margin: 4.7rem 10rem;
-        text-align: center;
-        .category {
-            width: 20.6rem;
-        }
-    }
-    .amount {
-        margin-left: -13.2rem;
-    }
-    .search_input {
-        width: 20.3rem;
-    }
-}
-
-@media only screen and (min-width: 1028px) {
-    .course_main {
-        height: 100%;
-        margin-top: 15rem;
-        margin-left: 6%;
-    }
-    .hr_main {
-        width: 77%;
-    }
-    .amount {
-        margin-left: -18.3rem;
-    }
-    .search_input {
-        width: 26.5rem;
-    }
-    .form-filter-category {
-        .category {
-            width: 25.6rem;
-        }
     }
 }

@@ -22,25 +22,20 @@
                 </tr>
                 <tr>
                     <th mat-sort-header="number">Number</th>
-
-                    <th mat-sort-header="quanlity">Start Date</th>
+                    <th mat-sort-header="beginning_date">Start Date</th>
                     <th mat-sort-header="teacher_name">Teacher Name</th>
-
-                    <th mat-sort-header="join">Registed</th>
-                    <th mat-sort-header="join">Max Join</th>
+                    <th mat-sort-header="registed_students">Registed</th>
+                    <th mat-sort-header="max_students">Max Join</th>
                     <th mat-sort-header="time">Time</th>
-
+                    <th mat-sort-header="time"></th>
                 </tr>
-
                 <tr *ngFor="let session of sessions; let i = index">
                     <td class="stt">{{i + 1}}</td>
                     <td>{{session.beginningDate | date:'dd-MM-yyyy'}}</td>
                     <td>{{session.teacher.name}}</td>
-
-
                     <td>{{session.registedStudents?session.registedStudents.length:0}}</td>
                     <td>{{session.maxStudents}}</td>
-                    <td>{{session.time}} hour</td>
+                    <td>{{session.time}} hours</td>
                 </tr>
                 <tr>
                     <th colspan="6" class="btn_table">
@@ -63,24 +58,20 @@
                 <mat-list-item *ngFor="let course of recommendCourses">
                     <mat-icon class="icon_course" mat-list-icon>folder</mat-icon>
                     <h4 mat-line>{{course.name}}</h4>
-                    <button class="btn_join_list" mat-button [disabled]="course | filterDisabledButton:leftCourses">Join Now</button>
+                    <button class="btn_join_list" mat-button [disabled]="course | filterDisabledButton:leftCourses" (click)="joinCourse(course)">Join Now</button>
                 </mat-list-item>
             </mat-list>
         </mat-toolbar-row>
-
-
         <mat-toolbar-row class="main_title">
             <span>
                 Learn how to benefit from your work and life experience
             </span>
         </mat-toolbar-row>
-
         <mat-toolbar-row class="main_content">
             <p>
                 Most people change their jobs multiple times, some make dramatic
                 <br> career shifts. Being able to identify your transferable skills is vital in
                 <br>a changing career marketplace.
-
                 <br>
                 <br> This course investigates the current career environment and, using
                 <br>case studies and a series of unique audit tools, it will challenge you to
@@ -90,19 +81,15 @@
                 <br> you have built during your life and career).</p>
             <img src="assets/img/learning_detail.jpg">
         </mat-toolbar-row>
-
         <mat-toolbar-row class="content_name">
             <span>More course</span>
-
-        </mat-toolbar-row>
-        <mat-toolbar-row>
-
         </mat-toolbar-row>
 
     </mat-toolbar>
     <div class="more_course">
-        <div class="column" *ngFor="let course of coursesByCategoryId | filterTopList:3 ">
-            <app-course-card class="column" [course]="course"></app-course-card>
+        <div class="card-course" *ngFor="let course of coursesByCategoryId | filterTopList:3 ">
+            <app-course-card [course]="course"></app-course-card>
         </div>
     </div>
+
 </div>
