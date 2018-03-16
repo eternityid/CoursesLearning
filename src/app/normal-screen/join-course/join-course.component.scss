@@ -42,3 +42,38 @@
     font-size: 1.3rem;
     padding: .2rem 2rem;
   }
+  .header-title {
+    text-align: center;
+}
+
+.mat-dialog-title {
+    font-weight: bold;
+    color: white;
+    margin: -24px -24px 20px;
+    padding: .5em 1em;
+    box-shadow: 0 0 10px #24306e;
+    background-color: #3f51b5;
+}
+
+mat-dialog-content{
+    strong{
+        font-size: 2.4rem;
+        text-align: center
+    }
+}
+
+
+.close-btn {
+    margin-left: 45%;
+    border: 2px solid #cac8c8;
+    color: #0035ff;
+    font-weight: bold;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.close-btn:hover {
+    border: 3px solid #0035ff;
+    color: #100d10;
+}
+
