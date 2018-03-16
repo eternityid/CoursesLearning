@@ -14,10 +14,12 @@ import {
 })
 export class HeaderComponent {
 
+  username:string;
   isLoggedIn: boolean;
   constructor(private _userSvc: UserService,
     private _router: Router) {
     this.isLoggedIn = this._userSvc.isLoggedIn;
+    this.username = this._userSvc.userInfo?this._userSvc.userInfo.username.toUpperCase():'';
   }
 
   logout() {

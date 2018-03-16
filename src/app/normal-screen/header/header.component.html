@@ -1,7 +1,11 @@
 <div class="header">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span class="header--title"><img src="assets/img/1f331.png"></span>
+            <a routerLink="./">
+                <span class="header--title">
+                    <img src="assets/img/graduation.png">
+                </span>
+            </a>
             <span class="header--spacer"></span>
             <mat-button-toggle-group #group="matButtonToggleGroup">
                 <mat-button-toggle value="left" mat-button routerLink="./">
@@ -15,9 +19,15 @@
                 </mat-button-toggle>
             </mat-button-toggle-group>
             <button class="login" mat-button *ngIf="!isLoggedIn" routerLink="/login">Sign In</button>
-            <button mat-button *ngIf="isLoggedIn" [matMenuTriggerFor]="settingMenu" class="setting-btn">
-        <mat-icon>settings</mat-icon>
-      </button>
+            <div class="profile" *ngIf="isLoggedIn">
+                <a class="name" [matMenuTriggerFor]="settingMenu">
+                    {{username}}
+                </a>
+                <a class="avt">
+                    <img src="assets/img/baby.png">
+                </a>
+
+            </div>
             <mat-menu #settingMenu="matMenu">
                 <button mat-menu-item (click)="logout()">Logout</button>
             </mat-menu>

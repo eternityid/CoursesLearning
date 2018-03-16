@@ -8,6 +8,7 @@ import { CourseService } from '../../../shared/course.service';
 import { Course } from '../../../shared/course';
 import { WarningRecommendedCourseComponent } from '../../warning-recommended-course/warning-recommended-course.component';
 import { JoinCourseComponent } from '../../join-course/join-course.component';
+import { ToastsManager } from 'ng2-toastr';
 
 @Component({
   selector: 'app-view-course-detail',
@@ -25,8 +26,10 @@ export class ViewCourseDetailComponent implements OnInit {
   recommendCourses: Course[];
   coursesByCategoryId: Course[];
   sessions: Session[];
+
   constructor(private _route: ActivatedRoute,
     private _courseSvc: CourseService,
+    private _toastr: ToastsManager,
     private _router: Router,
     private _userSvc: UserService,
     private _dialog: MatDialog,
@@ -72,20 +75,22 @@ export class ViewCourseDetailComponent implements OnInit {
 
   getSessions(courseId: string) {
     this._sessionSvc.getSessionsBasedCourseId(courseId).subscribe(sessions => {
-      this.sessions = sessions;
-      console.log(sessions);
-      
+      this.sessions = sessions;   
     })
   }
 
   addUserInto(session:Session){
     if (!this._userSvc.isLoggedIn) {
       this._router.navigate(['/login']);
-    } else {
+    }else if(this._userSvc.userInfo.studyingCourse){
+      this.showJoinCourseModal(session.course);
+    }else {
       this._userSvc.addStudyingCourse(session);
       this.addRegistedStudent(session);
+      this._toastr.success('You are joined course successfully', 'Successful');      
     }
   }
+
   addRegistedStudent(session: Session) {
     let userKey = this._userSvc.userInfo.key;
     if (!session.registedStudents) {
