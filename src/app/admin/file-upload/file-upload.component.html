@@ -3,8 +3,7 @@
   <input class="file-input" type="file" (change)="startUpload($event.target.files)">
   <div *ngIf="downloadURL | async as url">
     <h3>Results!</h3>
-    <div class="block--image">
-      
+    <div class="block--image">      
       <img [src]="url" style="height:100%;width:100%">
       <br>
     </div>

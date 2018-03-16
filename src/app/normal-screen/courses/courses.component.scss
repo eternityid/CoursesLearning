@@ -1,5 +1,5 @@
 .container {
-    // max-width: 1270px;
+    margin-top: 80px;
     display: flow-root;
 }
 
@@ -64,7 +64,6 @@
     width: 100%;
     display: flex;
     flex-flow: wrap;
-    justify-content: space-around
 }
 
 .card-course{

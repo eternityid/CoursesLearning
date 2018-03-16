@@ -140,15 +140,17 @@
             background: transparent;
             border: 1px solid #ff3373;
 
+            padding: 0 !important;
             border-radius: 5px;
-            // line-height: 0 !important;
-            // padding: 0 !important;
+            
         }
         .btn_join_list:hover {
             font-weight: bold;
 
             border: 1px solid #000000;
-            color: #fff;
+            color: #000000;
+   
+
         }
     }
 }
