@@ -1,116 +1,120 @@
-*{
+* {
     font-family: 'Europa';
 }
 
-.banner{
+.banner {
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
     margin-top: 4rem;
-  }
-  .mat-toolbar-row{
+}
+
+.mat-toolbar-row {
     padding: 0;
     height: auto;
     white-space: unset;
-  }
+}
 
-  .sen{
+.sen {
     background: #fff;
     height: 100px;
-    margin-bottom: 2rem;
-      h1{
+    padding-bottom: 4rem;
+    h1 {
+        color: #f5007a;
         font-family: 'Europa';
-        padding-top:50px; 
+        padding-top: 50px;
         font-size: 2.8rem;
         text-align: center;
         line-height: calc(1em + 5px);
-        text-rendering: optimizelegibility;     
+        text-rendering: optimizelegibility;
         height: 100%;
-        margin-left:20%;
-      }
-      h3{
+        margin-left: 20%;
+        margin-bottom: 3rem;
+    }
+    h3 {
+        color: #610021;
         font-family: 'Europa';
         font-size: 1.2rem;
         line-height: calc(1.25em + 2px);
         font-weight: bold;
         margin-left: 10%;
-      
-      }
-  }
+    }
+}
 
-  .ourCourse{
+.ourCourse {
     width: 98%;
-  }
+}
 
-  .avt_main{
-      margin: 1rem 1rem;
-  }
+.avt_main {
+    margin: 1rem 1rem;
+}
 
-  .title_main{
+.title_main {
     font-size: 3rem;
     line-height: calc(1em + 5px);
     font-weight: bold;
     font-family: 'Europa';
-  }
+}
 
-  .history{
+.history {
     width: 95%;
     margin-top: 3rem;
     // border-top-style: solid 
-    
-  }
-  .ourHistory{
-    margin:3% 4%;
+}
+
+.ourHistory {
+    margin: 3% 4%;
     width: 65%;
     font-size: 1.2rem;
     font-family: 'Europa';
     line-height: calc(1.25em + 2px);
-  }
-  .historyBelow{
-    margin:0 4%;
-  }
-  .img_final{
+}
+
+.historyBelow {
+    margin: 0 4%;
+}
+
+.img_final {
     margin: 5% 8%;
-  }
+}
 
-
-  @media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
     .sen {
-      h3{
-
-        margin-left: 2%;
-        text-align: center;
-      }
+        h1 {
+            margin-left: 29%;
+        }
+        h3 {
+            margin-left: 2%;
+            text-align: center;
+        }
     }
-    .img_final{
-      margin: 5% 18.5%;
+    .img_final {
+        margin: 5% 18.5%;
     }
-  }
+}
 
-  @media only screen and (min-width: 1028px) {
-    .img_final{
-      margin: 5% 23%;
+@media only screen and (min-width: 1028px) {
+    .img_final {
+        margin: 5% 23%;
     }
-
     .sen {
-        h3{
-          margin-left: 10%;
-          font-size: 1.5rem;
-          text-align: center;
-          margin-bottom: 2rem;
-      
-        }  
+        h3 {
+            margin-left: 13%;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: .5rem;
+            width: 70%;
+        }
     }
-    .avt_main{
-      margin: 1rem 3rem;
+    .avt_main {
+        margin: 1rem 3rem;
     }
-    .title_main{
-      margin-left: 13rem;
-      font-size: 3rem;
-      line-height: calc(1em + 5px);
-      font-weight: bold;
-      font-family: 'Europa';
+    .title_main {
+        margin-left: 13rem;
+        font-size: 3rem;
+        line-height: calc(1em + 5px);
+        font-weight: bold;
+        font-family: 'Europa';
     }
-
-  }
+}

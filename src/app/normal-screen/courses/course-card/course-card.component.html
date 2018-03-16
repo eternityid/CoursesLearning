@@ -4,10 +4,10 @@
         <h4>{{course.name}}</h4>
         <p>{{course.description}}</p>
     </a>
-    <button class="join_now" (click)="joinCourse()">
+    <button mat-button class="join_now" (click)="joinCourse()">
         <strong>Join now</strong>
     </button>
-    <button class="detail" routerLink="/learning/courses/detail/{{course.key}}">
+    <button mat-button class="detail" routerLink="/learning/courses/detail/{{course.key}}">
         <strong>Detail</strong>
     </button>
 </div>

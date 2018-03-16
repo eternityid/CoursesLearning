@@ -7,19 +7,18 @@
         </div>
         <div class="content">
             <p>
-                Choose from hundreds of online courses from top universities and specialist organisations. Browse by category and start date,
-                to find the right one for you…
+                Choose from hundreds of online courses from top universities and specialist organisations. Browse by category and start date, to find the right one for you…
             </p>
         </div>
     </div>
 
     <div class="sign-in_btn">
-        <button *ngIf="!hideSignIn" class="btn_signIn" mat-raised-button color="primary" routerLink="/sign-up">
+        <button mat-button *ngIf="!hideSignIn" class="btn_signIn" mat-raised-button color="primary" routerLink="/sign-up">
             <strong>Sign Up</strong>
         </button>
     </div>
     <div class="form-filter-category">
-        <mat-form-field>
+        <mat-form-field class="category">
             <mat-select (selectionChange)="onSelectionChanged($event)" placeholder="Categories" [(ngModel)]="selectedDefault">
                 <mat-option *ngFor="let category of categories" [value]="category.key">
                     {{ category.name }}
@@ -28,15 +27,15 @@
         </mat-form-field>
     </div>
     <div class="bar-search">
-        
+
         <div>
             <input class="search_input" type="search" placeholder="Search" (keyup)="onKeySearch($event)">
-            <button class="btn_search" type="submit">
+            <button mat-button class="btn_search" type="submit">
                 <mat-icon>search</mat-icon>
             </button>
         </div>
     </div>
- 
+
 
     <hr class="hr_main">
     <div class="amount">
@@ -46,8 +45,7 @@
     </div>
     <div class="course_main">
         <div class="column" *ngFor="let course of filterCourses ">
-          <app-course-card class="column" [course]="course" 
-          ></app-course-card>
+            <app-course-card class="column" [course]="course"></app-course-card>
         </div>
     </div>
 </div>
