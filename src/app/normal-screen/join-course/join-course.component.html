@@ -3,7 +3,7 @@
 </div>
 <!-- <hr> -->
 <div mat-dialog-content>
-    <div *ngIf="studyingCourse"><strong class="note">You took part in class!</strong> </div>
+    <div *ngIf="studyingCourse"><strong class="note">You are studying in another class!</strong> </div>
     <mat-radio-group *ngIf="!studyingCourse" [(ngModel)]="selectedSession">
 
         <mat-radio-button class="radio-button" *ngFor="let session of sessions; let i = index" [value]="session" [disabled]="session.registedStudents === session.maxStudents?true:false">
