@@ -22,10 +22,10 @@
                 </tr>
                 <tr>
                     <th mat-sort-header="number">Number</th>
-                    <th mat-sort-header="beginning_date">Start Date</th>
-                    <th mat-sort-header="teacher_name">Teacher Name</th>
-                    <th mat-sort-header="registed_students">Registed</th>
-                    <th mat-sort-header="max_students">Max Join</th>
+                    <th mat-sort-header="beginning_date">Start Date </th>
+                    <th mat-sort-header="teacher_name">Teacher Name </th>
+                    <th mat-sort-header="registed_students">Registed </th>
+                    <th mat-sort-header="max_students">Max </th>
                     <th mat-sort-header="time">Time</th>
                     <th mat-sort-header="join"></th>
                 </tr>
@@ -37,7 +37,7 @@
                     <td>{{session.maxStudents}}</td>
                     <td>{{session.time}} hours</td>
                     <td class="btn_table">
-                        <button mat-button [disabled]="session.registedStudents && session.registedStudents.length == session.maxStudents?true:false" (click)="addUserInto(session)">Join now</button>                        
+                        <button mat-button [disabled]="session.registedStudents && session.registedStudents.length == session.maxStudents?true:false" (click)="addUserInto(session)">Join now</button>
                     </td>
                 </tr>
             </table>
