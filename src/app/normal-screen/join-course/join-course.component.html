@@ -1,38 +1,42 @@
 <div class="header-title">
-  <h1 mat-dialog-title>Course Session</h1>
+    <h1 mat-dialog-title><strong>Course Session</strong> </h1>
 </div>
+<!-- <hr> -->
 <div mat-dialog-content>
-  <div *ngIf="studyingCourse">You took part in class!</div>
-  <mat-radio-group *ngIf="!studyingCourse" [(ngModel)]="selectedSession">
-    <mat-radio-button class="radio-button" *ngFor="let session of sessions; let i = index" [value]="session" [disabled]="session.registedStudents === session.maxStudents?true:false">
-      <div class="inline-radio-btn">
-        <div class="column number-index">
-          {{i}}
-        </div>
-        <div class="column teacher">
-          {{session.teacher.name}}
-        </div>
-        <div class="column time-during">
-          {{session.time}}
-        </div>
-        <div class="column registed-students">
-          {{session.registedStudents?session.registedStudents.length:0}}
-        </div>
-        <div class="column max-students">
-          {{session.maxStudents}}
-        </div>
-        <div class="column start-date">
-          {{session.beginningDate | date:'dd-MM-yyyy'}}
-        </div>
-      </div>
-    </mat-radio-button>
-  </mat-radio-group>
+    <div *ngIf="studyingCourse"><strong class="note">You took part in class!</strong> </div>
+    <mat-radio-group *ngIf="!studyingCourse" [(ngModel)]="selectedSession">
+
+        <mat-radio-button class="radio-button" *ngFor="let session of sessions; let i = index" [value]="session" [disabled]="session.registedStudents === session.maxStudents?true:false">
+
+
+            <div class="inline-radio-btn">
+                <div class="column number-index">
+                    {{i}}
+                </div>
+                <div class="column teacher">
+                    {{session.teacher.name}}
+                </div>
+                <div class="column time-during">
+                    {{session.time}}
+                </div>
+                <div class="column registed-students">
+                    {{session.registedStudents?session.registedStudents.length:0}}
+                </div>
+                <div class="column max-students">
+                    {{session.maxStudents}}
+                </div>
+                <div class="column start-date">
+                    {{session.beginningDate | date:'dd-MM-yyyy'}}
+                </div>
+            </div>
+        </mat-radio-button>
+    </mat-radio-group>
 </div>
 <div *ngIf="!studyingCourse" mat-dialog-actions>
-  <button mat-button class="create-btn create" (click)="onSaveClick(selectedSession)">Join</button>
-  <button mat-button class="close-btn" (click)="onCloseClick()">No thanks</button>
+    <button mat-button class="create-btn create" (click)="onSaveClick(selectedSession)">Join</button>
+    <button mat-button class="close-btn" (click)="onCloseClick()">No thanks</button>
 </div>
 
 <div *ngIf="studyingCourse" mat-dialog-actions>
-    <button mat-button class="close-btn" (click)="onCloseClick()">OK, I got it</button>
+    <button mat-button class="close close-btn" (click)="onCloseClick()">OK, I got it</button>
 </div>
