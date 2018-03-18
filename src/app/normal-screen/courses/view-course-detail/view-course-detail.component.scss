@@ -136,26 +136,21 @@
         }
         .btn_join_list {
             margin-left: 0%;
-      
             background: transparent;
             border: 1px solid #ff3373;
-
             padding: 0 !important;
-            border-radius: 5px;
-            
+            border-radius: 5px;            
         }
         .btn_join_list:hover {
             font-weight: bold;
-
             border: 1px solid #000000;
             color: #000000;
-   
-
         }
     }
 }
 
 table {
+    margin-left: 2%;
     padding: 3rem 2rem;
     border-top: 1px solid #1f1e1f;
     border-collapse: collapse;
@@ -171,7 +166,7 @@ th {
 }
 
 th {
-    padding: 1rem 1rem;
+    padding: 1rem .5rem;
 }
 
 td {
@@ -186,7 +181,6 @@ td {
     padding-top: 2rem;
     text-align: center;
 }
-
 .btn-join,
 .full-slot {
 
@@ -216,39 +210,38 @@ td {
 //     border-radius: 5px;
 //     padding: 0rem 1.5rem;
 // }
-
 // .btn_join:hover {
 //     background: #ff3373;
 //     color: #fff;
 // }
-
 .mat-sort-header-container {
     align-items: center;
 }
-.more_course{
+
+.more_course {
     display: flex;
     flex-flow: wrap;
     justify-content: space-between;
     width: 100%;
 }
-.card-course{
+
+.card-course {
     width: 30%;
     margin-top: 1em;
 }
 
 @media only screen and (max-width: 1024px) {
-    .card-course{
+    .card-course {
         width: 50%;
     }
 }
 
 @media only screen and (min-width: 1024px) {
-
     table {
         padding: 3rem;
         border-top: 1px solid #1f1e1f;
         border-collapse: collapse;
-        margin-left: 1%;
+        margin-left: 8%;
         margin-bottom: 5.5rem;
         background: #fffbfc;
     }
@@ -289,7 +282,6 @@ td {
             margin-right: 14.6rem;
             float: left;
         }
-
     }
     .main_title {
         font-size: 1.5rem;
@@ -311,6 +303,6 @@ td {
     }
     table {
         padding: 3rem;
-        margin-left: 9.8%;
+        margin-left: 12.8%;
     }
 }

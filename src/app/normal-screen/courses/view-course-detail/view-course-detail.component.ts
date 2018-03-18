@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sort, MatDialog } from '@angular/material';
 import { UserService } from '../../../shared/user.service';
@@ -17,8 +17,8 @@ import { ToastsManager } from 'ng2-toastr';
 })
 export class ViewCourseDetailComponent implements OnInit {
 
-  hideJoinBtn:boolean;
-  courseId: string;  
+  hideJoinBtn: boolean;
+  courseId: string;
   course: Course;
   courses: Course[];
   orderList: string[];
@@ -34,18 +34,19 @@ export class ViewCourseDetailComponent implements OnInit {
     private _userSvc: UserService,
     private _dialog: MatDialog,
     private _sessionSvc: SessionService) {
-    this.courseId = this._route.snapshot.paramMap.get('id');
   }
 
-  ngOnInit() {    
-    this.getSessions(this.courseId);
-    this.getCourseById(this.courseId);
-    this.getCourses();
-    if(this._userSvc.userInfo && this._userSvc.userInfo.studyingCourse){
-      this.hideJoinBtn = true;
-    }
+  ngOnInit() {
+    this._route.params.subscribe(res => {
+      let courseId = res.id;
+      this.getSessions(courseId);
+      this.getCourseById(courseId);
+      this.getCourses();
+      if (this._userSvc.userInfo && this._userSvc.userInfo.studyingCourse) {
+        this.hideJoinBtn = true;
+      }
+    })
   }
-
 
   getCoursesByCategoryId(categoryId: string) {
     this._courseSvc.getCourses(categoryId).subscribe(courses => {
@@ -65,7 +66,7 @@ export class ViewCourseDetailComponent implements OnInit {
       this.orderList = course.orderList;
       let categoryId = course.category.key;
       this.getCoursesByCategoryId(categoryId);
-      
+
       if (this._userSvc.userInfo && this._userSvc.userInfo.passedCourses) {
         let passedCourses = this._userSvc.userInfo.passedCourses;
         this.leftCourses = course.orderList.filter(courseId => passedCourses.indexOf(courseId) == -1)
@@ -75,19 +76,19 @@ export class ViewCourseDetailComponent implements OnInit {
 
   getSessions(courseId: string) {
     this._sessionSvc.getSessionsBasedCourseId(courseId).subscribe(sessions => {
-      this.sessions = sessions;   
+      this.sessions = sessions;
     })
   }
 
-  addUserInto(session:Session){
+  addUserInto(session: Session) {
     if (!this._userSvc.isLoggedIn) {
       this._router.navigate(['/login']);
-    }else if(this._userSvc.userInfo.studyingCourse){
+    } else if (this._userSvc.userInfo.studyingCourse) {
       this.showJoinCourseModal(session.course);
-    }else {
+    } else {
       this._userSvc.addStudyingCourse(session);
       this.addRegistedStudent(session);
-      this._toastr.success('You are joined course successfully', 'Successful');      
+      this._toastr.success('You are joined course successfully', 'Successful');
     }
   }
 
@@ -101,7 +102,7 @@ export class ViewCourseDetailComponent implements OnInit {
     this._sessionSvc.updateSession(session);
   }
 
-  joinCourse(course:Course) {
+  joinCourse(course: Course) {
     if (!this._userSvc.isLoggedIn) {
       this._router.navigate(['/login']);
     } else {
@@ -123,6 +124,16 @@ export class ViewCourseDetailComponent implements OnInit {
     let _dialogRef = this._dialog.open(WarningRecommendedCourseComponent, {
       width: '50%',
       data: course
+    });
+
+    _dialogRef.afterClosed().subscribe(newCourseKey => {
+      if (newCourseKey) {
+        this.courseId = newCourseKey;
+        console.log("newCourseKey");
+        let path = `learning/courses/detail`;
+        // this._router.navigateByUrl(path,newCourseKey);
+
+      }
     });
   }
 
